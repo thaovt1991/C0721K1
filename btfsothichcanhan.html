@@ -5,16 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sở thích cá nhân</title>
+    <style>
+        label{
+            color:blue;
+            font-weight: lighter;
+            font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+            
+        }
+        .sothich{
+            color: red;
+
+        }
+       
+        
+    </style>
 </head>
 <body>
-    <form action="btfsothichcanhan.html" method="GET">
-        <h1 style="background-color: tomato;text-align: center;">SỞ THÍCH CỦA BẠN</h1>
-        <label for="yourname">Họ và tên</label>
-        <input type="text" name="yourname" id="yourname" size="30px" style="border-style: inset;"><br><br>
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" size="20px" style="border-style: inset;"><br><br>
-        <label for="sothich">Sở thích</label>
-        <input type="checkbox" value="sport" name="sothich">
+    <form action="btfsothichcanhan.html" method="GET" style="font-size: 20px;font-family: Arial, Helvetica, sans-serif;">
+        
+        
+        <table>
+            <tr>
+                <th colspan="5"><h3 style="background-color: tomato;text-align: center;">SỞ THÍCH CỦA BẠN </h3></th>
+            </tr>
+            <tr> 
+                <td style="text-align: right;"> <label for="yourname">Họ và tên</label></td>
+                 <td colspan="4"><input type="text" name="yourname" id="yourname" size="30px" style="border-style: inset;"></td>
+            </tr> 
+            <tr>
+                <td style="text-align: right;"><label for="email">Email</label></td>
+                <td colspan="4"><input type="text" name="email" id="email" size="20px" style="border-style: inset;"></td>
+            </tr>
+            <tr class="sothich">
+                <td style="text-align: right;"><label>Sở thích</label></td>
+                <td><input type="checkbox" value="sport" name="hobby">Thể Thao</td>
+                <td><input type="checkbox" value="music" name="hobby">Âm nhạc </td>
+                <td><input type="checkbox" value="readbook" name="hobby">Đọc sách</td>
+            </tr>
+            <tr class="sothich">
+                <td></td>
+                <td><input type="checkbox" value="surfweb" name="hobby">Lướt web </td>
+                <td><input type="checkbox" value="playgame" name="hobby">Chơi game</td>
+                <td><input type="checkbox" value="cenima" name="hobby">Điện ảnh</td>
+            </tr>
+            <tr class="sothich">
+                <td></td>
+                <td><input type="checkbox" value="travel" name="hobby">Du lịch </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    <input type="submit" name= "Submit Form"value="Gưi thông tin" style="font-size: 20px;font-family: Arial, Helvetica, sans-serif">
+                    <input type="reset" name= "Reset Form"value="Nhập lại" style="font-size: 20px;font-family: Arial, Helvetica, sans-serif">
+                </td>
+                <td></td>
+            </tr>
+        
+        
+        
+        
+    
+        
+    </tr>    
+    </table>
     </form>
 </body>
 </html>
