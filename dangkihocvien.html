@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí học viên</title>
+    <style>
+        .formhv{
+            font-size: 20px;
+            text-align: left;
+            width: 500px;
+            background-color:khaki;
+           
+        }
+       
+        td:nth-child(1){
+            color: blue;
+        }
+        input {
+            border-style: inset;
+        }
+    </style>
+</head>
+<body>
+    <form action="" class="formhv">
+        <table style="width: 100%;">
+            <th colspan="2" style="background-color: cadetblue;color: darkblue;">ĐĂNG KÍ HỌC VIÊN</th>
+            <tr>
+                <td><label for="fullnanme">Họ và tên</label> </td>
+                <td><input type="text" name="fullnanme" id="fullnanme" size="30" ></td>
+            </tr>
+            <tr>
+                <td><label for="birthday">Ngày sinh</label> </td>
+                <td><input type="text" name="birthday" id="birthday" size="25"></td>
+            </tr>
+            <tr>
+                <td><label>Giới tính</label></td>
+                 <td>
+                     <input type="radio" name="gender" valua="male" checked>Nam
+                     <input type="radio" name="gender" valua="female">Nữ
+                 </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: text-top;">Địa chỉ</td>
+                <td><textarea name="address" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td>Lớp</td>
+                 <td >
+                     <select name="Class" style="border-style: inset;">
+                         <option value="">-Chọn lớp-</option>
+                         <option>A</option>
+                         <option>B</option>
+                         <option>C</option>
+                     </select>
+                 </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" name="email" id="email" size ="25"></td>
+            </tr>
+            <tr>
+                <td><label for="phonenumber"></label></td>
+                <td><input type="text" name="phonemuber" id="phonenumber" size="25"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="btsubmit" value="Đăng kí" style="border-style:outset;">
+                    <input type="reset" name="reset" value="Nhập lại"style="border-style:outset;">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
