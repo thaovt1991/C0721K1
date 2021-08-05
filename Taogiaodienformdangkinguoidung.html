@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đăng kí người dùng</title>
+    <style type="text/css">
+        #khaibao{
+            width: 300px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://demo.codegym.vn/6/registration_form/register.php" method="POST" id="khaibao">
+        <fieldset>
+            <legend>Thông tin người dùng</legend>
+            <label for="name">Họ và tên:</label><br>
+            <input type="text" name="fullname" id="fullname" size="30px"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" id="email" size="30px"><br><br>
+            <label for="phone">Số điện thoại:</label><br>
+            <input type="text" name="phone" id="phone" size="30px"><br><br>
+            <label for="gender">Giới tính:</label><br>
+            <input type="radio" name="gender" value="Male" checked>Nam
+            <input type="radio" name="gender" value="Female" >Nữ<br><br>
+            <input type="submit" name="btSubmit" value="Submit">
+        </fieldset>
+    </form>
+</body>
+</html>
