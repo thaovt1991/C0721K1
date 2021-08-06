@@ -58,12 +58,41 @@
         <tr>
             <td>
                 <label for="gender">Gender Identity</label><br> <br>
-                <input type="radio" name="gender" value="male">Male<br> <br>
-                <input type="radio" name="gender" value="female">Female<br> <br>
-                <input type="radio" name="gender" value="nonbinary">Nonbinary<br> <br>
-                <input type="radio" name="gender" value="other">Other<br> <br>
-                <input type="text" name="gender" value="" style="margin-left:20px;"> <br><br>
-                <p style="margin-left:20px;">Maximum of 250 characters.    Currently Used: 0 characters.</p>
+                <input type="radio" name="gender" value="male" id="Male" onclick="yesCheck()">Male<br> <br>
+                <input type="radio" name="gender" value="female" id="Female" onclick="yesCheck()">Female<br> <br>
+                <input type="radio" name="gender" value="nonbinary" id="Nobi" onclick="yesCheck()">Nonbinary<br> <br>
+                <input type="radio" name="gender" value="other" id="other" onclick="yesCheck();">Other<br> <br>
+                <input type="text" name="gender" value="" style="margin-left:20px;"id="textGen" onclick="selectText()"> <br><br>
+                <p id="chuthich" style="margin-left:20px;display: none;" >Maximum of 250 characters.    Currently Used: 0 characters.</p>
+                 <script>
+                     function yesCheck() 
+                     {
+                      if (document.getElementById('Male').checked)
+                         { document.getElementById('chuthich').style.display = 'none';}
+                         else { 
+                              if (document.getElementById('Female').checked) 
+                                  { document.getElementById('chuthich').style.display = 'none';}
+                                   else{
+                                         if (document.getElementById('Nobi').checked) 
+                                            { document.getElementById('chuthich').style.display = 'none';}
+                                            else{
+                                                 if (document.getElementById('other').checked) 
+                                                   {
+                                                     document.getElementById('chuthich').style.display = 'block';
+                                                     document.getElementById("textGen").focus();
+                                                   }
+                                               }
+                                       }
+                              }
+                      }
+                    
+                        function selectText(){
+                            document.getElementById('chuthich').style.display = 'block'
+                            document.getElementById("other").checked="checked"
+                        }
+                                               
+
+                   </script>             
             </td>
         </tr> 
         <tr>
