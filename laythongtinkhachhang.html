@@ -25,7 +25,7 @@
         
     </style>
 </head>
-<body>
+<body >
     <form>
         <h1>Market Research Survey</h1>
         <p>Please take a few moments to complete this satisfaction survey.</p>
@@ -64,12 +64,12 @@
                 <input type="radio" name="gender" value="other" id="other" onclick="yesCheck();">Other<br> <br>
                 <input type="text" name="gender" value="" style="margin-left:20px;"id="textGen" onclick="selectText()"> <br><br>
                 <p id="chuthich" style="margin-left:20px;display: none;" >Maximum of 250 characters.    Currently Used: 0 characters.</p>
-                 <script>
+                 <script>  
                      function yesCheck() 
                      {
                       if (document.getElementById('Male').checked)
                          { document.getElementById('chuthich').style.display = 'none';}
-                         else { 
+                        else { 
                               if (document.getElementById('Female').checked) 
                                   { document.getElementById('chuthich').style.display = 'none';}
                                    else{
