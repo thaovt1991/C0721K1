@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi tiền tệ</title>
+     <style>
+         td, th {
+            width: 150px;
+            text-align: left;
+         }
+     </style>
+</head>
+<body>
+    <form >
+        <table >
+            <tr>
+                <th>Amount</th>
+                <th>From Curency</th>
+                <th colspan="2">To Curency</th> 
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name ="inputMoney" id="inputMoney"  size = "30">
+                </td>
+                <td>
+                    <select name="fromCur" id="fromCur" style="width: 100px;">
+                        <option value="VND" >VietNam</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="toCur" id="toCur" style="width: 100px;">
+                        <option value="USD">USD</option>
+                        <option value="VND">VietNam</option>
+                    </select>
+                </td>
+                <td>
+                    <button type="button" tyle="width: 75px;" onclick="convertMoney()" >Covert</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <p style="color: darkblue;">Result: <span id="covert" ></span><span id="Cur"></span></p>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+<script>
+    function convertMoney()
+    {  
+       let m = parseInt(document.getElementById("inputMoney").value);
+       let  fromCur = document.getElementById("fromCur").value;
+       let  toCur = document.getElementById("toCur").value;
+       const t = 23000;
+        if ((fromCur=="VND")&&(toCur=="USD")) { m= m/t };
+        if ((fromCur=="USD")&&(toCur=="VND")) { m= m*t};
+        document.getElementById('covert').innerHTML= m;
+        document.getElementById("Cur").innerHTML = toCur;
+    }
+
+</script>
