@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" name ="inputMoney" id="inputMoney"  size = "30">
+                    <input type="number" name ="inputMoney" id="inputMoney" required size = "30">
                 </td>
                 <td>
                     <select name="fromCur" id="fromCur" style="width: 100px;">
@@ -52,7 +52,7 @@
 <script>
     function convertMoney()
     {  
-       let m = parseInt(document.getElementById("inputMoney").value);
+       let m = document.getElementById("inputMoney").value;
        let  fromCur = document.getElementById("fromCur").value;
        let  toCur = document.getElementById("toCur").value;
        const t = 23000;
@@ -61,5 +61,4 @@
         document.getElementById('covert').innerHTML= m;
         document.getElementById("Cur").innerHTML = toCur;
     }
-
 </script>
