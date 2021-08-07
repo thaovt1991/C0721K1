@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1>Caculator</h1>
+        <input type="number" name="num1" id="num1" required size="30">
+        <input type="number" name="num2" id="num2" size="30"><br><br>
+        <button type="button" name="add" id="add" onclick="addCal()">Addition(+)</button>
+        <button type="button" name="sub" id="sub"onclick="addSub()">Subtraction(-)</button>
+        <button type="button" name="mul" id="mul" onclick="addMul()">Multiplication(X)</button>
+        <button type="button" name="div" id="div" onclick="addDiv()">Division(/)</button><br><br>
+        <p>
+            Result <span id="cal"></span>: <span id="Result"></span>
+        </p>
+
+    </form>
+</body>
+
+</html>
+<script>
+
+    function addCal() {
+        let a = parseInt(document.getElementById('num1').value);
+        let b = parseInt(document.getElementById('num2').value);
+        document.getElementById('Result').innerHTML = a + b;
+        document.getElementById('cal').innerHTML = "Addition"  
+    }
+    function addSub() {
+        let a = parseInt(document.getElementById('num1').value);
+        let b = parseInt(document.getElementById('num2').value);
+        document.getElementById('Result').innerHTML = a - b;
+        document.getElementById('cal').innerHTML = "Subtraction"  
+    }
+    function addMul() {
+        let a = parseInt(document.getElementById('num1').value);
+        let b = parseInt(document.getElementById('num2').value);
+        document.getElementById('Result').innerHTML = a * b;
+        document.getElementById('cal').innerHTML = "Multiplication"  
+    }
+    function addDiv() {
+        let a = parseInt(document.getElementById('num1').value);
+        let b = parseInt(document.getElementById('num2').value);
+        document.getElementById('Result').innerHTML = a / b;
+        document.getElementById('cal').innerHTML = "Division"  
+    }
+   
+</script>
