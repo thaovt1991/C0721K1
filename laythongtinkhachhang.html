@@ -77,18 +77,15 @@
                     <script>
                         function yesCheck() {
                             if (document.getElementById('Male').checked) { document.getElementById('chuthich').style.display = 'none'; }
-                            else {
-                                if (document.getElementById('Female').checked) { document.getElementById('chuthich').style.display = 'none'; }
-                                else {
-                                    if (document.getElementById('Nobi').checked) { document.getElementById('chuthich').style.display = 'none'; }
-                                    else {
-                                        if (document.getElementById('other').checked) {
-                                            document.getElementById('chuthich').style.display = 'block';
-                                            document.getElementById("textGen").focus();
-                                        }
-                                    }
-                                }
+                            else if (document.getElementById('Female').checked) { document.getElementById('chuthich').style.display = 'none'; }
+                            else if (document.getElementById('Nobi').checked) { document.getElementById('chuthich').style.display = 'none'; }
+                            else if (document.getElementById('other').checked) {
+                                document.getElementById('chuthich').style.display = 'block';
+                                document.getElementById("textGen").focus();
                             }
+
+
+
                         }
 
                         function selectText() {
