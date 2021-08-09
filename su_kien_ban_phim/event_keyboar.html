@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Keyboard</title>
+</head>
+
+<body onload="docReady()">
+    <img src="pikachu.jpg" alt="pikachu" id="pikachu" width="10%" style="position:absolute;left:0; top:0;">
+    <script>
+        function rightArrowPressed() {
+            let imageObj = document.getElementById("pikachu");
+            imageObj.style.left = parseInt(imageObj.style.left) + 10 + "px";
+        }
+        function leftArrowPressed() {
+            let imageObj = document.getElementById("pikachu");
+            imageObj.style.left = parseInt(imageObj.style.left) - 10 + "px";
+        }
+        function uptArrowPressed() {
+            let imageObj = document.getElementById("pikachu");
+            imageObj.style.top = parseInt(imageObj.style.top) - 10 + "px";
+        }
+
+        function downArrowPressed() {
+            let imageObj = document.getElementById("pikachu");
+            imageObj.style.top = parseInt(imageObj.style.top) + 10 + "px";
+        }
+
+        function Event_Press(evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    leftArrowPressed();
+                    break;
+                case 39:
+                    rightArrowPressed();
+                    break;
+                case 38:
+                    uptArrowPressed();
+                    break;
+                case 40:
+                    downArrowPressed();
+                    break;
+            }
+        }
+        function docReady(){
+              window.addEventListener('keydown',Event_Press)
+        }
+    
+    </script>
+</body>
+
+</html>
