@@ -40,40 +40,46 @@
         <table width=100%>
             <tr>
                 <td>
-                    <label for="age">What is your age range?</label> <br> <br>
+                    <label for="age">What is your age range? <br> <br>
                     <select name="age">
                         <option value="">18-24</option>
                         <option value="">25-34</option>
                         <option value="">35-50</option>
                         <option value="">50+</option>
                     </select>
+                    </label>
                     <br> <br>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="income">What is your age range?</label><br> <br>
-                    <select name="income">
-                        <option value="">$0-$25,000</option>
-                        <option value="">$25,001-$50,000</option>
-                        <option value="">$50001-$100000</option>
-                        <option value="">$100000+</option>
-                    </select>
+                    <label for="income">What is your age range?<br> <br>
+                        <select name="income">
+                            <option value="">$0-$25,000</option>
+                            <option value="">$25,001-$50,000</option>
+                            <option value="">$50001-$100000</option>
+                            <option value="">$100000+</option>
+                        </select>
+                    </label>
                     <br> <br>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="gender">Gender Identity</label><br> <br>
-                    <input type="radio" name="gender" value="male" id="Male" onclick="yesCheck()">Male<br> <br>
-                    <input type="radio" name="gender" value="female" id="Female" onclick="yesCheck()">Female<br> <br>
-                    <input type="radio" name="gender" value="nonbinary" id="Nobi" onclick="yesCheck()">Nonbinary<br>
-                    <br>
-                    <input type="radio" name="gender" value="other" id="other" onclick="yesCheck();">Other<br> <br>
-                    <input type="text" name="gender" value="" style="margin-left:20px;" id="textGen"
-                        onclick="selectText()"> <br><br>
-                    <p id="chuthich" style="margin-left:20px;display: none;">Maximum of 250 characters. Currently Used:
-                        0 characters.</p>
+                    <label for="gender">Gender Identity<br> <br>
+                        <input type="radio" name="gender" value="male" id="Male" onclick="yesCheck()">Male<br> <br>
+                        <input type="radio" name="gender" value="female" id="Female" onclick="yesCheck()">Female<br>
+                        <br>
+                        <input type="radio" name="gender" value="nonbinary" id="Nobi" onclick="yesCheck()">Nonbinary<br>
+
+                        <br>
+                        <input type="radio" name="gender" value="other" id="other" onclick="yesCheck();">Other<br> <br>
+                        <input type="text" name="gender" value="" style="margin-left:20px;" id="textGen"
+                            onclick="selectText()"> <br><br>
+                        <p id="chuthich" style="margin-left:20px;display: none;">Maximum of 250 characters. Currently
+                            Used:
+                            0 characters.</p>
+                    </label>
                     <script>
                         function yesCheck() {
                             if (document.getElementById('Male').checked) { document.getElementById('chuthich').style.display = 'none'; }
@@ -100,89 +106,93 @@
             <tr>
                 <td>
                     <label for="products">Which of the following products have your purchased in the last 2 months.
-                        Please check all that apply.</label><br><br>
-                    <input type="checkbox" name="products" value="produsts1">Products 1 <br><br>
-                    <input type="checkbox" name="products" value="produsts2">Products 2<br><br>
-                    <input type="checkbox" name="products" value="produsts3">Products 3<br><br>
+                        Please check all that apply.<br><br>
+                        <input type="checkbox" name="products" value="produsts1">Products 1 <br><br>
+                        <input type="checkbox" name="products" value="produsts2">Products 2<br><br>
+                        <input type="checkbox" name="products" value="produsts3">Products 3<br><br>
+                    </label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="how-often">How often would you use our new product?</label><br><br>
-                    <input type="radio" name="how-often" value="daily">Daily <br><br>
-                    <input type="radio" name="how-often" value="weekly">Weekly <br><br>
-                    <input type="radio" name="how-often" value="monthly">Monthly <br><br>
+                    <label for="how-often">How often would you use our new product?<br><br>
+                        <input type="radio" name="how-often" value="daily">Daily <br><br>
+                        <input type="radio" name="how-often" value="weekly">Weekly <br><br>
+                        <input type="radio" name="how-often" value="monthly">Monthly <br><br></label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>What would you pay for the new products ?</label><br><br>
-                    <table cellspacing="0">
-                        <tr>
-                            <td><label for="money">$</label></td>
-                            <td>
-                                <input type="text" name="money" size="15px">
-                            </td>
-                            <td><label for="num">.</label></td>
-                            <td>
-                                <input type="text" name="num" size="5px">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Dollar</td>
-                            <td></td>
-                            <td>Cents</td>
-                        </tr>
-                    </table>
+                    <label>What would you pay for the new products ?<br><br>
+                        <table cellspacing="0">
+                            <tr>
+                                <td><label for="money">$</label></td>
+                                <td>
+                                    <input type="text" name="money" size="15px">
+                                </td>
+                                <td><label for="num">.</label></td>
+                                <td>
+                                    <input type="text" name="num" size="5px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Dollar</td>
+                                <td></td>
+                                <td>Cents</td>
+                            </tr>
+                        </table>
+                    </label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="see-new">What features would you like to see the new product?</label><br><br>
-                    <textarea name="see-new" id="see-new" cols="100%" rows="10"></textarea><br><br>
+                    <label for="see-new">What features would you like to see the new product?<br><br>
+                        <textarea style="resize: none;" name="see-new" id="see-new" cols="100%" rows="10"></textarea><br><br></label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="rate">Please rate your level of agreement this the following statement.</label>
-                    <table id="rate" border="1" cellspacing="0" width="100%">
-                        <tr>
-                            <th></th>
-                            <th>Strongly Disagree</th>
-                            <th>Disagree</th>
-                            <th>Agree</th>
-                            <th>Strongly Agree</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <lable for="priced">Our products are priced fairly </lable>
-                            </td>
-                            <td> <input type="radio" name="priced" value="1">1</td>
-                            <td> <input type="radio" name="priced" value="2">2</td>
-                            <td> <input type="radio" name="priced" value="3">3</td>
-                            <td> <input type="radio" name="priced" value="4">4</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <lable for="quality">Our products are high quality </lable>
-                            </td>
-                            <td><input type="radio" name="quality" value="1">1</td>
-                            <td> <input type="radio" name="quality" value="2">2</td>
-                            <td> <input type="radio" name="quality" value="3">3</td>
-                            <td> <input type="radio" name="quality" value="4">4</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <lable for="recommend">You would recommend our products to a friend or coworker </lable>
-                            </td>
-                            <td><input type="radio" name="recommend" value="1">1</td>
-                            <td> <input type="radio" name="recommend" value="2">2</td>
-                            <td> <input type="radio" name="recommend" value="3">3</td>
-                            <td> <input type="radio" name="recommend" value="4">4</td>
-                        </tr>
+                    <label for="rate">Please rate your level of agreement this the following statement.
+                        <table id="rate" border="1" cellspacing="0" width="100%">
+                            <tr>
+                                <th></th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <lable for="priced">Our products are priced fairly </lable>
+                                </td>
+                                <td> <input type="radio" name="priced" value="1">1</td>
+                                <td> <input type="radio" name="priced" value="2">2</td>
+                                <td> <input type="radio" name="priced" value="3">3</td>
+                                <td> <input type="radio" name="priced" value="4">4</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <lable for="quality">Our products are high quality </lable>
+                                </td>
+                                <td><input type="radio" name="quality" value="1">1</td>
+                                <td> <input type="radio" name="quality" value="2">2</td>
+                                <td> <input type="radio" name="quality" value="3">3</td>
+                                <td> <input type="radio" name="quality" value="4">4</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <lable for="recommend">You would recommend our products to a friend or coworker
+                                    </lable>
+                                </td>
+                                <td><input type="radio" name="recommend" value="1">1</td>
+                                <td> <input type="radio" name="recommend" value="2">2</td>
+                                <td> <input type="radio" name="recommend" value="3">3</td>
+                                <td> <input type="radio" name="recommend" value="4">4</td>
+                            </tr>
 
-                    </table>
+                        </table>
+                    </label>
                 </td>
             </tr>
             <tr>

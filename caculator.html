@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+    <style>
+        td {
+            height: 15px; 
+        } 
+        button {
+            width: 100%;
+            color: blue;
+        }
+        button:hover {
+            background-color: yellow;
+        }
+        td:nth-child(4), tr:nth-child(5) {
+           background-color: royalblue;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <form>
+        <table border="1" width = "200">
+            <tr>
+                <td colspan="4" style="height : 20px;text-align: right;" id = "dislay"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="1" name="1" onclick="click_button(this.id)">1</button>
+                </td>
+                <td>
+                    <button type="button" id="2" name="2"onclick="click_button(this.id)" >2</button>
+                </td>
+                <td>
+                    <button type="button" id="3" name="3" onclick="click_button(this.id)">3</button>
+                </td>
+                <td>
+                    <button type="button" id="+" name="+"onclick="click_button(this.id)" >+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="4" name="4" onclick="click_button(this.id)">4</button>
+                </td>
+                <td>
+                    <button type="button" id="5" name="5" onclick="click_button(this.id)">5</button>
+                </td>
+                <td>
+                    <button type="button" id="6" name="6" onclick="click_button(this.id)">6</button>
+                </td>
+                <td>
+                    <button type="button" id = "-" name="-" onclick="click_button(this.id)">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="7" name="7" onclick="click_button(this.id)">7</button>
+                </td>
+                <td>
+                    <button type="button" id="8" name="8" onclick="click_button(this.id)" >8</button>
+                </td>
+                <td>
+                    <button type="button" id="9" name="9" onclick="click_button(this.id)">9</button>
+                </td>
+                <td>
+                    <button type="button" id="x" name="x" onclick="click_button(this.id)" >x</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="C" name="C" onclick= "clearDislay()">C</button>
+                </td>
+                <td>
+                    <button type="button" id="0" name="0" onclick="click_button(this.id)">0</button>
+                </td>
+                <td>
+                    <button type="button" id="=" name="=" onclick="Result()">=</button>
+                </td>
+                <td>
+                    <button type="button" id="/" name="/" onclick="click_button(this.id)">/</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+     <script>
+         function click_button(clicker_id){
+            document.getElementById('dislay').innerHTML =  document.getElementById('dislay').innerHTML + clicker_id;
+         }
+        function clearDislay(){
+            document.getElementById('dislay').innerHTML ='';
+        }
+       
+         function Result(){
+             let st = document.getElementById('dislay').innerHTML;
+             switch (true){
+                 case st.includes("+"): {
+                    document.getElementById('dislay').innerHTML = parseInt(st) + parseInt(st.replace(parseInt(st)+"+", ''));
+                    break;
+                 }
+                 case st.includes("-"): {
+                    document.getElementById('dislay').innerHTML = parseInt(st) - parseInt(st.replace(parseInt(st)+"-", ''));
+                    break;
+                 }
+                 case st.includes("x"): {
+                    document.getElementById('dislay').innerHTML = parseInt(st) * parseInt(st.replace(parseInt(st)+"x", ''));
+                    break;
+                 }
+                 case st.includes("/"): {
+                    document.getElementById('dislay').innerHTML = parseInt(st) / parseInt(st.replace(parseInt(st)+"/", ''));
+                    break;
+                 }
+                   
+                }
+         } 
+        </script> 
