@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Day</title>
+    <style>
+        button:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <form >
+        <fieldset style="width: 500px;background-color: yellow;" >
+            <legend style="font-size: 20px;color: red;">Hiển thị số ngày trong tháng</legend>
+            <input type="number" name="month" id="month" min="1" max = "12" style="width: 300px;" placeholder="Input number month ">
+            <button type="button" onclick="numDay()">Tính số ngày</button><br><br>
+            <p id="dislay"></p>
+            <script>
+                function numDay(){
+                let t = document.getElementById("month").value;
+                console.log(t)
+                switch (true) {
+                    case (t % 2 === 1): {
+                        document.getElementById('dislay').innerHTML = "Tháng " + t + " có 31 ngày";
+                        break;
+                    }
+                    case (t === 2): {
+                        document.getElementById('dislay').innerHTML = "Tháng " + t + " có 28 hoặc 29 ngày";
+                        break;
+                    }
+                    default:{
+                        document.getElementById('dislay').innerHTML = "Tháng " + t + " có 30 ngày";
+                    }
+                }
+            }
+            </script>
+        </fieldset>
+    </form>
+</body>
+
+</html>
