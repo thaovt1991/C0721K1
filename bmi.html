@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+</head>
+
+<body>
+    <form style="width: 200px;">
+        <fieldset>
+            <legend>Bảng đánh giá BMI</legend>
+            <label for="weight">Weight :</label>
+            <input type="number" id="weight" name="weight" placeholder="Iput weight" style="width: 100px"><br><br>
+            <label for="height">Height :</label>
+            <input type="number" id="height" name="height" placeholder="Iput height" style="width: 100px"><br><br>
+            <button type="button" onclick="showBMI()">Show BMI</button>
+            <p>BMI : <span id='dislay'></span></p>
+        </fieldset>
+    </form>
+    <script>
+        function showBMI() {
+            let w = document.getElementById("weight").value;
+            let h = document.getElementById("height").value;
+            let bmi = w / (h ^ 2);
+            if (bmi < 18)
+                document.getElementById("dislay").innerHTML = "Underweight";
+            else if (bmi < 25.0)
+                document.getElementById("dislay").innerHTML = "Normal";
+            else if (bmi < 30.0)
+                document.getElementById("dislay").innerHTML = "Overweight";
+            else
+                document.getElementById("dislay").innerHTML = "Obese";
+        }
+
+    </script>
+</body>
+
+</html>
