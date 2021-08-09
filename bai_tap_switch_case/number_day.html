@@ -25,11 +25,11 @@
                 let t = document.getElementById("month").value;
                 console.log(t)
                 switch (true) {
-                    case (t % 2 === 1): {
+                    case (t % 2 == 1): {
                         document.getElementById('dislay').innerHTML = "Tháng " + t + " có 31 ngày";
                         break;
                     }
-                    case (t === 2): {
+                    case (t == 2): {
                         document.getElementById('dislay').innerHTML = "Tháng " + t + " có 28 hoặc 29 ngày";
                         break;
                     }
