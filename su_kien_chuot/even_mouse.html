@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện chuột</title>
+    <style>
+        #clickMoveR:hover {
+            background-color: red;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <img id="image" src="ball.png" width="10%" />
+        <p>Nhấp vào nút bên dưới để di chuyển hình ảnh sang phải</p>
+        <input type="button" value="Click Me" id="clickMoveR" onclick="moveRight()"/>
+        <script>
+            let  imgOjb = document.getElementById('image');
+            function init() {
+                //imgOjb = document.getElementById('image');
+                imgOjb.style.position = 'relative';
+                imgOjb.style.left = "0px";
+            }
+            function moveRight() {
+                imgOjb.style.left = parseInt(imgOjb.style.left) + 10 + "px";
+            }
+            window.onload = init();
+        </script>
+    </form>
+</body>
+
+</html>
