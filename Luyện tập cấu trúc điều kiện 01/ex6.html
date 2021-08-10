@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let t = parseInt(prompt("Nhập doanh số tháng")) ;
+        let hh = null;
+        if (t >= 10000000000){hh = t * 10 / 100
+        }else if((t < 10000000000)&&(t >= 1000000000)){hh = t * 9 / 100
+        }else if((t < 1000000000)&&(t >= 100000000)){hh= t * 7 / 100}
+        else{hh= t * 5 / 100};
+        alert("Hoa hồng là : "+ hh)
+
+       
+    </script>
+</body>
+</html>

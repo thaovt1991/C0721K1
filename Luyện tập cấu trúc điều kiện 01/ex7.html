@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let t = parseInt(prompt("nhập thời gian gọi :"))
+        const c1 = 1000; //tiền cước gọi 1 phút;
+        const c2 = 2000; // tien cuoc sau 10 phut
+        const c3 = 5000; // tien cước sau 20 phút
+        const c4 = 10000;// tien cước sau 50 phút
+        let tc ;
+        switch (true){
+            case t <= 10: {
+                tc = c1 * t;
+                alert("Tổng tiền cước "+t+" phút là : "+ tc) 
+                break;
+            }
+            case (t > 10)&&(t <= 20): {
+                tc = c1 * 10 + (t-10)* c2;
+                alert("Tổng tiền cước "+t+" phút là : "+ tc) ; 
+                break;
+            }
+            case (t > 20)&&(t <= 50): {
+                tc = c1 * 10 +  10 * c2 + (t-20) * c3;
+                alert("Tổng tiền cước "+t+" phút là : "+ tc);
+                break; 
+            }
+            default :
+               tc = c1 * 10 +  10 * c2 +  30 * c3 + (t-50) *5;
+                alert("Tổng tiền cước "+t+" phút là : "+ tc)  
+
+        }
+    
+
+
+    </script>
+</body>
+</html>

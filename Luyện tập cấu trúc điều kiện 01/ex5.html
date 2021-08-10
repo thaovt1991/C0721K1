@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let kt1 = parseInt(prompt("Nhập điểm bài kiểm tra 1"));
+        let kt2 = parseInt(prompt("Nhập bài kiểm tra 2"));
+        let gk = parseInt(prompt("Nhập điểm kiểm tra giữa kì"));
+        let ck = parseInt(prompt("Nhập điểm kiểm tra cuối kì"));
+        let tb = (kt1 + kt2 + gk * 2 + ck * 3) / 7;
+        switch (true){
+            case tb >= 8 : {
+                alert("Giỏi , điểm trung bình là : "+ tb);
+                break;
+            }
+            case (tb < 8)&&(tb >= 6,5) : {
+                alert("Khá, điểm trung bình là : "+ tb);
+                break;
+            }
+            case (tb < 6,5)&&(tb >= 4) : {
+                alert("Trung bình, điểm trung bình là : "+ tb);
+                break;
+            }
+            case (tb < 4)&&(tb >= 3.5) : {
+                alert("Yếu, điểm trung bình là : "+ tb);
+                break;
+            }   
+             default :
+                 alert("Học lại, điểm trung bình là : "+ tb);
+                 
+
+        }
+    </script>
+</body>
+</html>
