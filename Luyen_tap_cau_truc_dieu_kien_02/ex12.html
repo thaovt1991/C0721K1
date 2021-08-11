@@ -14,25 +14,20 @@
         button:hover {
             background-color: yellow;
         }
-
-        select,
-        input,
-        button {
-            font-size: 18px;
-        }
     </style>
 </head>
 
-<body style="font-size: 30px;">
+<body style="font-size: 20px;">
     <form style="width: 800px; background-color: chartreuse;">
         <fieldset>
-            Lãi suất gửi ngân hàng dành cho cá nhân(<a href="https://www.agribank.com.vn/vn/lai-suat" style="text-decoration: none ;">tham khảo</a>)
+            Lãi suất gửi ngân hàng dành cho cá nhân(<a href="https://www.agribank.com.vn/vn/lai-suat"
+                style="text-decoration: none ;">tham khảo</a>)
             <br><br>
             <legend style="color:red; font-weight: bolder;">Tính lãi ngân hàng</legend>
             Nhập số tiền gốc : <br>
             <input type="text" id="money" size="20" /><br><br>
-            <label >Chọn kì hạn gửi:<br>
-                <select id="period" onchange="onChangePeriod()">
+            <label width="100">Chọn kì hạn gửi:<br>
+                <select id="period" style="float: left;" onchange="onChangePeriod()">
                     <option value="Corroborate">Không kì hạn</option>
                     <option value="1">1 Tháng</option>
                     <option value="2">2 Tháng</option>
@@ -52,10 +47,11 @@
                     <option value="24">24 Tháng</option>
                     <option value="Deposit_payment">Deposit payment</option>
                 </select>
-            </label> <br><br>
-            <label id="numMonth" style="float: left;">Số tháng gửi :
-               <input type="number" id="month" size="20" >&nbsp;tháng
-            </label><br><br>
+                <label id="numMonth" style="margin-left: 50px;">Số tháng gửi :
+                    <input type="number" id="month" size="20">&nbsp;tháng
+                </label>
+            </label>
+            <br><br>
             Lãi suất :<br>
             <input type="text" id="interestRate" disabled size="10" value="0.1%"><br><br>
             Tổng tiền gốc và lãi nhận được :<br />
@@ -74,6 +70,8 @@
                         let month = parseInt(document.getElementById("numMonth").value);
                         i = "0.1%";
                         numMonth.style.display = "block";
+                        numMonth.style.float = "left";
+                        numMonth.style.marginLeft = "50px";
                         document.getElementById("numMonth").focus()
                         break;
                     }
