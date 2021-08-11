@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc hai 1 ẩn</title>
+</head>
+<body>
+    <form style="width: 800px">
+        <fieldset>
+          <legend>Giải phương trình bậc hai 1 ẩn: ax<sup>2</sup> +bx + c = d</legend>
+          <label>
+            Nhập a :
+            <input type="text" id="a" size="10" />
+          </label>
+          <label style="margin-left: 10px">
+           Nhập b:
+            <input type="text" id="b" size="10" />
+          </label>
+          <label style="margin-left: 10px">
+            Nhập c:
+             <input type="text" id="c" size="10" />
+           </label>
+           Nhập d:
+             <input type="text" id="d" size="10" />
+           </label>
+          <br /><br />
+          Giá trị của x là :<br /><br />
+          <input type="text" id="x" size="100" height="20" style="color: red;" disabled><br /><br />
+          <button type="button" onclick="xOutbac()">Result</button>
+        </fieldset>
+        <script>
+          function xOutbac(){
+            let a = parseInt(document.getElementById("a").value) ;
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value) ;
+            let d = parseInt(document.getElementById("d").value) ;
+            let x = document.getElementById("x").value;
+            if (a!=0) {
+                let denta = b*b - 4*a*(c-d) ;
+                if (denta < 0) { x = "Phương trình vô nghiệm"
+            }else if (denta == 0){ x = "Phương trình có nghiệm kép là : "+  (-b/(2*a))}
+                     else {
+                             let x1 = (-b + Math.sqrt(denta)) / (2*a)
+                             let x2 = (-b - Math.sqrt(denta)) / (2*a)
+                             x = "Phương trình có 2 nghiệm là : " + x1 + " và " + x2  }
+            }else{
+                if (b != 0){ x = "Phương trình có 1 nghiệm là : " + ((d-c) / b)}
+                else if (c == d){ x = "Phương trình vô số nghiệm"}
+                     else{ x = "Phương trình vô nghiệm"}
+            }
+            document.getElementById("x").value = x;
+          }
+        </script>
+      </form>
+</body>
+</html>

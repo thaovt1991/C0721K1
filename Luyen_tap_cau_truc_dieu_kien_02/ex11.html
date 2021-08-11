@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form style="width: 400px;">
+        <fieldset>
+            <legend>Tính thuế thu nhập cá nhân(bỏ qua các điều kiện khác)</legend>
+              Bản thuế thu nhập cá nhân năm 2021
+             <img src="tinh-thue-thu-nha-ca-nhan-2021.png" alt = "image">
+              Nhập tiền thu nhập cá nhân :<br><br>
+             <input type="text" id = "income" size="30">&nbsp;VND<br><br>
+              Số tiền đóng thuế là : <br><br>
+             <input type="text" id = "result" size="30" disabled style="color: red;">&nbsp;VND<br><br>
+             <button type="button" onclick="resultTax()" >Result</button>
+        </fieldset>
+        <script>
+            function resultTax(){
+                let income = parseInt(document.getElementById("income").value) ;
+                let result =  document.getElementById('result').value ;
+                switch (true){
+                    case income <= 5000000 : {
+                        result = income * 5/100;
+                        break;
+                    }
+                    case (income > 5000000)&&(income <= 10000000) : {
+                        result =  income * 10/100 - 250000;
+                        break;
+                    }
+                    case (income > 10000000)&&(income <= 18000000) : {
+                        result = income * 15/100 - 750000 ;
+                        break;
+                    }
+                    case (income > 18000000)&&(income <= 32000000) : {
+                        result = income * 20/100 - 1650000;
+                        break;
+                    }
+                    case (income > 32000000)&&(income <= 52000000) : {
+                        result = income * 25/100 - 3250000;
+                        break;
+                    }
+                    case (income > 52000000)&&(income <= 80000000) : {
+                        result = income * 30/100 - 5850000;
+                        break;
+                    }
+                    case (income > 80000000) : {
+                        result = income * 30/100 - 5850000;
+                        break;
+                    }
+                }
+                document.getElementById('result').value = result ;
+            }
+
+        </script>
+    </form>
+</body>
+</html>

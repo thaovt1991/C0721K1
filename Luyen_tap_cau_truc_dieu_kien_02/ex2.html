@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyen doi Met - Feet</title>
+</head>
+<body>
+    <form style="width: 400px;">
+        <fieldset>
+            <legend>Chuyen doi Met - Feet</legend>
+             Met  :
+             <input type="text" id = "m" size="30"><br><br>
+             Feet : 
+             <input type="text" id = "f" size="30" disabled style="color: red;"><br><br>
+             <button type="button" onclick="convertMF()"  > Area</button>
+        </fieldset>
+        <script>
+            function convertMF(){
+                let m = parseInt( document.getElementById("m").value) ;
+                document.getElementById('f').value = m * 3.2808;
+            }
+
+        </script>
+    </form>
+</body>
+</html>

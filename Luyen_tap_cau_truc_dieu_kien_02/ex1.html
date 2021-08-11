@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyen doi C - F</title>
+</head>
+<body>
+    <form style="width: 400px;">
+        <fieldset>
+            <legend>Chuyen doi C - F</legend>
+             Độ C :
+             <input type="text" id = "c" size="30"><br><br>
+             Độ F : 
+             <input type="text" id = "f" size="30" disabled style="color: red;"><br><br>
+             <button type="button" onclick="convertCF()" > Convert</button>
+        </fieldset>
+        <script>
+            function convertCF(){
+                let c = parseInt(document.getElementById("c").value) ;
+                document.getElementById('f').value = c * 9/5 +32;
+            }
+
+        </script>
+    </form>
+</body>
+</html>

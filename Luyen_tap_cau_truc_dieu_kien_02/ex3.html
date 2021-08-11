@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính diện tích hình vuông</title>
+</head>
+
+<body>
+    <form style="width: 400px;">
+        <fieldset>
+            <legend>Tính diện tích hình vuông</legend>
+            Cạnh a :<br><br>
+            <input type="text" id="a" size="30"><br><br>
+            Diện tích hình vuông là :<br><br>
+            <input type="text" id="s" size="30" disabled style="color: red;"><br><br>
+            <button type="button" onclick="areaSquare()"> Area</button>
+        </fieldset>
+        <script>
+            function areaSquare() {
+                let a = parseInt(document.getElementById("a").value);
+                document.getElementById('s').value = a * a;
+            }
+
+        </script>
+    </form>
+</body>
+
+</html>

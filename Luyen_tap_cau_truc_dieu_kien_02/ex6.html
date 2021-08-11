@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc nhất 1 ẩn: ax +b = c</title>
+</head>
+<body>
+    <form style="width: 600px">
+        <fieldset>
+          <legend>Giải phương trình bậc nhất 1 ẩn: ax +b = c</legend>
+          <label>
+            Nhập a :
+            <input type="text" id="a" size="10" />
+          </label>
+          <label style="margin-left: 10px">
+           Nhập b:
+            <input type="text" id="b" size="10" />
+          </label>
+          <label style="margin-left: 10px">
+            Nhập c:
+             <input type="text" id="c" size="10" />
+           </label>
+          <br /><br />
+          Giá trị của x là :<br /><br />
+          <input type="text" id="x" size="40" disabled style="color: red;" ><br /><br />
+          <button type="button" onclick="xOut()">Result</button>
+        </fieldset>
+        <script>
+          function xOut() {
+            let a = parseInt(document.getElementById("a").value) ;
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value) ;
+            if (a!=0){document.getElementById("x").value = ((c - b) / a)}
+             else if (c == b){document.getElementById("x").value= "Phương trình có vô số nghiệm"}
+                   else{document.getElementById("x").value= "Phương trình vô nghiệm"}
+          }
+        </script>
+      </form>
+</body>
+</html>

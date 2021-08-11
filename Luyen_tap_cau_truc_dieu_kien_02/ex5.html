@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính diện tích tam giác vuông</title>
+  </head>
+  <body>
+    <form style="width: 400px">
+      <fieldset>
+        <legend>Tính diện tích tam giác vuông</legend>
+        <label>
+          Cạnh a :
+          <input type="text" id="a" size="10" />
+        </label>
+        <label style="margin-left: 10px">
+          Cạnh b:
+          <input type="text" id="b" size="10" />
+        </label>
+        <br /><br />
+        Diện tích hình tam giác vuông là :<br /><br />
+        <input type="text" id="s" size="40" disabled style="color: red;" ><br /><br />
+        <button type="button" onclick="areaTriangle()">Area</button>
+      </fieldset>
+      <script>
+        function areaTriangle() {
+          let a = parseInt(document.getElementById("a").value) ;
+          let b = parseInt(document.getElementById("b").value);
+          document.getElementById("s").value = (a * b) / 2;
+        }
+      </script>
+    </form>
+  </body>
+</html>

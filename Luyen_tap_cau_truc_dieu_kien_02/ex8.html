@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra độ tuổi</title>
+</head>
+
+<body>
+    <form style="width: 400px;">
+        <fieldset>
+            <legend>Kiểm tra độ tuổi</legend>
+            Nhập tuổi :<br><br>
+            <input type="text" id="old" size="10"><br><br>
+            Test:<br><br>
+            <input type="text" id="test" size="40" disabled style="color: red;"><br><br>
+            <button type="button" onclick="testOld()"> Test</button>
+        </fieldset>
+        <script>
+            function testOld() {
+                let old = parseInt(document.getElementById("old").value);
+                let test = document.getElementById('test').value;
+                if (Number.isInteger(old)) {
+                    if ((old > 0) && (old <= 120)) { test = old + " là tuổi của 1 người" }
+                    else { test = old + " không nằm trong độ tuổi của con người" }
+                }
+                document.getElementById('test').value = test;
+            }
+
+        </script>
+    </form>
+</body>
+
+</html>

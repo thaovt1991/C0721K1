@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form style="width: 400px;">
+        <fieldset>
+            <legend>Tính tiền điện</legend>
+             Nhập chữ số điện tiêu thụ :<br><br>
+             <input type="text" id = "num" size="30">&nbsp;kWh<br><br>
+              Giá tiền : <br><br>
+             <input type="text" id = "total" size="30" disabled style="color: red;">&nbsp;VND<br><br>
+             <button type="button" onclick="totalMoney()" >Total</button>
+        </fieldset>
+        <script>
+            const m1 = 1549 // giá điện từ 0- 50 kwh
+            const m2 = 1600 // giá điện từ 51- 100 kwh
+            const m3 = 1858 // giá điện từ 101- 200 kwh
+            const m4 = 2340 // giá điện từ 201- 300 kwh
+            const m5 = 2615 // giá điện từ 301- 400 kwh
+            const m6 = 2701 // giá điện từ 401 kwh trở lên
+            function totalMoney(){
+                let num = parseInt(document.getElementById("num").value) ;
+                let total =  document.getElementById('total').value ;
+                switch ( true){
+                    case num <= 50 : {
+                        total = num * m1;
+                        break;
+                    }
+                    case (num > 50)&&(num <= 100) : {
+                        total =  50 * m1 + (num -50) * m2 ;
+                        break;
+                    }
+                    case (num > 100)&&(num <= 200) : {
+                        total = 50 * ( m1 + m2 ) + (num - 100) * m3 ;
+                        break;
+                    }
+                    case (num > 200)&&(num <= 300) : {
+                        total = total = 50 * ( m1 + m2 ) + 100 * m3 + (num- 200) * m4;
+                        break;
+                    }
+                    case (num > 300)&&(num <= 400) : {
+                        total = total =50 * ( m1 + m2 )+ 100 * ( m3 + m4 ) + (num- 300) * m5;
+                        break;
+                    }
+                    case (num > 400) : {
+                        total = total = 50 * ( m1 + m2 ) + 100 * (m3 +m4 + m5 ) + (num -400) * m6;
+                        break;
+                    }
+                }
+                document.getElementById('total').value = total ;
+            }
+
+        </script>
+    </form>
+</body>
+</html>

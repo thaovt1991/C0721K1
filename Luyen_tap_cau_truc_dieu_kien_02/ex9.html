@@ -1,0 +1,44 @@
+<form style="width: 700px">
+    <fieldset>
+        <legend>Nhập 3 cạnh muốn kiểm tra</legend>
+        <label>
+            Nhập cạnh a :
+            <input type="text" id="a" size="10" />
+        </label>
+        <label style="margin-left: 10px">
+            Nhập cạnh b:
+            <input type="text" id="b" size="10" />
+        </label>
+        <label style="margin-left: 10px">
+            Nhập cạnh c:
+            <input type="text" id="c" size="10" />
+        </label>
+        <br /><br />
+        Giá trị của x là :<br /><br />
+        <input type="text" id="test" size="40" disabled style="color: red;"><br /><br />
+        <button type="button" onclick="Test()">Test</button>
+    </fieldset>
+    <script>
+        function Test() {
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value);
+            switch (false){
+                case a > 0 : 
+                case b > 0 :
+                case c > 0 : 
+                case a + b > c : 
+                case b + c > a :
+                case c + a > b :  {
+                    document.getElementById("test").value = a +", "+ b + ", " + c + " không phải là 3 cạnh của tam giác"
+                    break;
+                }
+                default : 
+                    document.getElementById("test").value = a +", "+ b + ", " + c + " là 3 cạnh của tam giác"
+
+                
+            }
+
+        }
+    </script>
+</form>
