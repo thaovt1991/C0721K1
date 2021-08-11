@@ -69,7 +69,7 @@
                     <button type="button" id="9" name="9" onclick="click_button(this.id)">9</button>
                 </td>
                 <td>
-                    <button type="button" id="x" name="x" onclick="click_button(this.id)" >x</button>
+                    <button type="button" id="*" name="x" onclick="click_button(this.id)" >x</button>
                 </td>
             </tr>
             <tr>
@@ -97,8 +97,13 @@
         function clearDislay(){
             document.getElementById('dislay').innerHTML ='';
         }
-       
-         function Result(){
+        function Result(){
+            let result = eval(document.getElementById('dislay').innerHTML);
+             document.getElementById("dislay").innerHTML = result;
+        }
+
+
+        /* function Result(){{}
              let st = document.getElementById('dislay').innerHTML;
              switch (true){
                  case st.includes("+"): {
@@ -122,5 +127,5 @@
                  }
                    
                 }
-         } 
+         } */
         </script> 
