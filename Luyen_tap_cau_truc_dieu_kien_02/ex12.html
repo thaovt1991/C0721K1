@@ -6,91 +6,144 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        input[type="number"] {
+            width: 50px;
+        }
+
+        button:hover {
+            background-color: yellow;
+        }
+
+        select,
+        input,
+        button {
+            font-size: 18px;
+        }
+    </style>
 </head>
 
-<body>
-    <form style="width: 1000px">
+<body style="font-size: 30px;">
+    <form style="width: 800px; background-color: chartreuse;">
         <fieldset>
-            Lãi suất gưi ngân hàng dành cho cá nhân(<a href="https://www.agribank.com.vn/vn/lai-suat">tham khảo</a>)
+            Lãi suất gửi ngân hàng dành cho cá nhân(<a href="https://www.agribank.com.vn/vn/lai-suat" style="text-decoration: none ;">tham khảo</a>)
             <br><br>
-            <legend>Tính lãi ngân hàng</legend>
-            Nhập số tiền gốc : <br><br>
+            <legend style="color:red; font-weight: bolder;">Tính lãi ngân hàng</legend>
+            Nhập số tiền gốc : <br>
             <input type="text" id="money" size="20" /><br><br>
-            Chọn kì hạn gửi:<br><br>
-            <select id="period" onchange="onChangePeriod()" style="width: 150px">
-                <option value="Corroborate" onchange="onChange()">Không kì hạn</option>
-                <option value="1" >1 Tháng</option>
-                <option value="2" >2 Tháng</option>
-                <option value="3" >3 Tháng</option>
-                <option value="4" >4 Tháng</option>
-                <option value="5" >5 Tháng</option>
-                <option value="6" >6 Tháng</option>
-                <option value="7" >7 Tháng</option>
-                <option value="8" >8 Tháng</option>
-                <option value="9" >9 Tháng</option>
-                <option value="10" >10 Tháng</option>
-                <option value="11" >11 Tháng</option>
-                <option value="12">12 Tháng</option>
-                <option value="13" >13 Tháng</option>
-                <option value="15" >15 Tháng</option>
-                <option value="18" >18 Tháng</option>
-                <option value="24">24 Tháng</option>
-                <option value="Deposit_payment">Deposit payment</option>
-            </select>&nbsp;
-             <label id = "numMonth" style="display: none;">Số tháng gửi : 
-                <input type="text" id="month" size="20" /></label> <br><br>
-            Lãi suất :<br><br>
-            <input type="text" id = "interestRate"  disabled size = "10" ><br><br>
-            Số gốc tiền lãi nhận được :<br /><br />
-            <input type="text" id="interest" size="40" disabled style="color: red;"><br /><br />
+            <label >Chọn kì hạn gửi:<br>
+                <select id="period" onchange="onChangePeriod()">
+                    <option value="Corroborate">Không kì hạn</option>
+                    <option value="1">1 Tháng</option>
+                    <option value="2">2 Tháng</option>
+                    <option value="3">3 Tháng</option>
+                    <option value="4">4 Tháng</option>
+                    <option value="5">5 Tháng</option>
+                    <option value="6">6 Tháng</option>
+                    <option value="7">7 Tháng</option>
+                    <option value="8">8 Tháng</option>
+                    <option value="9">9 Tháng</option>
+                    <option value="10">10 Tháng</option>
+                    <option value="11">11 Tháng</option>
+                    <option value="12">12 Tháng</option>
+                    <option value="13">13 Tháng</option>
+                    <option value="15">15 Tháng</option>
+                    <option value="18">18 Tháng</option>
+                    <option value="24">24 Tháng</option>
+                    <option value="Deposit_payment">Deposit payment</option>
+                </select>
+            </label> <br><br>
+            <label id="numMonth" style="float: left;">Số tháng gửi :
+               <input type="number" id="month" size="20" >&nbsp;tháng
+            </label><br><br>
+            Lãi suất :<br>
+            <input type="text" id="interestRate" disabled size="10" value="0.1%"><br><br>
+            Tổng tiền gốc và lãi nhận được :<br />
+            <input type="text" id="interest" size="40" disabled style="color: red;">&nbsp;VND<br /><br />
+            <button type="button" id="Rusult" onclick="Result()">Result</button>
         </fieldset>
         <script>
-            function onChangePeriod(){
-                let m = parseInt(document.getElementById("money").value) 
-                let period = document.getElementById("period").value 
+
+            function onChangePeriod() {
+                let period = document.getElementById("period").value
                 let i = null;
                 let numMonth = document.getElementById("numMonth")
-                switch (true){
-                    case period ="Deposit_payment":
-                    case period ="Corroborate" :{
+                switch (true) {
+                    case period == "Deposit_payment":
+                    case period == "Corroborate": {
+                        let month = parseInt(document.getElementById("numMonth").value);
                         i = "0.1%";
-                        interest = m * Math.pow((1 + 1/100) , month)
-                        numMonth.style.display  = "block";
-                        let month = parseInt(document.getElementById("numMonth").value)
-                        break ; 
+                        numMonth.style.display = "block";
+                        document.getElementById("numMonth").focus()
+                        break;
                     }
-                    case (period>= 1)&&(period<=2):{
+                    case (period >= 1) && (period <= 2): {
                         i = "3.1%";
-                        interest = m * Math.pow((1 + 3.1/100) , month)
-                        numMonth.style.display  = "none";
-                        let month = parseInt(period)
+                        let month = parseInt(period);
+                        numMonth.style.display = "none";
                         break;
-                    } 
-                    case (period>= 3)&&(period<=5): {
+                    }
+                    case (period >= 3) && (period <= 5): {
+                        let month = parseInt(period);
                         i = "3.4%";
-                        interest = m * Math.pow((1 + 3.4/100) , month)
-                        numMonth.style.display  = "none";
-                        let month = parseInt(period)
+                        numMonth.style.display = "none";
                         break;
-                    } 
-                    case (period >= 6)&&(period<=11): {
+                    }
+                    case (period >= 6) && (period <= 11): {
                         i = "4.0%";
-                        interest = m * Math.pow((1 + 4/100) , month)
-                        numMonth.style.display  = "none";
-                        let month = parseInt(period)
+                        let month = parseInt(period);
+                        numMonth.style.display = "none";
                         break;
-                    } 
-                    case (period >= 12) : {
+                    }
+                    case (period >= 12): {
+                        let month = parseInt(period);
                         i = "5.6%";
-                        interest = m * Math.pow((1 + 5.6/100) , month)
-                        numMonth.style.display  = "none";
-                        let month = parseInt(period)
+                        numMonth.style.display = "none";
                         break;
-                    }  
-                } 
-                
-                document.getElementById("interest").value = interest;
+                    }
+                }
                 document.getElementById("interestRate").value = i;
+            }
+            function Result() {
+                let m = parseInt(document.getElementById("money").value);
+                let period = document.getElementById("period").value;
+                let Result = "";
+                if (m > 0) {
+                    let month;
+                    if ((period == "Corroborate") || (period == "Deposit_payment")) {
+                        month = parseInt(document.getElementById("month").value);
+                    } else {
+                        month = parseInt(period);
+                    }
+                    console.log(month)
+                    if (month > 0) {
+                        let i = document.getElementById("interestRate").value;
+                        switch (i) {
+                            case "0.1%": {
+                                Result = m * Math.pow(1 + 1 / 100, month)
+                            }
+                            case "3.1%": {
+                                Result = m * Math.pow(1 + 31 / 1000, month)
+                            }
+                            case "3.4%": {
+                                Result = m * Math.pow(1 + 34 / 1000, month)
+                            }
+                            case "4.0%": {
+                                Result = m * Math.pow(1 + 40 / 1000, month)
+                            } case "5.6%": {
+                                Result = m * Math.pow(1 + 56 / 1000, month)
+                            }
+                        }
+                        document.getElementById("interest").value = Math.round(Result)
+                    } else {
+                        document.getElementById("numMonth").focus();
+                        document.getElementById("interest").value = "Hãy nhập số tháng gửi";
+                    }
+                } else {
+                    document.getElementById("money").focus();
+                    document.getElementById("interest").value = "Hãy nhập số tiền gửi";
+                }
+
             }
         </script>
     </form>
