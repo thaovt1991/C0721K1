@@ -5,57 +5,172 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghép hình</title>
+    <title>PUZZ</title>
+    <link rel="stylesheet" href="cssouzz.css" type="text/css">
 </head>
 
-<body>
-    <table border="1" cellspacing="2" width=1000>
+<body onclick="startLoad()">
+    <table>
         <tr>
-            <td>
-                <button><img src="image/cat1.jpg" id="pax1" name= "cat" onclick="changImage(this.id)" style="display: block;" width=100%; height=200;>
-                <img src="image/mon1.jpg" id="pax1_1" name ="monkey" onclick="changImage(this.id)"  style="display : none" width=100%; height=200;>
-                <img src="image/pan1.jpg" id="pax1_2" name = "panda" onclick="changImage(this.id)" style="display: none;" width=100%; height=200;>
-            </button>
+            <td onclick=clickChangIndexP1() id="pax1">
+                <img src="image/cat1.jpg" alt="cat" id="cat1">
+                <img src="image/mon1.jpg" alt="mon" id="mon1">
+                <img src="image/pan1.jpg" alt="pan" id="pan1">
             </td>
         </tr>
         <tr>
-            <td>
-                <img src="image/cat2.jpg" id="pax2" name= "cat" onclick="changImage(this.id)" style="display: none;" width=100%; height=200;>
-                <img src="image/mon2.jpg" id="pax2_1" name ="monkey" onclick="changImage(this.id)" style="display : none" width=100%; height=200;>
-                <img src="image/pan2.jpg" id="pa" name = "panda" onclick="changImage(this.id)" style="display: block" width=100%; height=200;>
-            </td>
-            
-        </tr>
-        <tr>
-            <td>
-                <img src="image/cat3.jpg" id="cat3" name= "cat" onclick="changImage(this.id)" style="display: none;" width=100%; height=200;>
-                <img src="image/mon3.jpg" id="mon3" name ="monkey" onclick="changImage(this.id)" style="display : block" width=100%; height=200;>
-                <img src="image/pan3.jpg" id="pan3" name = "panda" onclick="changImage(this.id)" style="display: none ;" width=100%; height=200;>
-           </td>
-        </tr>
-        <tr>
-            <td>
-                <img src="image/cat4.jpg" id="cat4" name= "cat" onclick="changImage(this.id)" style="display: block;" width=100%; height=200;>
-                <img src="image/mon4.jpg" id="mon4"  name ="monkey" onclick="changImage(this.id)" style="display : none" width=100%; height=200;>
-                <img src="image/pan4.jpg" id="pan4" name = "panda" onclick="changImage(this.id)" style="display: none;" width=100%; height=200;>
+            <td onclick=clickChangIndexP2() id="pax2">
+                <img src="image/cat2.jpg" alt="cat" id="cat2">
+                <img src="image/mon2.jpg" alt="mon" id="mon2">
+                <img src="image/pan2.jpg" alt="pan" id="pan2">
             </td>
         </tr>
         <tr>
-            <td>
-                <img src="image/cat5.jpg" id="cat5" name= "cat" onclick="changImage(this.id)" style="display: none;" width=100%; height=200;>
-                <img src="image/mon5.jpg" id="mon5" name ="monkey" onclick="changImage(this.id)" style="display : none" width=100%; height=200;>
-                <img src="image/pan5.jpg" id="pan5" name = "panda" onclick="changImage(this.id)" style="display: block;" width=100%; height=200;>
-           </td>
+            <td onclick=clickChangIndexP3() id="pax3">
+                <img src="image/cat3.jpg" alt="cat" id="cat3">
+                <img src="image/mon3.jpg" alt="mon" id="mon3">
+                <img src="image/pan3.jpg" alt="pan" id="pan3">
+            </td>
+        </tr>
+        <tr>
+            <td onclick=clickChangIndexP4() id="pax4">
+                <img src="image/cat4.jpg" alt="cat1" id="cat4">
+                <img src="image/mon4.jpg" alt="mon" id="mon4">
+                <img src="image/pan4.jpg" alt="pan" id="pan4">
+            </td>
+        </tr>
+        <tr>
+            <td onclick=clickChangIndexP5() id="pax5">
+                <img src="image/cat5.jpg" alt="cat1" id="cat5">
+                <img src="image/mon5.jpg" alt="mon" id="mon5">
+                <img src="image/pan5.jpg" alt="pan" id="pan5">
+            </td>
         </tr>
     </table>
-</body>
-</html>
-   <script>
-       function changImage(clicker_id){
-           let element = document.getElementById(clicker_id)
-           if (element.style.display == "block") {
-               element.style.dislay = "none"
-           }
-       }
+    <script>
+        let n1 = document.getElementById('pax1').value;
+        let n2 = document.getElementById('pax2').value;
+        let n3 = document.getElementById('pax3').value;
+        let n4 = document.getElementById('pax4').value;
+        let n5 = document.getElementById('pax5').value;
+        console.log(n5)
+        if ((n1 == n2) && (n2 == n3) && (n3 == n4) && (n4 == n5)) {
+            document.getElementById(n1 + "1") .style.border = "2px outset red";
+            document.getElementById(n2 + "2").style.border = "2px outset red";
+            document.getElementById(n3 + "3").style.border = "2px outset red";
+            document.getElementById(n4 + "4").style.border = "2px outset red";
+            document.getElementById(n5 + "5").style.border = "2px outset red";
+        } 
 
-   </script>
+        function clickChangIndexP1() {
+            let name = "";
+            let a = Math.round(Math.random() * 10)
+            let b = Math.round(Math.random() * 10)
+            let c = Math.round(Math.random() * 10)
+            document.getElementById('cat1').style.zIndex = a;
+            document.getElementById('mon1').style.zIndex = b;
+            document.getElementById('pan1').style.zIndex = c;
+            if (a >= b) {
+                if (a >= c) {
+                    name = "cat";
+                } else {
+                    name = "pan";
+                }
+            } else if (b >= c) { name = "mon" } else {
+                name = "pan";
+            }
+            document.getElementById("pax1").value = name;
+        }
+
+
+        function clickChangIndexP2() {
+            let name = "";
+            let a = Math.round(Math.random() * 10)
+            let b = Math.round(Math.random() * 10)
+            let c = Math.round(Math.random() * 10)
+            document.getElementById('cat2').style.zIndex = a;
+            document.getElementById('mon2').style.zIndex = b;
+            document.getElementById('pan2').style.zIndex = c;
+            if (a >= b) {
+                if (a >= c) {
+                    name = "cat";
+                } else {
+                    name = "pan";
+                }
+            } else if (b >= c) { name = "mon" } else {
+                name = "pan";
+            }
+            document.getElementById("pax2").value = name;
+        }
+
+        function clickChangIndexP3() {
+            let name = "";
+            let a = Math.round(Math.random() * 10)
+            let b = Math.round(Math.random() * 10)
+            let c = Math.round(Math.random() * 10)
+            document.getElementById('cat3').style.zIndex = a;
+            document.getElementById('mon3').style.zIndex = b;
+            document.getElementById('pan3').style.zIndex = c;
+            if (a >= b) {
+                if (a >= c) {
+                    name = "cat";
+                } else {
+                    name = "pan";
+                }
+            } else if (b >= c) { name = "mon" } else {
+                name = "pan";
+            }
+            document.getElementById("pax3").value = name;
+        }
+
+        function clickChangIndexP4() {
+            let name = "";
+            let a = Math.round(Math.random() * 10)
+            let b = Math.round(Math.random() * 10)
+            let c = Math.round(Math.random() * 10)
+            document.getElementById('cat4').style.zIndex = a;
+            document.getElementById('mon4').style.zIndex = b;
+            document.getElementById('pan4').style.zIndex = c;
+            if (a >= b) {
+                if (a >= c) {
+                    name = "cat";
+                } else {
+                    name = "pan";
+                }
+            } else if (b >= c) { name = "mon" } else {
+                name = "pan";
+            }
+            document.getElementById("pax4").value = name;
+        }
+        function clickChangIndexP5() {
+            let name = "";
+            let a = Math.round(Math.random() * 10)
+            let b = Math.round(Math.random() * 10)
+            let c = Math.round(Math.random() * 10)
+            document.getElementById('cat5').style.zIndex = a;
+            document.getElementById('mon5').style.zIndex = b;
+            document.getElementById('pan5').style.zIndex = c;
+            if (a >= b) {
+                if (a >= c) {
+                    name = "cat";
+                } else {
+                    name = "pan";
+                }
+            } else if (b >= c) { name = "mon" } else {
+                name = "pan";
+            }
+            document.getElementById("pax5").value = name;
+        }
+
+        function startLoad() {
+            window.addEventListener('onclick', clickChangIndexP1);
+            window.addEventListener('onclick', clickChangIndexP2);
+            window.addEventListener('onclick', clickChangIndexP3);
+            window.addEventListener('onclick', clickChangIndexP4);
+            window.addEventListener('onclick', clickChangIndexP5);
+        }
+    </script>
+
+</body>
+
+</html>
