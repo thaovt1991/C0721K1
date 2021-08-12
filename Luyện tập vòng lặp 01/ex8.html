@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = parseInt(prompt("Nhập khoảng mà người dùng muốn đoán, điểm bắt đầu từ ?"));
+        let b = parseInt(prompt("Nhập điểm kết thúc của khoảng ở trên ?"))
+        let forecast = prompt("Hãy nhập số bạn muốn đoán: ")
+        let num = 0;
+        if (a > b) {
+            num = Math.floor(Math.random() * ( a - b + 1 )) + b
+        } else {
+            num = Math.floor(Math.random() * (b -a + 1)) + a
+        }
+
+        let n = 2;
+        let test ;
+        while (n > 0) {
+            if (forecast == num) {
+                test = true;
+                n = 0;
+            } else {
+                forecast = prompt("Bạn dự đoán SAI ! Bạn còn " + n + " lần dự đoán. Hãy tiếp tục !");
+                n = n - 1;     
+            }   
+        }
+        if (test) { 
+            alert("Chúc mừng bạn đã dự đoán đúng ! Số bạn cần đoán là : "+ num + " Finish !")
+        }else{
+            alert("Rất tiếc,  bạn đã hết lượt đoán ! Số bạn cần đoán là : " + num + " Finish !")
+        }
+        
+    </script>
+</body>
+
+</html>
