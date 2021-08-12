@@ -6,64 +6,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ứng dụng good-fast-cheap</title>
+    <style>
+      span{
+          font-size: 25px ;
+      }
+      input[ type = range ]{
+          width: 100px;
+          height: 20px;
+          margin-left: 40px;
+      }
+    </style>
 </head>
 
 <body>
-    <form>
-        <fieldset style="width: 200px;">
-            <legend>Ứng dụng good-fast-cheap</legend>
+    <form > 
+        <fieldset style="width: 240px; background-color: cyan;">
+            <legend style="font-size: 20px;font-weight: bolder;">Ứng dụng good-fast-cheap</legend>
             <label>
-                <input type="range" id="good" min=" 0" max="1" size="2" value="0" onclick="clickGood()"> Good; <br><br><br><br>
-                <input type="range" id="fast" min=" 0" max="1" size="2" value="0" onclick="clickFast()"> Fast; <br><br><br><br>
-                <input type="range" id="cheap" min=" 0" max="1" size="2" value="0" onclick="clickCheap()"> Cheap; <br><br><br><br>
-
+                <input type="range" style="background-color: red;" id="good" min=" 0" max="1"  value="0" onmouseover="moveMouseG()"><span onmouseover="moveMouseG()" style="color: red;"> Good</span> <br><br><br><br>
+                <input type="range" style="background-color: yellow;" id="cheap" min=" 0" max="1" value="0" onmouseover="moveMouseC()"><span onmouseover="moveMouseC()" style="color:violet;"> Cheap</span> <br><br><br><br>
+                <input type="range" style="background-color: blue;" id="fast" min=" 0" max="1" value="0" onmouseover="moveMouseF()"><span onmouseover="moveMouseF()" style="color:blue;"> Fast</span> <br><br><br><br>
             </label>
         </fieldset>
         <script>
-            function clickGood() {
+            function moveMouseG() {
+                let g = document.getElementById("good").value;
+                let c = document.getElementById('cheap').value;
+                let f = document.getElementById("fast").value;
+                let t = g;
+                if (g == 0) {
+                    switch (true) {
+                        case (c == 0) && (f == 0):
+                        case (c == 1) && (f == 0):
+                        case (c == 0) && (f == 1): {
+                            g = 1;
+                            break;
+                        }
+                        default: {
+                            g = c;
+                            c = f;
+                            f = t;
+                            document.getElementById("good").value = g;
+                            document.getElementById("fast").value = f;
+                            document.getElementById("cheap").value = c;
+                        }
+
+                    }
+
+                }
+            }
+
+            function moveMouseF() {
                 let g = document.getElementById("good").value;
                 let f = document.getElementById("fast").value;
-                let c = document.getElementById("cheap").value;
-                if (g == 0) {
-                    g = 1;
-                    if (c == 1) { c = 0 }
-                }
+                let c = document.getElementById('cheap').value;
+                let t = g;
                 if (f == 0) {
-                    f = 1;
-                    if (g == 1) { g = 0 }
+                    switch (true) {
+                        case (g == 0) && (c == 0):
+                        case (g == 1) && (c == 0):
+                        case (g == 0) && (c == 1): {
+                            f = 1;
+                            break;
+                        }
+                        default: {
+                            g = c;
+                            c = f;
+                            f = t;
+                            document.getElementById("good").value = g;
+                            document.getElementById("fast").value = f;
+                            document.getElementById("cheap").value = c;
+                        }
+
+                    }
+
                 }
-                if (c == 0) {
-                    c = 1;
-                    if (f == 1) { f = 0 }
-                }        
-                document.getElementById("good").value = g;
-                document.getElementById("fast").value = f;
-                document.getElementById("cheap").value = c;
             }
-           /* function clickFast(){
-                 let g = document.getElementById("good").value;
+            function moveMouseC() {
+                let g = document.getElementById("good").value;
                 let f = document.getElementById("fast").value;
-                let c = document.getElementById("cheap").value;
-                if (f == 0) {
-                    f = 1;
-                    if (g == 1) { g = 0 }
-                }
-                document.getElementById("good").value = g;
-                document.getElementById("fast").value = f;
-                document.getElementById("cheap").value = c;
-            }
-            function clickCheap(){
-                 let g = document.getElementById("good").value;
-                let f = document.getElementById("fast").value;
-                let c = document.getElementById("cheap").value;
+                let c = document.getElementById('cheap').value;
+                let t = g;
                 if (c == 0) {
-                    c = 1;
-                    if (f == 1) { f = 0 }
+                    switch (true) {
+                        case (g == 0) && (f == 0):
+                        case (g == 1) && (f == 0):
+                        case (g == 0) && (f == 1): {
+                            c = 1;
+                            break;
+                        }
+                        default: {
+                            g = c;
+                            c = f;
+                            f = t;
+                            document.getElementById("good").value = g;
+                            document.getElementById("fast").value = f;
+                            document.getElementById("cheap").value = c;
+                        }
+
+                    }
+
                 }
-                document.getElementById("good").value = g;
-                document.getElementById("fast").value = f;
-                document.getElementById("cheap").value = c;
             }
+
         </script>
     </form>
 </body>
