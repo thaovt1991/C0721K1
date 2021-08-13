@@ -8,19 +8,22 @@
 </head>
 <body>
     <script>
+        let n =  parseInt(prompt("Dãy số 1 đến N, in put N :"))
+        let a =  parseInt(prompt("Nhập số cần chia 1 :"))
+        let b =  parseInt(prompt("Nhập số cần chia 2:"))
         let num = 1;
         let dislay = "Hiển thị : ";
         while (num++ < 100 ){
             switch (true) {
-                case (num % 3 ==0) && (num % 5 == 0) : {
+                case (num % a ==0) && (num % b == 0) : {
                     dislay += num +"(FizzBuzz)" + ', ';
                     break;
                 }
-                case (num % 3 ==0) && (num % 5 != 0) : {
+                case (num % a ==0) && (num % b != 0) : {
                     dislay += num +"(Fizz)" + ', ';
                     break;
                 }
-                case (num % 3 !=0) && (num % 5 == 0) : {
+                case (num % a !=0) && (num % b == 0) : {
                     dislay += num +"(Buss)" + ', ';
                     break;
                 }

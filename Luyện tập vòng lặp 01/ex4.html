@@ -8,15 +8,16 @@
 </head>
 <body>
     <script>
+        let n =  parseInt(prompt("Nhập số cần chia :"))
         let a = 1;
         let b = 1;
         let t = 0;
-        while (b % 5 != 0){
+        while (b % n != 0){
               t = b;
               b += a;
               a = t;
         }
-        document.write("Số đầu tiên thuộc dãy Fibonacci chia hết cho 5 là : " + b );
+        document.write("Số đầu tiên thuộc dãy Fibonacci chia hết cho " + n +" là : " + b );
     </script>
 </body>
 </html>

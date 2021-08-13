@@ -8,18 +8,19 @@
 </head>
 <body>
     <script>
+        let n =  parseInt(prompt("Nhập số lượng các chữ số Fibonacci đầu tiên ?"))
         let a = 0; // số đầu tiên của Fibonacci có thể đổi thành 1
         let b = 1;
         let dislay = " 1, "
         let t = 0;
-        for (let count = 2; count <= 20; count++) {
+        for (let count = 2; count <= n; count++) {
                 t = b;
                 b = b + a;
                 a = t ;
                 dislay += b +", " ;     
         }
-        document.write("20 số Fibonacci đầu tiên bắt đầu từ 0 là : 0, " + dislay + "<br>");
-        document.write ("20 số Fibonacci đầu tiên bắt đầu từ 1 là : 1, "+ dislay + (a +b));
+        document.write( n +" số Fibonacci đầu tiên bắt đầu từ 0 là : 0, " + dislay + "<br>");
+        document.write (n +" số Fibonacci đầu tiên bắt đầu từ 1 là : 1, "+ dislay + (a +b));
     </script>
 </body>
 </html>

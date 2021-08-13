@@ -8,11 +8,13 @@
 </head>
 <body>
     <script>
+        let a =  parseInt(prompt("Nhập số lượng các chữ số cần tìm"))
+        let b =  parseInt(prompt("Nhập số cần chia :"))
         let n = 0 // số tự nhiên đầu tiên là 0
         let count = 0;
         let sum = 0;
         while (count <= 30){
-            if (n % 7 == 0){
+            if (n % b == 0){
                 count = count + 1;
                 sum += n;
             }
