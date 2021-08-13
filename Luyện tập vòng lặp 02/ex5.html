@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rate,
+        #month {
+            width: 50px;
+
+        }
+
+        #image {
+            width: 180px;
+            height: 180px;
+            border: 10px unset red;
+            border-radius: 50%;
+            position: relative;
+            left: 270px;
+            z-index: 1;
+            top: 40px;
+        }
+
+        fieldset {
+            position: absolute;
+            background-color: springgreen;
+            font-size: 20px;
+            color: red;
+            width: 350px;
+            background-color:springgreen;
+            border: 4px double red;
+        }
+
+        button:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend style="font-family: Arial, Helvetica, sans-serif; text-align: center;">TÍNH LÃI NGÂN HÀNG</legend>
+            Nhập số tiền đã vay : <br>
+            <input type="number" id="money" name="money"><br><br>
+            Nhập lãi suất hàng tháng : <br>
+            <input type="number" id="rate" name="rate"> %<br><br>
+            Nhập số tháng vay :<br>
+            <input type="number" id="month" name="month"> tháng<br><br>
+            Số tiền gốc và lãi phải trả ngân hàng: <br>
+            <textarea name="show" id="show" cols="40" rows="10" style="resize: none;color: red; font-size: 20px ;" disabled></textarea>
+            <br><br>
+            <button type="button" id="result" onclick="resultMoney()"
+                style="font-size: 16px;font-weight: bold;">Result</button>
+        </fieldset>
+        <img src="./tien.jpg" alt="tien" id="image">
+        <div>
+
+        </div>
+        <script>
+            function resultMoney() {
+                let m = parseInt(document.getElementById("money").value)
+                let rate = parseInt(document.getElementById("rate").value)
+                let t = parseInt(document.getElementById("month").value)
+                if (m > 0) {
+                    if (rate > 0) {
+                        if (m > 0) {
+                            for (let i = 1; i <= t; i++) {
+                                m = m * (1 + rate / 100);
+                            }
+                            document.getElementById("show").innerText = Math.floor(m) + " VND";
+                        }else{
+                            document.getElementById("show").innerText = "Hãy nhập số tháng vay"
+                            document.getElementById("month").focus();
+                        }
+                    }else{
+                        document.getElementById("show").innerText = "Hãy nhập % lãi xuất phải trả"
+                        document.getElementById("rate").focus();
+                    }
+                }else{
+                    document.getElementById("show").innerText = "Hãy nhập số tiền vay"
+                    document.getElementById("money").focus();
+                }
+
+            }
+
+        </script>
+    </form>
+</body>
+
+</html>

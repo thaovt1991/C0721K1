@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //in hinh chu nhat co canh dai bang 20 vaf chiều rông  8
+        // cách 1
+        /*  let a = parseInt(prompt("Nhập chiều dọc hình chữ nhật")) ;
+        let b = parseInt(prompt("Nhập chiều ngang hình chữ nhật"));
+          let rect = "";
+          rect += "<br>";
+          for (let j = 1; j < b; j++) {
+              rect += "*"
+          } rect += "<br>"
+          for (let i = 2; i < a - 2; i++) {
+              rect += "*"
+              for (let t = 1; t < b - 2; t++) {
+              rect += "&nbsp;&nbsp;"
+           }  rect += "*" + "<br>";
+          }
+          for (let n = 1; n < b; n++) {
+              rect += "*"; 
+          }
+          document.write(rect)
+       */
+        // Cách 2:
+        let a = parseInt(prompt("Nhập chiều dọc hình chữ nhật")) ;
+        let b = parseInt(prompt("Nhập chiều ngang hình chữ nhật"));
+        let rect = "";
+        for (let i = 1; i <= a; i++) {
+            switch (i) {
+                case 1:
+                case a: {
+                    for (let j = 1; j < b; j++) {
+                        rect += "*"
+                    }
+                    rect += "<br>"; 
+                    break;
+                }
+                default: {
+                    rect += "*"
+                    for (let t = 1; t < b - 2; t++) {
+                        rect += "&nbsp;&nbsp;"
+                    }
+                     rect += "*" + "<br>"; 
+                }
+            }
+        }
+        document.write(rect)
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

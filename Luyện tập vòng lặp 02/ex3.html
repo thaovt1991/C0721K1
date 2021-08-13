@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let a = parseInt(prompt("Nhập cạnh hình tam giác")) ;
+        let triange1 = "";
+        for (let i = 1; i <= a; i++) {
+            for (let j = 1; j <= i; j++) {
+                triange1 += "*";
+            }
+            triange1 += "<br>";
+        }
+        document.write(triange1 + "<br>");
+
+
+        let triange2 = "";
+        for (let i = a; i >= 1; i--) {
+            for (let j = 1; j <= i; j++) {
+                triange2 += "*";
+            }
+            triange2 += "<br>";
+        } 
+        document.write(triange2 + "<br>")
+
+        
+        let triange3 = "";
+        for (let i = 1; i <= a; i++) {
+            for (let j = a - i; j >= 1; j--) {
+                triange3 += "&nbsp;&nbsp;";
+            }
+            for (let l = 1; l <= i; l++) {
+                triange3 += "*";
+            }
+            triange3 += "<br>";
+        }
+        document.write(triange3 + "<br>")
+
+
+        let triange4 = "";
+        for (let i = a; i >= 1; i--) {
+            for (let j = a - i; j >= 1; j--) {
+                triange4 += "&nbsp;&nbsp;";
+            }
+            for (let l = 1; l <= i; l++) {
+                triange4 += "*";
+            }
+            triange4 += "<br>";
+
+        }
+        document.write(triange4 + "<br>")
+
+    </script>
+</body>
+
+</html>

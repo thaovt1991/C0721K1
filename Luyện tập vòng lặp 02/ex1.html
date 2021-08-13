@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            background-color: skyblue;
+            font-weight: 20px;
+            color: red;
+            width: 350px;
+            font-weight: bold;
+            
+        }
+         legend{
+             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+             font-size: 30px;
+         }
+         button:hover{
+             background-color: yellow;
+         }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>In dãy Fibonancci</legend>
+             Nhập số phần tử Fibonancci : <br>
+             <input type="number" id = "number" > <br><br>
+             Hiển thị chuỗi: <br>
+             <textarea name="display" id="display" cols="50" rows="20" style="resize: none;"></textarea><br><br>
+             <button type="button" onclick="dipslayFi()">DISPLAY</button>
+             <script>
+                 function dipslayFi(){
+                     let a = 1 ;
+                     let b = 1;
+                     let t = 0 ;
+                     let num = document.getElementById("number").value ;
+                     let display ="1, 1 ," ;
+                     for (let i = 2; i <= num ; i++ ){
+                         t = b;
+                         b = b + a
+                         a = t;
+                         display+= b + ", "
+                     }
+                     document.getElementById('display').innerText = display ;
+                 }
+             </script>
+        </fieldset>
+    </form>
+</body>
+</html>

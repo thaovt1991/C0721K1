@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            background-color: skyblue;
+            font-weight: 20px;
+            color: red;
+            width: 350px;
+            font-weight: bold;
+            
+        }
+         legend{
+             font-family: Arial, Helvetica, sans-serif
+         }
+         button:hover{
+             background-color: yellow;
+         }
+    </style>
+</head>
+
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Tính giai thừa của một số nguyên dương</legend>
+            Nhập số cần tính giai thừa: <br>
+            <input type="number" min="1" id="num"> <br><br>
+            Giá trị có giai thừa là : <br>
+            <textarea name="display" id="display" cols="50" rows="20"></textarea><br><br>
+            <button type="button" style="background-color: violet; resize: none;" onclick="displayGT()" >DISPLAY</button>
+
+        </fieldset>
+        <script>
+            function displayGT(){
+            let num = document.getElementById("num").value
+            let result = 1;
+            for (let i = 1; i <= num; i++) {
+                result = result * i
+            }
+            document.getElementById("display").innerText = num + "! = " + result
+        }
+
+        </script>
+    </form>
+</body>
+
+</html>
