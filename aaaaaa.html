@@ -7,45 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        span{
-            color:  red;
+        span {
+            color: coral;
             font-weight: bolder;
             font-size: 20px;
         }
-        button:hover{
-          background-color: purple;
+
+        button:hover {
+            background-color: purple;
         }
     </style>
 </head>
 
-<body>
-    <form >
-        <fieldset style="background-color: cyan;">
-            <legend>Hiển thị</legend>
-            Name: <span id="nameSt"></span> <br>
-            Điểm môn Toán : <span id="disMath"></span><br>
-            Điểm môn Lý : <span id="disPhy"></span><br>
-            Điểm môn Anh : <span id="disEng"></span><br>
-            Điểm môn Âm nhạc : <span id="disMus"></span><br>
-            Điểm trung bình : <span id="Aver"></span><br>
-            Xếp loại: <span id="Resuls"></span><br> <br>
-         </fieldset>
-         <fieldset
-         style="background-color: yellow;">
-             <legend>Nhập thông tin học sinh</legend>
-            Nhập tên:<br>
-            <input type="text" id="name" size="30"> <br><br>
-            Nhập điểm Toán:<br>
-            <input type="text" id="math" size="30"> <br><br>
-            Nhập điểm Lý :<br>
-            <input type="text" id="phy" size="30"><br><br>
-            Nhập điểm Ngoại ngữ :<br>
-            <input type="text" id="eng" size="30"><br><br>
-             Nhập điểm Âm nhạc <br>
-             <input type="text" id="mus" size="30"><br><br>
-             <button type="button " id="disName" onclick="displayName(); return false;">Dislay Name</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button " id="disAver" onclick="displayAver(); return false;">Dislay Aver</button> 
-         </fieldset> 
+<body onload="return false">
+    <table>
+        <tr>
+            <td>
+
+                <form>
+                    <fieldset style="background-color: cyan;">
+                        <legend>Hiển thị</legend>
+                        Name: <span id="nameSt" style="color:blue;"></span> <br>
+                        Điểm môn Toán : <span id="disMath"></span><br>
+                        Điểm môn Lý : <span id="disPhy"></span><br>
+                        Điểm môn Anh : <span id="disEng"></span><br>
+                        Điểm môn Âm nhạc : <span id="disMus"></span><br>
+                        Điểm trung bình : <span id="Aver" style="color: red; font-size: 22px;"></span><br>
+                        Xếp loại: <span id="Resuls" style="color:crimson;"></span><br> <br>
+                    </fieldset>
+                    <fieldset style="background-color: yellow;">
+                        <legend>Nhập thông tin học sinh</legend>
+                        Nhập tên:<br>
+                        <input type="text" id="name" size="30"> <br><br>
+                        Nhập điểm Toán:<br>
+                        <input type="text" id="math" size="30"> <br><br>
+                        Nhập điểm Lý :<br>
+                        <input type="text" id="phy" size="30"><br><br>
+                        Nhập điểm Ngoại ngữ :<br>
+                        <input type="text" id="eng" size="30"><br><br>
+                        Nhập điểm Âm nhạc <br>
+                        <input type="text" id="mus" size="30"><br><br>
+                        <button type="button " id="disName" style="background-color:chartreuse ;"
+                            onclick="displayName(); return false;">Dislay
+                            Name</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button " id="disAver" style="background-color:chartreuse ;"
+                            onclick="displayAver(); return false;">Dislay Aver</button>
+                    </fieldset>
+            </td>
+        </tr>
+    </table>
     </form>
     <script>
 
@@ -76,11 +86,11 @@
             document.getElementById("disMus").innerHTML = ms
             document.getElementById("Aver").innerHTML = ave;
             switch (true) {
-                case (ave >= 9) : {
+                case (ave >= 9): {
                     document.getElementById("Resuls").innerHTML = "Xuất Sắc";
                     break;
                 }
-                case (ave >= 8)&&(ave < 9): {
+                case (ave >= 8) && (ave < 9): {
                     document.getElementById("Resuls").innerHTML = "Giỏi";
                     break;
                 }

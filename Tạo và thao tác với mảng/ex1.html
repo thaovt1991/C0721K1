@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Sample Screen : <br>
+    <input type="text" id="input" size=30>
+    <button type="button" id="add" onclick="add_Array()">Add</button>
+    <button type="button" id="Display" onclick ="disPlayResult()">Display</button>
+    <div id="Result"></div>
+    <script>
+        let arr = new Array();
+        let x = 0;
+
+        function add_Array() {
+            arr[x] = document.getElementById("input").value
+            alert("Element: " +  arr[x] + " Added at index " + x)
+            x++;
+            document.getElementById("input").value = "";
+            document.getElementById ("input").focus()
+        }
+        function disPlayResult() {
+            let display = "<hr>";
+            for (let i = 0; i < arr.length; i++) {
+                display += "Element " + i + ": " + arr[i] + "<br>"
+            }
+            document.getElementById("Result").innerHTML = display
+
+        }
+    </script>
+</body>
+
+</html>

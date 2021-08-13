@@ -8,7 +8,7 @@ td {
 img{
     width: 1000px;
     height: 200px;
-    position: absolute;
+    position: absolute ;
 }
 #cat1, #mon2, #pan3, #cat4, #mon5{
     z-index: 1;

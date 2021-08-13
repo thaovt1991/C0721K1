@@ -48,6 +48,7 @@
         </tr>
     </table>
     <script>
+        
       /*  let n1 = document.getElementById('pax1').value;
         let n2 = document.getElementById('pax2').value;
         let n3 = document.getElementById('pax3').value;
@@ -55,20 +56,14 @@
         let n5 = document.getElementById('pax5').value;
         console.log(n5)
         if ((n1 == n2) && (n2 == n3) && (n3 == n4) && (n4 == n5)) {
-            switch ( n1 )  {
-                case cat: {
-                    document.getElementById("cat1").style.border = "2px outset red";
-                    document.getElementById("cat2").style.border = "2px outset red";
-                    document.getElementById("cat3").style.border = "2px outset red";
-                    document.getElementById("cat4").style.border = "2px outset red";
-                    document.getElementById("cat5").style.border = "2px outset red";
-        //            break
-          //      }
-            //}
+                    document.getElementById("pax1").style.border = "2px outset red";
+                    document.getElementById("pax2").style.border = "2px outset red";
+                    document.getElementById("pax3").style.border = "2px outset red";
+                    document.getElementById("pax4").style.border = "2px outset red";
+                    document.getElementById("pax5").style.border = "2px outset red";
+        }*/
 
-        //}*/
-
-        function clickChangIndexP1() {
+       function clickChangIndexP1() {
             let name = "";
             let a = Math.round(Math.random() * 10)
             let b = Math.round(Math.random() * 10)
@@ -85,7 +80,7 @@
             } else if (b >= c) { name = "mon" } else {
                 name = "pan";
             }
-            document.getElementById("pax1").value = name;
+            document.getElementById("pax1").name = name;
         }
            console.log(name)
 
@@ -106,7 +101,7 @@
             } else if (b >= c) { name = "mon" } else {
                 name = "pan";
             }
-            document.getElementById("pax2").value = name;
+            document.getElementById("pax2").name = name;
         }
 
         function clickChangIndexP3() {
@@ -126,7 +121,7 @@
             } else if (b >= c) { name = "mon" } else {
                 name = "pan";
             }
-            document.getElementById("pax3").value = name;
+            document.getElementById("pax3").name = name;
         }
 
         function clickChangIndexP4() {
@@ -146,7 +141,7 @@
             } else if (b >= c) { name = "mon" } else {
                 name = "pan";
             }
-            document.getElementById("pax4").value = name;
+            document.getElementById("pax4").name = name;
         }
         function clickChangIndexP5() {
             let name = "";
@@ -165,7 +160,7 @@
             } else if (b >= c) { name = "mon" } else {
                 name = "pan";
             }
-            document.getElementById("pax5").value = name;
+            document.getElementById("pax5").name = name;
         }
 
         function startLoad() {
@@ -174,7 +169,7 @@
             window.addEventListener('onclick', clickChangIndexP3);
             window.addEventListener('onclick', clickChangIndexP4);
             window.addEventListener('onclick', clickChangIndexP5);
-        }
+        } 
     </script>
 
 </body>
