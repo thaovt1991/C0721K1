@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Input number :</td>
+            <td>
+                <input type="number" id="input" >
+            </td>
+            <td>
+                <button type="button" onclick="addNum()">Add</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Out :</td>
+            <td>
+                <input type="text" id="output" size=30 style="color: red;" disabled>
+            </td>
+            <td>
+                <button type="Clear" onclick="Clear()">Clear</button>
+            </td>
+        </tr>
+        <script>
+            // Cach 1 : 
+            /*   let arr = new Array();
+               function addNum() {
+                   let num = document.getElementById("input").value;
+                   for (let n of num) {
+                       arr.push(n)
+                   }
+                   let arr1 = new Array();
+                   for (let i = 0; i < arr.length; i++) {
+                       if ((arr[i] % 2 == 0)&&(arr[i + 1] % 2 == 0)) {
+   
+                           arr1.push(arr[i]);
+                           arr1.push("-")
+                       } else {
+                           arr1.push(arr[i])
+                       }
+   
+                   } document.getElementById("output").value = arr1.join("")
+   
+               } */
+
+            // cach 2 
+            function addNum() {
+                let num = document.getElementById("input").value;
+                let str = num.toString();
+                let arr = [str[0]];
+
+                for (let x = 1; x < str.length; x++) {
+                    if ((str[x - 1] % 2 == 0) && (str[x] % 2 == 0)) {
+                        arr.push('-', str[x]);
+                    }
+                    else {
+                        arr.push(str[x]);
+                    }
+                }
+                document.getElementById("output").value = arr.join('');
+            }
+            
+            function Clear(){
+                let t = confirm("Bạn có chắc là muốn xóa chuỗi !")
+                if (t) {
+                    document.getElementById("input").value = "" ;
+                    document.getElementById("input").focus() ;
+                }
+                
+            }
+
+        </script>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập phần từ của mảng:
+    <input type="text" id="input">
+    <button type="button" onclick="addArr()">Add_Element</button>
+    <button type="button" onclick="disPlay()">Display_Element</button>
+    <button type="button" onclick="addString()">Add_String</button> <br><br>
+    <div id="display"></div>
+    <div id="outString"></div>
+    
+    <script>
+        let arr = new Array();
+        let x = 0;
+        function addArr() {
+            let input = document.getElementById("input").value;
+            if (input != "") {
+                arr[x] = document.getElementById("input").value;
+                document.getElementById("input").value = "";
+                document.getElementById("input").focus()
+                x++
+            } else {
+                alert("Không được nhập kí tự trống")
+                document.getElementById("input").focus()
+            }
+
+        }
+
+        function disPlay() {
+            let display = "";
+            arr.forEach(function (arr) {
+                display += arr + "; "
+            })
+            document.getElementById("display").innerHTML = "Các phần tử của mảng lần lượt là : " + display;
+
+        }
+
+        function addString() {
+            let t = confirm("Bạn có chắc chắn đã nhập các phân tử của mảng ?")
+            if (t) {
+                let str = arr.join();
+                document.getElementById("outString").innerHTML = "Các phần tử mảng sau khi nối là : "  + str;
+
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

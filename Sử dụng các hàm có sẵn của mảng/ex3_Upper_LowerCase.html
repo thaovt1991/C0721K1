@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Input number :</td>
+            <td>
+                <input type="text" id="input" size=30>
+            </td>
+            <td>
+                <button type="button" onclick="Convert()">Convert</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Out :</td>
+            <td>
+                <input type="text" id="output" size=30 style="color: red;" disabled>
+            </td>
+            <td>
+                <button type="Clear" onclick="Clear()">Clear</button>
+            </td>
+        </tr>
+        <script>
+
+            function Clear() {
+                let t = confirm("Bạn có chắc là muốn xóa chuỗi !")
+                if (t) {
+                    document.getElementById("input").value = "";
+                    document.getElementById("input").focus();
+                }
+
+            }
+            function Convert() {
+                let input = document.getElementById("input").value;
+                let str = input.toString()
+                let Upper = "ABCDEFGHIJKLMNOPQRSTVWXYZ";
+                let Lower = "abcdefghijklmnopqrstvwxyz";
+                let arr = new Array()
+                for (let i = 0; i < str.length; i++) {
+                    if (Upper.indexOf(str[i]) != -1) {
+                        arr.push(str[i].toLowerCase())
+                    } else {
+                        if (Lower.indexOf(str[i]) != -1) {
+                            arr.push(str[i].toUpperCase())
+                        }
+                    }
+                }
+                document.getElementById("output").value = arr.join("") ;
+
+
+
+            }
+
+        </script>
+</body>
+
+</html>

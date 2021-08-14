@@ -10,7 +10,8 @@
 
 <body>
     <h3>Caro Game Simple</h3>
-    <p id="carogame"></p>
+    <hr>
+    <p id="carogame" style="margin-left: 10px"></p>
     <input type="button" value="Change Value X" onclick="changeValueX()">
     <input type="button" value="Change Value O" onclick="changeValueO()">
     <script>
@@ -18,7 +19,7 @@
         let board = [];
         let data = "";
         for (let i = 0; i < 10; i++) {
-            board[i] = new Array(" ", " " , " ", " ", " ", " ", " ", " ", " ", " ");
+            board[i] = new Array("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ");
         }
 
         for (let i = 0; i < 10; i++) {
@@ -27,34 +28,38 @@
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
             }
         }
-        display.innerHTML = "<hr/>" + data;
+        display.innerHTML =   data;
 
         function changeValueX() {
-            let positionX = prompt("X: ");
-            let positionY = prompt("Y: ");
-            data = "";
-            board[positionX][positionY] = "x";
-            for (let i = 0; i < 10; i++) {
-                data += "<br/>";
-                for (let j = 0; j < 10; j++) {
-                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            if (confirm(" Bạn có chắc là đến lượt của X đánh")) {
+                let positionX = prompt("X: ");
+                let positionY = prompt("Y: ");
+                data = "";
+                board[positionX][positionY] = "x";
+                for (let i = 0; i < 10; i++) {
+                    data += "<br/>";
+                    for (let j = 0; j < 10; j++) {
+                        data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    }
                 }
+                display.innerHTML =  data;
             }
-            display.innerHTML = "<hr/>" + data;
         }
 
         function changeValueO() {
-            let positionX = prompt("X: ");
-            let positionY = prompt("Y: ");
-            data = "";
-            board[positionX][positionY] = "0";
-            for (let i = 0; i < 10; i++) {
-                data += "<br/>";
-                for (let j = 0; j < 10; j++) {
-                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            if (confirm(" Bạn có chắc là đến lượt của O đánh")) {
+                let positionX = prompt("X: ");
+                let positionY = prompt("Y: ");
+                data = "";
+                board[positionX][positionY] = "o";
+                for (let i = 0; i < 10; i++) {
+                    data += "<br/>";
+                    for (let j = 0; j < 10; j++) {
+                        data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    }
                 }
+                display.innerHTML =   data;
             }
-            display.innerHTML = "<hr/>" + data;
         }
     </script>
 </body>
