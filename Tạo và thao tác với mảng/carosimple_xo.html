@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Caro Game Simple</h3>
+    <p id="carogame"></p>
+    <input type="button" value="Change Value X" onclick="changeValueX()">
+    <input type="button" value="Change Value O" onclick="changeValueO()">
+    <script>
+        let display = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+        for (let i = 0; i < 10; i++) {
+            board[i] = new Array(" ", " " , " ", " ", " ", " ", " ", " ", " ", " ");
+        }
+
+        for (let i = 0; i < 10; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 10; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        display.innerHTML = "<hr/>" + data;
+
+        function changeValueX() {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "x";
+            for (let i = 0; i < 10; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 10; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            display.innerHTML = "<hr/>" + data;
+        }
+
+        function changeValueO() {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "0";
+            for (let i = 0; i < 10; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 10; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            display.innerHTML = "<hr/>" + data;
+        }
+    </script>
+</body>
+
+</html>
