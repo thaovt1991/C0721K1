@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Nhập mảng: <br>
+    <input type="text" id="input">
+    <button type="button" id="Add" onclick="addElement()">Add</button> <br>
+    Phần tử cần kiểm tra : <br>
+    <input type="text" id="test">
+    <button type="button" onclick="resultTest()">Result</button> <br><br>
+    <div id="display"></div>
+    <div id="result"></div>
+
+    <script>
+        let arr = new Array()
+        let x = 0;
+        function addElement() {
+            arr[x] = document.getElementById("input").value;
+            alert("Phân tử " + x + " có giá trị là " + arr[x])
+            document.getElementById("input").value = ""
+            document.getElementById("display").innerHTML += arr[x] + ", "
+            document.getElementById("input").focus()
+            x++;
+        }
+        function resultTest() {
+            let test = document.getElementById("test").value;
+            if (confirm("Bạn có chắc mình muốn tìm " + test + " trong mảng ?")) {
+                let display = ""
+                let dem = 0;
+                for (let i = 0; i < arr.length; i++) {
+
+                    if (test == arr[i]) {
+                        display += test + " xuất hiện tại vị trí " + i + "<br>"
+                        dem = dem + 1;
+                    }
+
+                }
+                if (dem > 0) {
+                    document.getElementById("result").innerHTML = " Yes : <br> " + display
+                } else { document.getElementById("result").innerHTML = " No" }
+            }else {
+                document.getElementById ("test").focus
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
