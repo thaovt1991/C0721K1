@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            background-color: lightseagreen;
+            font-size: 18px;
+            position: absolute;
+            
+        }
+        img{
+            position: absolute;
+            z-index: 1;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 20px;
+            left: 480px;
+
+        }
+
+        button {
+            background-color: yellow;
+        }
+
+        button:hover {
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <form style="width :600px ">
+        <fieldset style="border: 4px double black;">
+            <legend style="text-align: center; color: red; font-family: Arial, Helvetica, sans-serif;font-size: 25px;">DICTIONARY
+            </legend>
+            <table>
+                <tr>
+                    <td style="vertical-align: text-top;">Input Word </td>
+                    <td colspan="2">
+                        <select id="languge1" onchange="Select1()">
+                            <option value="Vietnamese">Tiếng Việt</option>
+                            <option value="English">English</option>
+                        </select>&nbsp;&nbsp;
+                        <span>==></span>&nbsp;&nbsp;
+                        <select id="languge2" onchange="Select2()">
+                            <option value="English">English</option>
+                            <option value="Vietnamese">Tiếng Việt</option>
+                        </select> <br><br>
+                        <input type="text" id="input" placeholder="Input the word in here !">
+                        <button type="button" onclick="Find()">Find</button><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: text-top;">Display </td>
+                    <td>
+                        <textarea name="display" id="display" cols="40" rows="10" style="resize: none; color: navy; font-size: 16px;"
+                            disabled></textarea>
+
+                    </td>
+                    <td style="vertical-align: text-top;">
+                        <button type="button" onclick="clearDis()">Clear</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;">
+                        <button type="button" onclick="addDic()">Add_Words_To_Dictionary</button>
+                    </td>
+                </tr>
+            </table>
+            <table style="display: none;" id="addWord">
+                <tr>
+                    <td>English</td>
+                    <td>
+                        <input type="text" id="inputEng">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vietnamese</td>
+                    <td>
+                        <input type="text" id="inputVns">
+                        <button type="button" onclick="inputData()">Add</button>&nbsp;&nbsp;
+                        <button type="button" onclick="closeAdd()">Close</button>
+                    </td>
+                </tr>
+            </table>
+            <img src="Tu-dien.jpg" alt="Tu_dien">
+            <script>
+                function Select1() {
+                    let lag1 = document.getElementById("languge1").value;
+                    let lag2 = document.getElementById("languge2").value
+                    if (lag1 == "Vietnamese") {
+                        lag2 = "English"
+                    } else if (lag1 == "English") {
+                        lag2 = "Vietnamese"
+                    }
+                    document.getElementById("languge2").value = lag2;
+                    document.getElementById("input").focus();
+                }
+
+                function Select2() {
+                    let lag1 = document.getElementById("languge1").value;
+                    let lag2 = document.getElementById("languge2").value
+                    if (lag2 == "Vietnamese") {
+                        lag1 = "English"
+                    } else if (lag2 == "English") {
+                        lag1 = "Vietnamese"
+                    }
+                    document.getElementById("languge1").value = lag1;
+                    document.getElementById("input").focus();
+                }
+
+
+                function clearDis() {
+                    if (confirm("Are you sure ?")) {
+                        document.getElementById("display").value = "";
+                        document.getElementById("input").focus();
+                    }
+                }
+
+
+                function addDic() {
+                    document.getElementById("addWord").style.display = "block";
+                    document.getElementById("inputEng").focus()
+                }
+
+
+                function closeAdd() {
+                    if (confirm("Are you sure ?")) {
+                        document.getElementById("addWord").style.display = "none"
+                    } else document.getElementById("inputEng").focus()
+                }
+
+
+
+                let arrVns = ["trong", "trên"]
+                let arrEng = ["in", "on"]
+                function inputData() {
+                    let vns = (document.getElementById("inputVns").value).toLowerCase()
+                    let eng = (document.getElementById("inputEng").value).toLowerCase()
+                    if (eng != "") {
+                        if (vns != "") {
+                            if (arrEng.indexOf(eng) == -1) {
+                                let t = confirm("Bạn có chắc là muốn nhập " + eng + " có nghĩa là " + vns)
+                                if (t) {
+                                    arrVns.push(vns);
+                                    arrEng.push(eng);
+                                    document.getElementById("inputEng").value = ""  
+                                    document.getElementById("inputVns").value = ""  
+                                    document.getElementById("inputEng").focus() 
+                                } else { document.getElementById("inputEng").focus() }
+                            } else {
+                                alert("Từ " + eng + " đã có trong từ điển")
+                                document.getElementById("inputEng").focus()
+                            }
+                        } else {
+                            alert("Nhập nghĩa cho từ muốn thêm")
+                            document.getElementById("inputVns").focus()
+
+                        }
+                    } else {
+                        alert("Nhập từ muốn thêm")
+                        document.getElementById("inputEng").focus();
+                    }
+                }
+
+
+                function Find() {
+                    let word = (document.getElementById("input").value).toLowerCase()
+                    let lag1 = document.getElementById("languge1").value;
+                    let display = "";
+                    if (word != "") {
+                        if (lag1 == "English") {
+                            let adv = arrEng.indexOf(word);
+                            if (adv != -1) {
+                                display = word + " có nghĩa Tiếng Việt là  : " + arrVns[adv];
+                            } else {
+                                display = word + " không có trong Từ Điển "
+                            }
+
+                        } else if (lag1 == "Vietnamese") {
+                            let adv = arrVns.indexOf(word);
+                            if (adv != -1) {
+                                display = word + " có nghĩa Tiếng Anh là : " + arrEng[adv];
+                            } else {
+                                display = word + " không có trong Từ Điển "
+                            }
+                        }
+                        document.getElementById("display").value = display
+                    }else{
+                        document.getElementById("display").value = "Hãy nhập từ muốn tìm trong Từ Điển"
+                        document.getElementById("input").focus()
+                    }
+
+
+
+                }
+
+            </script>
+
+
+        </fieldset>
+    </form>
+</body>
+
+</html>
