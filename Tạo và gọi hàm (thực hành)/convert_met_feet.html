@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Met :
+    <input type="number" id = "met" oninput="meterToFoot(this.value)" placeholder="Met" > <br><br>
+    Feet:
+    <input type="number" id = "feet" oninput="footToMeter(this.value)" placeholder="Feet" > <br><br>
+    <script>
+        function footToMeter(feet) {
+            document.getElementById("met").value = 0.305 * feet
+        }
+        function meterToFoot(meter){
+            document.getElementById("feet").value = 3.279 * meter
+        }
+    </script>
+</body>
+</html>
