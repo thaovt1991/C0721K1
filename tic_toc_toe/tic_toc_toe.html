@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Caro Game Simple</h3>
+    <hr>
+    <p id="carogame" style="margin-left: 10px"></p>
+    <input type="button" id="changeX" value="Change_Value_X" onclick="changeValueX()">
+    <input type="button" id="changeO" value="Change_Value_O" onclick="changeValueO()">
+    <div id="Result" style="display: none;">
+        <h1 style="color: red;">"<span id="value"></span>YOU ARE WINNER !"</h1>
+        <button id="reset" onclick="playAgain()">Play_Again</button>
+    </div>
+    <script>
+        let display = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+        for (let i = 0; i < 10; i++) {
+            board[i] = new Array(". ", ". ", ". ", ". ", ". ", ". ", ". ", ". ", ". ", ". ");
+        }
+
+        for (let i = 0; i < 10; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 10; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        display.innerHTML = data;
+
+        function changeValueX() {
+            if (confirm(" Bạn có chắc là đến lượt của X đánh")) {
+                let positionX = parseInt(prompt("X: "));
+                let positionY = parseInt(prompt("Y: "));
+                if (board[positionX][positionY] == ". ") {
+                    data = "";
+                    board[positionX][positionY] = "x";
+                    for (let i = 0; i < 10; i++) {
+                        data += "<br/>";
+                        for (let j = 0; j < 10; j++) {
+                            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                        }
+                    }
+                    display.innerHTML = data;
+
+                    switch (true) {
+                        case ((board[positionX][positionY - 1] == "x") && (board[positionX][positionY - 2] == "x")):
+                        case ((board[positionX][positionY + 1] == "x") && (board[positionX][positionY + 2] == "x")):
+                        case ((board[positionX][positionY - 1] == "x") && (board[positionX][positionY + 1] == "x")):
+                        case ((board[positionX - 1][positionY] == "x") && (board[positionX - 2][positionY] == "x")):
+                        case ((board[positionX + 1][positionY] == "x") && (board[positionX + 2][positionY] == "x")):
+                        case ((board[positionX - 1][positionY] == "x") && (board[(positionX + 1)][positionY] == "x")):
+                        case ((board[positionX - 1][positionY - 1] == "x") && (board[positionX - 2][positionY - 2] == "x")):
+                        case ((board[positionX - 1][positionY - 1] == "x") && (board[positionX + 1][positionY + 1] == "x")):
+                        case ((board[positionX + 1][positionY + 1] == "x") && (board[positionX + 2][positionY + 2] == "x")):
+                        case ((board[positionX + 1][positionY - 1] == "x") && (board[positionX + 2][positionY - 2] == "x")):
+                        case ((board[positionX - 1][positionY + 1] == "x") && (board[positionX - 2][positionY + 2] == "x")):
+                        case ((board[positionX - 1][positionY + 1] == "x") && (board[positionX + 1][positionY - 1] == "x")): {
+                            document.getElementById("Result").style.display = "block"
+                            document.getElementById("value").innerHTML = "X ! "
+                            break;
+                        }
+                    }
+                } else {
+                    alert("Vị trí chọn đã được đánh !");
+                    document.getElementById("changeX").click()
+                }
+            }
+        }
+
+        function changeValueO() {
+            if (confirm(" Bạn có chắc là đến lượt của O đánh")) {
+                let positionX = parseInt(prompt("X: "));
+                let positionY = parseInt(prompt("Y: "));
+                if (board[positionX][positionY] == ",") {
+                    data = "";
+                    board[positionX][positionY] = "o";
+                    for (let i = 0; i < 10; i++) {
+                        data += "<br/>";
+                        for (let j = 0; j < 10; j++) {
+                            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                        }
+                    }
+                    display.innerHTML = data;
+                    switch (true) {
+                        case ((board[positionX][positionY - 1] == "o") && (board[positionX][positionY - 2] == "o")):
+                        case ((board[positionX][positionY + 1] == "o") && (board[positionX][positionY + 2] == "o")):
+                        case ((board[positionX][positionY - 1] == "o") && (board[positionX][positionY + 1] == "o")):
+                        case ((board[positionX - 1][positionY] == "o") && (board[positionX - 2][positionY] == "o")):
+                        case (board[positionX + 1][positionY] == "o") && (board[positionX + 2][positionY] == "o"):
+                        case (board[positionX + 1][positionY] == "o") && (board[positionX - 1][positionY] == "o"):
+                        case ((board[positionX - 1][positionY - 1] == "o") && (board[positionX - 2][positionY - 2] == "o")):
+                        case (board[positionX + 1][positionY + 1] == "o") && (board[positionX + 2][positionY + 2] == "o"):
+                        case (board[positionX + 1][positionY - 1] == "o") && (board[positionX + 2][positionY - 2] == "o"):
+                        case ((board[positionX - 1][positionY - 1] == "o") && (board[positionX + 1][positionY + 1] == "o")):
+                        case (board[positionX - 1][positionY + 1] == "o") && (board[positionX - 2][positionY + 2] == "o"):
+                        case (board[positionX - 1][positionY + 1] == "o") && (board[positionX + 1][positionY - 1] == "o"): {
+                            document.getElementById("Result").style.display = "block"
+                            document.getElementById("value").innerHTML = "O ! "
+                            break;
+                        }
+                    }
+                } else {
+                    alert("Vị trí chọn đã được đánh !");
+                    document.getElementById("changeO").click()
+                }
+            }
+        }
+
+
+        function playAgain() {
+            if (confirm("Are you sure")) {
+                document.getElementById("Result").style.display = "none"
+                location.reload();
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
