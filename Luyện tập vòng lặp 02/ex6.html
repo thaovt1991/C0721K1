@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div { 
+        div {
             margin-top: 0px;
         }
     </style>
@@ -14,20 +15,44 @@
 
 <body>
     <div style="float: none;">
-        <span id = "pax1_1" style="float: left;"></span> <span id = "pax1_2" style="float: left;"></span><span id = "pax1_3" style="float: left;"></span><span id = "pax1_4" ></span>  
+        <span id="pax1_1" style="float: left;"></span>
+        <span id="pax1_2" style="float: left;"></span>
+        <span id="pax1_3" style="float: left;"></span>
+        <span id="pax1_4" style="float: left;"></span>
+        <span id="pax1_5" style="float: left;"></span>
+        <span id="pax1_6"></span>
     </div>
+     <div style="float: none;">
+        <span id="pax2_1" style="float: left;"></span>
+        <span id="pax2_2" style="float: left;"></span>
+        <span id="pax2_3" style="float: left;"></span>
+        <span id="pax2_4" style="float: left;"></span>
+        <span id="pax2_5" style="float: left;"></span>
+        <span id="pax2_6"></span>
+     </div>
+     <div style="float: none;">
+        <span id="pax3_1" style="float: left;"></span>
+        <span id="pax3_2" style="float: left;"></span>
+        <span id="pax3_3" style="float: left;"></span>
+        <span id="pax3_4" style="float: left;"></span>
+        <span id="pax3_5" style="float: left;"></span>
+        <span id="pax3_6"></span>
+     </div>
+     <div style="float: none;" id = "pax4">
+        <span id="pax4_1" style="float: left;"></span>
+        <span id="pax4_2" style="float: left;"></span>
+        <span id="pax4_3" style="float: left;"></span>
+        <span id="pax4_4"></span>
+     </div>
+     <div style="float: none;" id = "pax5">
+        <span id="pax5_1" style="float: left;"></span>
+        <span id="pax5_2"></span>
+     </div>
 
-    <div style = "float: none;">
-        <span id = "pax2_1" style="float: left;"></span><span id = "pax2_2" style="float: left;"></span><span id = "pax2_3"  ></span>
-    </div>
-
-    <div style="float: none;" id = "pax3">
-        <span id="pax3_1" style="float: left;"></span><span id = "pax3_2"></span>
-    </div>
     <script>
         let a = parseInt(prompt("Nhập độ rộng trái tim"))
-        
-        document.getElementById("pax3").style.marginLeft = 8 * a + "px"
+        document.getElementById("pax4").style.marginLeft = 8 * a + "px"
+        document.getElementById("pax5").style.marginLeft = 16 * a + "px"
         let triange3 = "";
         for (let i = 1; i <= a; i++) {
             for (let j = a - i; j >= 1; j--) {
@@ -38,34 +63,36 @@
             }
             triange3 += "<br>";
         }
-        document.getElementById("pax1_1").innerHTML = triange3 ;
-        document.getElementById("pax1_3").innerHTML = triange3;
+        document.getElementById("pax1_1").innerHTML = triange3;
+        document.getElementById("pax1_4").innerHTML = triange3;
 
 
-       let triange1 = "";
+        let triange1 = "";
         for (let i = 1; i <= a; i++) {
-           
+
             for (let j = 1; j <= i; j++) {
                 triange1 += "*";
             } triange1 += "<br>";
-        } 
-        document.getElementById("pax1_2").innerHTML = triange1 ;
-        document.getElementById("pax1_4").innerHTML = triange1 ;
+        }
+        document.getElementById("pax1_3").innerHTML = triange1;
+        document.getElementById("pax1_6").innerHTML = triange1;
 
 
         let triange2 = "";
         for (let i = a; i >= 1; i--) {
-            
+
             for (let j = 1; j <= i; j++) {
                 triange2 += "*";
-            }triange2 += "<br>";
-        } 
-        document.getElementById("pax2_3").innerHTML = triange2 ;
-        document.getElementById("pax3_2").innerHTML = triange2 ;
+            } triange2 += "<br>";
+        }
+        document.getElementById("pax3_6").innerHTML = triange2;
+        document.getElementById("pax4_4").innerHTML = triange2;
+        document.getElementById("pax5_2").innerHTML = triange2;
+
 
         let triange4 = "";
         for (let i = a; i >= 1; i--) {
-            
+
             for (let j = a - i; j >= 1; j--) {
                 triange4 += "&nbsp;&nbsp;";
             }
@@ -75,34 +102,56 @@
             triange4 += "<br>";
 
         }
-        document.getElementById("pax2_1").innerHTML = triange4 ;
-        document.getElementById("pax3_1").innerHTML = triange4 ;
-         
+        document.getElementById("pax3_1").innerHTML = triange4;
+        document.getElementById("pax4_1").innerHTML = triange4;
+        document.getElementById("pax5_1").innerHTML = triange4;
 
-        let b = 2 * a + 1 ;
+
         let rect = "";
         for (let i = 1; i <= a; i++) {
-            switch (i) {
-                case 1:
-                case a: {
-                    for (let j = 1; j < b; j++) {
-                        rect += "*"
-                    }
-                    rect += "<br>"; 
-                    break;
-                }
-                default: {
-                    rect += "*"
-                    for (let t = 1; t < b - 2; t++) {
-                        rect += "&nbsp;&nbsp;"
-                    }
-                     rect += "*" + "<br>"; 
-                }
+            for (let j = 1; j <= a; j++) {
+                rect += "*"
             }
+            rect += "<br>";
         }
-        document.getElementById("pax2_2").innerHTML = rect ;
+
+        /*  for (let i = 1; i <= a; i++) {
+              switch (i) {
+                  case 1:
+                  case a: {
+                      for (let j = 1; j < b; j++) {
+                          rect += "*"
+                      }
+                      rect += "<br>"; 
+                      break;
+                  }
+                  default: {
+                      rect += "*"
+                      for (let t = 1; t < b - 2; t++) {
+                          rect += "&nbsp;&nbsp;"
+                      }
+                       rect += "*" + "<br>"; 
+                  }
+              }
+          } */
+        document.getElementById("pax1_2").innerHTML = rect;
+        document.getElementById("pax1_5").innerHTML = rect;
+        document.getElementById("pax2_1").innerHTML = rect;
+        document.getElementById("pax2_2").innerHTML = rect;
+        document.getElementById("pax2_3").innerHTML = rect;
+        document.getElementById("pax2_4").innerHTML = rect;
+        document.getElementById("pax2_5").innerHTML = rect;
+        document.getElementById("pax2_6").innerHTML = rect;
+        document.getElementById("pax3_2").innerHTML = rect;
+        document.getElementById("pax3_3").innerHTML = rect;
+        document.getElementById("pax3_4").innerHTML = rect;
+        document.getElementById("pax3_5").innerHTML = rect;
+        document.getElementById("pax4_2").innerHTML = rect;
+        document.getElementById("pax4_3").innerHTML = rect;
+        
 
 
     </script>
 </body>
+
 </html>

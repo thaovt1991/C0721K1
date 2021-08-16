@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="textArea" id="textArea" cols="30" rows="10" style="resize: none;"></textarea>
+    <script>
+        var arr = ["T" ,"Ô","I"," ", "L" ,"À"," ","T","H","Ả","O"];
+        let n = "" ;
+            function valueTextarea(){
+              
+            let i = n.length ;
+            if (i!= arr.length) {}
+            n = n + arr[i] ;
+            document.getElementById("textArea").value = n
+            }
+            window.addEventListener("keydown",valueTextarea)
+        
+    </script>
+</body>
+</html>

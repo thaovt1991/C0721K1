@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập số lượng phần tử cần kiểm tra : <br>
+    <input type="number" id="num_el"><br><br>
+    Nhập các phần tử của mảng: <br>
+    <input type="number" name="num" id="num">
+    <button type="button" onclick="addArr()">Add</button> &nbsp;&nbsp;
+    <button type="button" onclick="checkMax()">Max</button> &nbsp;&nbsp;
+    <button onclick="reset()">Reset</button>
+
+    <div id="displayArr"></div>
+    <div id="check_max"></div>
+    <script>
+        let arr = new Array();
+        let x = 0;
+        let str = "<hr> Các số cần kiểm tra là : "
+
+        function addArr() {
+            let numel = document.getElementById("num_el").value
+            let t = document.getElementById("num")
+            if (numel <= 0) {
+                alert("Phải nhập số lượng các phân tử lớn hơn 0")
+                document.getElementById("num_el").focus()
+            } else if (numel > arr.length) {
+                if (t.value != "") {
+                    arr[x] = t.value;
+                    t.focus()
+                    t.value = ""
+                    str += arr[x] + ", "
+                    x++;
+                    document.getElementById("displayArr").innerHTML = str;
+                } else {
+                    alert("Phải nhập giá trị cho phân tử")
+                    t.focus()
+                }
+            }
+            else {
+                alert("Số lượng chữ số đã bằng " + numel + ". Hãy nhập giá trị cần so sánh ");
+            }
+        }
+
+        function checkMax() {
+            let max = arr[0];
+            let str = "";
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] >= max) {
+                    max = arr[i];
+                    str += i + ", "
+                }
+            }
+            document.getElementById("check_max").innerHTML = " Giá trị lớn nhất của dãy số là " + max + " tại vị trí " + str
+
+        }
+
+        function reset() {
+            if (confirm("Are you sure ?")) {
+                location.reload()
+            }
+        }
+
+    </script>
+</body>
+
+</html>

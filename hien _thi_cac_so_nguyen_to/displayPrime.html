@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Prinme</title>\
     <style>
-        button:hover{
+        button:hover {
             background-color: yellow;
         }
     </style>
@@ -22,30 +22,38 @@
             Nhập số lượng các số nguyên tố muốn in ra: <br>
             <input type="number" id="num"><br><br>
             Hiển thị: <br>
-            <textarea id="display" cols="50" rows="10" style="resize: none; border: 2px unset black;" disabled></textarea> <br><br>
+            <textarea id="display" cols="50" rows="10" style="resize: none; border: 2px unset black;"
+                disabled></textarea> <br><br>
             <button type="button" onclick="displayPrime()">Display</button>
         </fieldset>
         <script>
             function displayPrime() {
                 let number = parseInt(document.getElementById("number").value)
                 let num = parseInt(document.getElementById("num").value);
-                let display = "";
-                let count = 0;
-                while (count < num) {
-                    countIn = 0;
-                    for (let i = 2; i <= Math.sqrt(number); i++) {
-                        if (number % i == 0) {
-                            countIn++;
+               
+                    let display = "";
+                    let count = 0;
+                    while (count < num) {
+                        countIn = 0;
+                        while (number < 2 ){
+                            number++
                         }
+                        for (let i = 2; i <= Math.sqrt(number); i++) {
+                            if (number % i == 0) {
+                                countIn++;
+                            }
+                        }
+                        if (countIn == 0) {
+                            display = display + number + ", ";
+                            count++;
+                        }
+                        number++
                     }
-                    if (countIn == 0) {
-                        display = display + number + ", ";
-                        count++;
-                    }
-                    number++
-                }
-                document.getElementById('display').innerHTML = display;
+                    document.getElementById('display').innerHTML = display;
+                
             }
+
+            
         </script>
     </form>
 

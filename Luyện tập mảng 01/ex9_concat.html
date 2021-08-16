@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập số phần tử mảng A cần kiểm tra : <br>
+    <input type="number" id="num_el_a"><br><br>
+    Nhập các phần tử của mảng: <br>
+    <input type="number" name="num_a" id="num_a">
+    <button type="button" onclick="addArrA()">Add_Arr_A</button><br><br>
+    Nhập số phần tử mảng B cần kiểm tra : <br>
+    <input type="number" id="num_el_b"><br><br>
+    Nhập các phần tử của mảng: <br>
+    <input type="number" name="num_b" id="num_b">
+    <button type="button" onclick="addArrB()">Add_Arr_B</button><br><br>
+    <button type="button" onclick="addArrToArr()">Arr_To_Arr</button> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+    <button onclick="reset()">Reset</button>
+    <hr>
+    <div id="displayArrA"></div>
+    <div id="displayArrB"></div>
+    <div id="before_Arr"></div>
+    <script>
+        let arrA = new Array();
+        let arrB = new Array();
+        let x = 0;
+        let y = 0;
+        let strA = "  Các số trong dãy A là : "
+        let strB = "<br> Các số trong dãy B là : "
+
+        function addArrA() {
+            let numel = document.getElementById("num_el_a").value
+            let t = document.getElementById("num_a")
+            if (numel <= 0) {
+                alert("Phải nhập số lượng các phân tử lớn hơn 0")
+                document.getElementById("num_el_a").focus()
+            } else if (numel > arrA.length) {
+                if (t.value != "") {
+                    arrA[x] = t.value;
+                    t.focus()
+                    t.value = ""
+                    strA += arrA[x] + ", "
+                    x++;
+                    document.getElementById("displayArrA").innerHTML = strA;
+                } else {
+                    alert("Phải nhập giá trị cho phân tử")
+                    t.focus()
+                }
+            }
+            else {
+                alert("Số lượng chữ số đã bằng " + numel + ". ");
+
+            }
+        }
+
+
+          function addArrB() {
+               let numelB= document.getElementById("num_el_b").value
+               let b = document.getElementById("num_b")
+               if (numelB <= 0) {
+                   alert("Phải nhập số lượng các phân tử lớn hơn 0")
+                   document.getElementById("num_el_b").focus()
+               } else if (numelB > arrB.length) {
+                   if (b.value != "") {
+                       arrB[y] = b.value;
+                       b.focus()
+                       b.value = ""
+                       strB += arrB[y] + ", "
+                       y++;
+                       document.getElementById("displayArrB").innerHTML = strB;
+                   } else {
+                       alert("Phải nhập giá trị cho phân tử")
+                       b.focus()
+                   }
+               }
+               else {
+                   alert("Số lượng chữ số đã bằng " + numelb + ". Hãy nhập giá trị cần so sánh ");
+                  
+               }
+           }
+
+        function addArrToArr() {
+            let strC = " <br> Chuỗi sau kết hợp là "
+            let arrC = arrA.concat(arrB)
+            for (let i = 0; i < arrC.length; i++) {
+                strC += arrC[i] + ", "
+            }
+            document.getElementById("before_Arr").innerHTML = strC
+        }
+
+        function reset() {
+            if (confirm("Are you sure ?")) {
+                location.reload()
+            }
+        }
+
+    </script>
+</body>
+
+</html>
