@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập 1 kí tự :
+    <input type="text" id="check" oninput="check()" placeholder="Input character !">
+    <div id="result"></div>
+
+
+    <script>
+        function checkCharacterNum(character) {
+            const CHARACTERNUM = new String("0123456789")
+            let check = "";
+            if (CHARACTERNUM.indexOf(character) != -1) {
+                check = true
+            } else
+                check = false
+            return check
+        }
+        function check() {
+            let value = document.getElementById("check").value;
+
+            if (checkCharacterNum(value)) {
+                document.getElementById("result").innerHTML = "Kí tự " + value + " là kí tự số"
+            } else
+                document.getElementById("result").innerHTML = "Kí tự " + value + " không phải là kí tự số"
+        }
+
+    </script>
+
+
+</body>
+
+</html>

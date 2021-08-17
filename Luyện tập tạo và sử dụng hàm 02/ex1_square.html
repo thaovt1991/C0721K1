@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Number : 
+    <input type="number" id="num" oninput="displaySquare()" placeholder="Input number !">
+    <div id="result"></div>
+
+
+    <script>
+        function squareNum(number) {
+            return number * number
+        }
+        function displaySquare() {
+            let value = parseInt(document.getElementById("num").value);
+            document.getElementById("result").innerHTML = "<hr> Bình phương của " + value + " = " + squareNum(value)
+        }
+
+    </script>
+
+
+</body>
+
+</html>

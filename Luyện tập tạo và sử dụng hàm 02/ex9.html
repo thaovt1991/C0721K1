@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập phần tử của mảng : <br>
+    <input type="text" id="input">
+    <button type="button" onclick="addArr()">Add</button> <br><br>
+    Nhập kí tự muốn kiểm tra : <br>
+    <input type="text" id="input_test">
+    <button type="button" onclick="check()">Check</button>
+    <div id="displayArr"></div>
+    <div id="result"></div>
+    <script>
+        function findInArr(character, arr) {
+            let count = 0;
+            for (i = 0; i < arr.length; i++) {
+                let str = arr[i].toString()
+                for (j = 0; j < str.length; j++) {
+                    if (str.charAt(j) == character) {
+                        count++
+                    }
+                }
+            }
+            if (count != 0) {
+                return count
+            } else
+                return -1
+
+        }
+
+        let arrInput = new Array();
+        let x = 0;
+        function addArr() {
+            arrInput[x] = document.getElementById("input").value;
+            document.getElementById("input").value = "";
+            document.getElementById("input").focus();
+            x++
+            document.getElementById("displayArr").innerHTML = "<hr> Các phần tử của mảng là : " + arrInput
+        }
+
+        function check() {
+            let check = document.getElementById("input_test").value;
+            let result = findInArr(check, arrInput);
+            if (result == -1) {
+                document.getElementById("result").innerHTML = "<br> Không tìm thấy kí tự " + check + " trong mảng";
+            } else {
+                document.getElementById("result").innerHTML = "<br> Trong mảng có " + result + " kí tự " + check;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

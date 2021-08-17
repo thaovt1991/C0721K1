@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập phần tử của mảng :
+    <input type="text" id="input">
+    <button type="button" onclick="addArr()">Add</button>
+    <button type="button" onclick="displaySwapArr()">Swap_Arr</button>
+    <div id="displayArr"></div>
+    <div id="arr_swap"></div>
+    <script>
+        let arrInput = new Array();
+        let x = 0;
+        function addArr() {
+            arrInput[x] = document.getElementById("input").value;
+            document.getElementById("input").value = "";
+            document.getElementById("input").focus();
+            x++
+            document.getElementById("displayArr").innerHTML = "<hr> Các phần tử của mảng là : " + arrInput
+        }
+
+        function swapArr(arr) {
+            let first = 0;
+            let last = arr.length - 1;
+            while (first < last) {
+                let temp = arr[first];
+                arr[first] = arr[last];
+                arr[last] = temp;
+                first ++ ;
+                last --
+            }
+            return arr
+
+        }
+        function displaySwapArr() {
+            document.getElementById("arr_swap").innerHTML = "<br> Mangr đảo ngược là : " + swapArr(arrInput)
+        }
+    </script>
+</body>
+
+</html>

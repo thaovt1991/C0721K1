@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Num 1
+    <input type="number" id="num1"><br><br>
+    Num 2
+    <input type="number" id="num2"><br><br>
+    Num 3
+    <input type="number" id="num3"><br><br>
+    <button onclick="displayMin()">Display_Min</button>
+    <div id="disPlay"></div>
+
+    <script>
+        //Cách 1
+        /*   function Find_Min(n1,n2,n3){  
+               let arr = [n1,n2,n3] ;
+               arr.sort(function(a,b){
+                   return a - b
+               })
+               return arr[0]
+           } */
+        function Min(a, b) {
+            if (a > b) {
+                return b
+            } else {
+                return a
+            }
+        }
+
+
+
+
+        function displayMin() {
+            let num1 = document.getElementById("num1").value
+            let num2 = document.getElementById("num2").value
+            let num3 = document.getElementById("num3").value
+            document.getElementById("disPlay").innerHTML = " Min là : " + Min(num1, Min(num2, num3))
+        }
+    </script>
+</body>
+
+</html>

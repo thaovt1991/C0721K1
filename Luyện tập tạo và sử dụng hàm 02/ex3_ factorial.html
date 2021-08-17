@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Number : 
+    <input type="number" id="num" oninput="displayFactorial()" placeholder="Input number !">
+    <div id="result"></div>
+
+
+    <script>
+        function factorialNum(number) {
+            let factorial = 1 ;
+            for (i = 1 ; i <= number ; i++) {
+                factorial = factorial * i ;
+            }
+            return factorial
+            
+        }
+        function displayFactorial() {
+            let value = parseInt(document.getElementById("num").value);
+            let display = "";
+            if (value >= 1){
+                display =  "<hr> " + value + "! = " + factorialNum(value)
+            } else {
+                display = " <hr> Không có giai thừa cho " + value
+            }
+            document.getElementById("result").innerHTML = display
+        }
+
+    </script>
+
+
+</body>
+
+</html>

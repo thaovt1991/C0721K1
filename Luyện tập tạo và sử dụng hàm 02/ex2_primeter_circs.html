@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập bán kính hình tròn :
+    <input type="number" id="radius" oninput="displayPerimeter()" placeholder="Input R !">
+    <div id="result"></div>
+
+
+    <script>
+        function perimeterCircs(radius) {
+            const PI = 3.14
+            return 2 * PI * radius
+        }
+        function areaCircs(radius) {
+            const PI = 3.14
+            return PI * radius * radius
+        }
+
+        function displayPerimeter() {
+            let value = parseInt(document.getElementById("radius").value);
+            document.getElementById("result").innerHTML = "<hr> Hình tròn có bán kính R = " + value + " có chu vi là C = " + perimeterCircs(value) + " và diện tính S = " + areaCircs(value)
+        }
+
+    </script>
+</body>
+
+</html>
