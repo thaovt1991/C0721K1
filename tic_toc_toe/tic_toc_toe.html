@@ -78,7 +78,7 @@
             if (confirm(" Bạn có chắc là đến lượt của O đánh")) {
                 let positionX = parseInt(prompt("X: "));
                 let positionY = parseInt(prompt("Y: "));
-                if (board[positionX][positionY] == ",") {
+                if (board[positionX][positionY] == ". ") {
                     data = "";
                     board[positionX][positionY] = "o";
                     for (let i = 0; i < 10; i++) {
@@ -88,19 +88,20 @@
                         }
                     }
                     display.innerHTML = data;
+
                     switch (true) {
                         case ((board[positionX][positionY - 1] == "o") && (board[positionX][positionY - 2] == "o")):
                         case ((board[positionX][positionY + 1] == "o") && (board[positionX][positionY + 2] == "o")):
                         case ((board[positionX][positionY - 1] == "o") && (board[positionX][positionY + 1] == "o")):
                         case ((board[positionX - 1][positionY] == "o") && (board[positionX - 2][positionY] == "o")):
-                        case (board[positionX + 1][positionY] == "o") && (board[positionX + 2][positionY] == "o"):
-                        case (board[positionX + 1][positionY] == "o") && (board[positionX - 1][positionY] == "o"):
+                        case ((board[positionX + 1][positionY] == "o") && (board[positionX + 2][positionY] == "o")):
+                        case ((board[positionX - 1][positionY] == "o") && (board[(positionX + 1)][positionY] == "o")):
                         case ((board[positionX - 1][positionY - 1] == "o") && (board[positionX - 2][positionY - 2] == "o")):
-                        case (board[positionX + 1][positionY + 1] == "o") && (board[positionX + 2][positionY + 2] == "o"):
-                        case (board[positionX + 1][positionY - 1] == "o") && (board[positionX + 2][positionY - 2] == "o"):
                         case ((board[positionX - 1][positionY - 1] == "o") && (board[positionX + 1][positionY + 1] == "o")):
-                        case (board[positionX - 1][positionY + 1] == "o") && (board[positionX - 2][positionY + 2] == "o"):
-                        case (board[positionX - 1][positionY + 1] == "o") && (board[positionX + 1][positionY - 1] == "o"): {
+                        case ((board[positionX + 1][positionY + 1] == "o") && (board[positionX + 2][positionY + 2] == "o")):
+                        case ((board[positionX + 1][positionY - 1] == "o") && (board[positionX + 2][positionY - 2] == "o")):
+                        case ((board[positionX - 1][positionY + 1] == "o") && (board[positionX - 2][positionY + 2] == "o")):
+                        case ((board[positionX - 1][positionY + 1] == "o") && (board[positionX + 1][positionY - 1] == "o")): {
                             document.getElementById("Result").style.display = "block"
                             document.getElementById("value").innerHTML = "O ! "
                             break;
@@ -112,6 +113,8 @@
                 }
             }
         }
+
+        
 
 
         function playAgain() {
