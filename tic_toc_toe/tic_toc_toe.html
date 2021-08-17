@@ -11,6 +11,7 @@
 <body>
     <h3>Caro Game Simple</h3>
     <hr>
+    <div>&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp; 5&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp; 8&nbsp;&nbsp;&nbsp; 9&nbsp;&nbsp;&nbsp;</div> &nbsp;&nbsp;
     <p id="carogame" style="margin-left: 10px"></p>
     <input type="button" id="changeX" value="Change_Value_X" onclick="changeValueX()">
     <input type="button" id="changeO" value="Change_Value_O" onclick="changeValueO()">
@@ -27,10 +28,9 @@
         }
 
         for (let i = 0; i < 10; i++) {
-            data += "<br/>";
             for (let j = 0; j < 10; j++) {
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
-            }
+            }data += "<br/>";
         }
         display.innerHTML = data;
 

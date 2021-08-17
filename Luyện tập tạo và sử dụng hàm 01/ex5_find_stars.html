@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arrStarS = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let arrStar = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        function FindStar(name_star) {
+            let check = arrStarS.indexOf(name_star);
+            if (check != -1) {
+                alert("Ngôi sao " + name_star + " chứa ngôi sao " + arrStar[check] + "!")
+            } else {
+                alert ("Không tìm thấy ngôi sao nào !")
+            }
+        }
+
+        let name = prompt("Nhập tên một ngôi sao ?") ;
+        FindStar(name)
+        
+    </script>
+</body>
+
+</html>
