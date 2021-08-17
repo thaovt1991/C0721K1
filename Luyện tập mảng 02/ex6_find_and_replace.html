@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập phần tử mảng là các kí tự <br>
+    <input type="text" id="input" size="30">
+    <button type="button" onclick="addArray()">Add_Arr</button><br><br>
+    Nhập kí tự cần thay thế <br>
+    <input type="text" id="find" size="20"> <br> <br>
+    Nhập kí tự thay thế <br>
+    <input type="text" id="replace" size="20"> <br> <br>
+
+    <button type="button" onclick="FindAndReplace()">Find_And_Replace</button> <br><br>
+    <div id="display_arr"></div>
+    <div id="result"></div>
+
+    <script>
+        let arr = new Array();
+        let x = 0;
+        let str = " <hr> Các phần tử của mảng là : "
+        function addArray() {
+            arr[x] = document.getElementById("input").value;
+            str += arr[x] + ", "
+            document.getElementById("input").value = "";
+            document.getElementById("input").focus()
+            x++
+            document.getElementById("display_arr").innerHTML = str;
+        }
+
+        function FindAndReplace() {
+            let find = document.getElementById("find").value
+            let replace = document.getElementById("replace").value;
+            let t = confirm("Bạn có chắc là muốn thay thế " + find + " bằng " + replace)
+            if (t) {
+                if (arr.indexOf(find) != -1) {
+                    for (i = 0; i < arr.length; i++) {
+                        if (arr[i] == find) {
+                            arr[i] = replace
+                        }
+                    }
+                    let str = "";
+                    arr.forEach(function (arr) {
+                        str += arr + ", "
+                    })
+                    document.getElementById("result").innerHTML = "Mảng sau khi thay thế " + find + " bằng " + replace + " là : " + str
+                } else {
+                    document.getElementById("result").innerHTML = "Không tìm thấy kí tự " + find + " trong mảng"
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

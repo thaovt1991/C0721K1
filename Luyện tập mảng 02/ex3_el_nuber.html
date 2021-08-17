@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập phần tử mảng
+    <input type="text" id="input" size="30">
+    <button type="button" onclick="addArray()">Add_Arr</button> &nbsp;&nbsp;
+    <button type="button" onclick="lengthOfArray()">Length_of_Array</button> &nbsp;&nbsp;
+    <button type="button" onclick="findNumber()">Find_Number</button> <br><br>
+    <div id="display_arr"></div>
+    <div id="lengthArr"></div>
+    <div id="amout"></div>
+
+    <script>
+        let arr = new Array();
+        let x = 0;
+        let str = " <hr> Các phần tử của mảng là : "
+        function addArray() {
+            arr[x] = document.getElementById("input").value;
+            str += arr[x] + ", "
+            document.getElementById("input").value = "";
+            document.getElementById("input").focus()
+            x++
+            document.getElementById("display_arr").innerHTML = str;
+        }
+        function lengthOfArray() {
+            let t = confirm("Bạn có muốn kiểm tra số phân tử trong mảng hiện tại ?")
+            if (t) {
+                document.getElementById("lengthArr").innerHTML = "Length of array : " + arr.length
+            } else {
+                document.getElementById("input").focus()
+            }
+        }
+        function findNumber() {
+            const CHARACTER = "ABCDEFGHIJKLMNOPQRSTVWXYZabcdefghijklmnopqrstvwxyz";
+            let count = 0;
+            for (i = 0; i < arr.length; i++) {
+                let countElement = 0;
+                let str = arr[i].toString()
+                for (let n of str ){
+                    if (CHARACTER.indexOf(n) == -1) {
+                        countElement++
+                    }
+                }
+                count += countElement;
+            }
+            if (count != 0) {
+                document.getElementById("amout").innerHTML = "Trong mảng có " + count + " phần từ là kí tự số"
+            } else {
+                document.getElementById("amout").innerHTML = "Trong mảng không có kí tự số nào !"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nhập chuỗi
+    <input type="text" id="input" size="30">
+    <button type="button" onclick="countWord()">Count_words_of_String</button> &nbsp;&nbsp;
+    <div id="display_arr"></div>
+    <div id = "countWord"></div>
+    <script>
+        function countWord(){
+            let value = document.getElementById("input").value
+            let str = value.toString() ;
+            let arr = str.split(' ') ;
+            console.log(arr)
+            let count = 0 ;
+            for (i = 0; i < arr.length ; i++){
+                if (arr[i] != ""){
+                    count++
+                }
+            }
+            if (count == 0){
+                document.getElementById("countWord").innerHTML = "Không có từ nào trong chuỗi"
+            }else{
+                document.getElementById("countWord").innerHTML = " Có " + count + " từ trong chuỗi"
+            }
+
+            
+
+        }
+
+    </script> 
+</body>
+</html>

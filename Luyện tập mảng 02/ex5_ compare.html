@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập chuỗi A :
+    <input type="text" id="input_str_a" size="30"><br><br>
+    Nhập chuỗi B :
+    <input type="text" id="input_str_b" size="30">
+    <button type="button" onclick="compareString()">Compare_String</button> &nbsp;&nbsp;
+
+    <script>
+        function compareString() {
+            let valueA = document.getElementById("input_str_a").value;
+            let valueB = document.getElementById("input_str_b").value;
+            let strA = valueA.toString();
+            let strB = valueB.toString();
+            let arrA = strA.split(' ');
+            let arrB = strB.split(" ");
+
+            function string(arr) {
+                let string = "";
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i] != "") {
+                        string += arr[i]
+                    }
+                }
+                return string;
+            }
+
+
+            if (string(arrA) == string(arrB)) {
+                alert("Hai chuỗi giống nhau !")
+            } else {
+                alert("Hai chuỗi khác nhau !")
+            }
+
+
+            /*  let StringA = "" ;
+              for (i = 0; i < arrA.length; i++){
+                  if (arrA[i] != ""){
+                      StringA += arrA[i]
+                  }
+              }
+              let StringB = "";
+              for (j = 0; j < arrB.length; j++){
+                  if (arrB[i] != ""){
+                      StringB += arrB[i]
+                  }
+              }
+              console.log(StringA);
+              console.log(StringB);
+  
+              if (StringA == StringB){
+                    alert("Hai chuỗi giống nhau !") 
+              } else {
+                  alert("Hai chuỗi khác nhau !") 
+              }*/
+
+        }
+
+    </script>
+</body>
+
+</html>
