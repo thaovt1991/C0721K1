@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nhập a
+    <input type="text" name="input_a" id="input_a"><br><br>
+    Nhập b
+    <input type="text" name="input_b" id="input_b">
+    <button onclick="show()">Show</button>
+    <div id="result"></div>
+    <script>
+        function checkAndShow(a, b) {
+            if (a > b) {
+                return alert(a + ">" + b)
+            } else {
+                return parseInt(a) + parseInt(b)
+            }
+        }
+
+        function show() {
+            let n = document.getElementById("input_a").value;
+            let m = document.getElementById("input_b").value;
+            let t = checkAndShow(n, m)
+            if (t != undefined) {
+                document.getElementById("result").innerHTML = "<hr>" + t
+            }
+            
+        }
+    </script>
+</body>
+
+</html>

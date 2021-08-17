@@ -37,25 +37,19 @@
         function FindAndReplace() {
             let find = document.getElementById("find").value
             let replace = document.getElementById("replace").value;
+            let newArr = [];
             let t = confirm("Bạn có chắc là muốn thay thế " + find + " bằng " + replace)
             if (t) {
-                if (arr.indexOf(find) != -1) {
-                    for (i = 0; i < arr.length; i++) {
-                        if (arr[i] == find) {
-                            arr[i] = replace
-                        }
-                    }
-                    let str = "";
-                    arr.forEach(function (arr) {
-                        str += arr + ", "
-                    })
-                    document.getElementById("result").innerHTML = "Mảng sau khi thay thế " + find + " bằng " + replace + " là : " + str
-                } else {
-                    document.getElementById("result").innerHTML = "Không tìm thấy kí tự " + find + " trong mảng"
+                for (i = 0; i < arr.length; i++) {
+                    let str = arr[i].toString();
+                    str.replace(find,replace)
+                    newArr.push(str)
                 }
+
+                document.getElementById("result").innerHTML = "Mảng sau khi thay thế " + find + " bằng " + replace + " là : " + newArr
+
             }
         }
-
 
     </script>
 </body>
