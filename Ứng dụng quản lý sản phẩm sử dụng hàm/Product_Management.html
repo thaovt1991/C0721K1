@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>\
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="javascript.js"></script>
+</head>
+
+<body>
+    <fieldset style="width: 500px;background-color:skyblue;">
+        <legend style="color:red;">
+            <h1>Add New Product</h1>
+        </legend>
+        <input type="text" id="inputProduct" size="30" placeholder="New Product">
+        <button type="button" onclick="addProduct()" >Add</button>
+    </fieldset>
+    <fieldset style="width: 900px;">
+        <legend>
+            <h3>Display All Product</h3>
+        </legend>
+        <table cellspacing ="0">
+            <tr style="background-color: springgreen; width: 100%;;height: 80px;display: block;">
+                <th colspan="2" style="text-align: left;">Product Name</th>
+                <th style="text-align: right; color: red;" id="totalProduct"></th>
+            </tr>
+            <tr id = "Product0">
+                <td id = "P0"></td>
+                <td>
+                    <button type="button" id = "editP0" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id="deleteP0" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+            <tr id = "Product1" >
+                <td></td>
+                <td>
+                    <button type="button" id = "editP1" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id = "deleteP1" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+            <tr id="Product2" >
+                <td></td>
+                <td>
+                    <button type="button" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id="deleteNokia6" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+            <tr id ="Product0">
+                <td></td>
+                <td>
+                    <button type="button" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id = "deleteXiaomiRedmiNote4" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+            <tr id = "Product0">
+                <td></td>
+                <td>
+                    <button type="button" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id ="deleteAppleiPhone6S" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+            <tr id = "Product0">
+                <td></td>
+                <td>
+                    <button type="button" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id ="deleteXiaomiMi5sPlus" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+            <tr id= "Product0">
+                <td></td>
+                <td>
+                    <button type="button" onclick="">Edit</button>
+                </td>
+                <td>
+                    <button type="button" id ="deleteAppleiPhone8Plus" onclick="DeleteProduct(this.id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+</body>
+
+</html>

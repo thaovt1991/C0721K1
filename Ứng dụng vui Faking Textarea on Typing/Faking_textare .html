@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <textarea name="textArea" id="textArea" cols="30" rows="10" style="resize: none;"></textarea>
+    <form name="displayGame" style="text-align: center;">
+        <h1>Hãy nhập nội dung bạn muốn</h1>
+    <textarea name="textArea" id="textArea" cols="50" rows="10" style="resize: none;"
+        onkeydown="valueTextarea()"></textarea>
+    </form>
     <script>
-        var arr = ["T" ,"Ô","I"," ", "L" ,"À"," ","T","H","Ả","O"];
-        let n = "" ;
-            function valueTextarea(){
-              
-            let i = n.length ;
-            if (i!= arr.length) {}
-            n = n + arr[i] ;
-            document.getElementById("textArea").value = n
+        let str = " TÔI TÊN LÀ THẢO ..! CỐ LÊN TÔI ƠI !! "
+
+        var arr = str.split("");
+      //  arr[1] = "T" ; arr[2] = "Ô";arr[3]="I" ; arr[4]=" ";arr[5]="L";arr[6]="À";arr[7]=" ";arr[8]="T";arr[9]="H";arr[10]="Ả";arr[11]="O"; 
+        let n = "";
+        function valueTextarea() {
+            t = document.displayGame.textArea.value;
+            j = t.length;
+            if (j > 0) {
+                for (i = 1; i <= j; i++) {
+                    n = n + arr[i];
+                    if (i == arr.length - 1) {
+                        document.displayGame.textArea.value = "";
+                        n = "";
+                    }
+                }
+               
             }
-            window.addEventListener("keydown",valueTextarea)
-        
+            document.displayGame.textArea.value = n;
+            n = "";
+        setTimeout("valueTextarea()", 1); 
+        }
+
     </script>
 </body>
+
 </html>

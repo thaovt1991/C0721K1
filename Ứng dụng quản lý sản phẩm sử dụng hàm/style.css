@@ -1,0 +1,40 @@
+button {
+    background-color: yellowgreen;
+    padding: 8px;
+    border: 2px solid #cc0000;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+table button {
+    display: none;
+}
+button:hover{
+    background-color: yellow;
+}
+body{
+    padding: 10px;
+}
+#inputProduct{
+    text-align: 22px;
+    padding: 8px ;
+    border-radius : 5%;
+}
+table{
+    width: 900px;
+    
+}
+td:nth-child(1){
+    width: 50%;
+}
+td{
+    width: 25%;
+    text-align: left;
+}
+tr:nth-child(odd){
+    background-color: silver;
+}
+tr{
+    height: 60px;
+}

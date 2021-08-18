@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form name = "f" style="text-align: center;">
+        <h1>Hãy nhập nội dung mình muốn ! ^^!</h1>
+        <textarea name="txt" id="" cols="40" rows="10" onkeydown="typeTextarea();"style="margin: 0px; width: 497px; height: 284px;"></textarea>
+    </form>
+    <script>
+        let a=new Array()
+         let n="";
+            a[1]='T';a[2]='Ô';a[3]='I';a[4]=' ';a[5]='L';a[6]='À';a[7]=' ';a[8]='M';a[9]='Ộ';a[10]='T';a[11]=' ';a[12]='Đ';a[13]='Ứ';a[14]='A';a[15]=' ';a[16]='N';a[17]='G';a[18]='Ố';a[19]='C';a[20]='!';a[21]='!';a[22]='!';
+            function typeTextarea(){
+                t = document.f.txt.value; //số kí tự nhập vào text_ảre
+                j = t.length;
+                if(j > 0)
+                {
+                    for(var i=1; i<=j; i++)
+                    {
+                        n = n + a[i];
+                        if(i == 22)
+                        {
+                            document.f.txt.value = "";
+                            n = "";
+                        }
+                    }
+                }
+                document.f.txt.value = n;
+                n="";
+                setTimeout("typeTextarea()", 1);
+            }
+        
+    </script>
+</body>
+</html>
