@@ -1,4 +1,4 @@
-let arrProduct = new Array()   //("Nokia", "Sony", "SamSung")
+let arrProduct = new Array("Nokia", "Sony", "SamSung")
 function displayProduct() {
     document.getElementById("totalProduct").innerHTML = arrProduct.length + " Product "
     for (i = 0; i < arrProduct.length; i++) {

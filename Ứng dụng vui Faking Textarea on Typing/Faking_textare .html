@@ -15,18 +15,18 @@
         onkeydown="valueTextarea()"></textarea>
     </form>
     <script>
-        let str = " TÔI TÊN LÀ THẢO ..! CỐ LÊN TÔI ƠI !! "
+        let str = "TÔI TÊN LÀ THẢO ..! CỐ LÊN TÔI ƠI !! "
 
-        var arr = str.split("");
+        let arr = str.split("");
       //  arr[1] = "T" ; arr[2] = "Ô";arr[3]="I" ; arr[4]=" ";arr[5]="L";arr[6]="À";arr[7]=" ";arr[8]="T";arr[9]="H";arr[10]="Ả";arr[11]="O"; 
         let n = "";
         function valueTextarea() {
             t = document.displayGame.textArea.value;
             j = t.length;
             if (j > 0) {
-                for (i = 1; i <= j; i++) {
+                for (i = 0; i < j; i++) {
                     n = n + arr[i];
-                    if (i == arr.length - 1) {
+                    if (i == arr.length - 2) {
                         document.displayGame.textArea.value = "";
                         n = "";
                     }
