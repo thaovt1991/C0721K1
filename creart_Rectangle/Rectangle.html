@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+    <script>
+        function Rectangle(width, height) {
+            this.width = width;
+            this.height = height;
+            this.getArea = function () {
+                return width * height
+            }
+            this.getPrimeter = function () {
+                return 2 * (width + height)
+            }
+            this.getWidth = function () {
+                return width;
+            }
+            this.getHeight = function () {
+                return height;
+            }
+            this.setWidth = function () {
+                return this.width = width;
+            }
+            this.setHeight = function () {
+                return this.height = height;
+            }
+            this.getCreartRec = function () {
+                let ctx = document.getElementById("myCanvas").getContext("2d");
+                let rgb = "rgb(" + Math.floor(Math.random() * 255) + ","+ Math.floor(Math.random() * 255) +","+Math.floor(Math.random() * 255) +")"
+                ctx.fillStyle = rgb;
+              //  let x = Math.floor(Math.random() * window.innerWidth);
+             //   let y = Math.floor(Math.random() * window.innerHeight)
+                ctx.fillRect(10, 20, width, height);
+            }
+        }
+        let x = Math.floor(Math.random() * 1000- 100);
+        let y = Math.floor(Math.random() *800 - 100)
+        let rec = new Rectangle(x, y);
+
+        let s = rec.getArea();
+        let c = rec.getPrimeter();
+        rec.getCreartRec();
+        alert("Hình chữ nhật có diện tích là " + s + " và chu vi là " + c)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
