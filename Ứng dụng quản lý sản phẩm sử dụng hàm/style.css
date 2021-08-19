@@ -7,16 +7,31 @@ button {
     margin-top: 5px;
     margin-bottom: 5px;
 }
-table button {
-    display: none;
-}
+
 button:hover{
     background-color: yellow;
 }
+ .delete, .cancel {
+    background-color: red;
+    padding: 8px;
+    border: 2px solid #cc0000;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 5px;
+ }
+
+
 body{
     padding: 10px;
+    background-image: url(./background.png);
+    background-repeat:no-repeat;
+    background-origin:border-box;
+    background-attachment:fixed;
+    background-size: 100% 100%
 }
-#inputProduct{
+
+#inputProduct, input{
     text-align: 22px;
     padding: 8px ;
     border-radius : 5%;
@@ -38,3 +53,4 @@ tr:nth-child(odd){
 tr{
     height: 60px;
 }
+

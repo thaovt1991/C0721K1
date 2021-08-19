@@ -5,145 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Management</title>\
+    <title>Product Management</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    
+
+
 </head>
 
-<body onload="displayProduct()">
+<body onload=displayProduct()>
     <fieldset style="width: 500px;background-color:skyblue;">
         <legend style="color:red;">
             <h1>Add New Product</h1>
         </legend>
         <input type="text" id="inputProduct" size="30" placeholder="New Product">
-        <button type="button" onclick="addProduct();" >Add</button>
+        <button type="button" onclick="addProduct();">Add</button>
     </fieldset>
     <fieldset style="width: 900px; float: left">
         <legend>
-            <h3>Display All Product</h3>
+            <h2>All Product</h2>
         </legend>
-        <table cellspacing ="0" id="table">
-            <tr style="background-color: springgreen; width: 100%;;height: 80px;">
-                <th colspan="2" style="text-align: left;">Product Name</th>
-                <th style="text-align: right; color: red;" id="totalProduct"></th>
-            </tr>
-            <tr id = "Product0">
-                <td id = "P0"></td>
-                <td>
-                    <button type="button" id = "editP0" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id="deleteP0" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-            <tr id = "Product1" >
-                <td  id = "P1"></td>
-                <td>
-                    <button type="button" id = "editP1" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id = "deleteP1" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-            <tr id="Product2" >
-                <td id = "P2"></td>
-                <td>
-                    <button type="button" id = "editP2" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id="deleteP2" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-            <tr id ="Product3">
-                <td  id = "P3"></td>
-                <td>
-                    <button type="button" id = "editP3" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id = "deleteP3" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-            <tr id = "Product4">
-                <td  id = "P4"></td>
-                <td>
-                    <button type="button" id = "editP4" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id ="deleteP4" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-            <tr id = "Product5">
-                <td  id = "P5"></td>
-                <td>
-                    <button type="button" id = "editP5" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id ="deleteP5" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-            <tr id= "Product6">
-                <td  id = "P6"></td>
-                <td>
-                    <button type="button" id = "editP6" onclick="EditProduct(this.id)">Edit</button>
-                </td>
-                <td>
-                    <button type="button" id ="deleteP6" onclick="DeleteProduct(this.id);">Delete</button>
-                </td>
-            </tr>
-        </table>
-    </fieldset>
-    <form >
-        <fieldset id ="renamePro0" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename0">
-             <button type="button" id ="done0" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-         <fieldset id ="renamePro1" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename1">
-             <button type="button" id ="done1" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-         <fieldset id ="renamePro2" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename2">
-             <button type="button" id ="done2" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-         <fieldset id ="renamePro3" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename3">
-             <button type="button" id ="done3" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-         <fieldset id ="renamePro4" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename4">
-             <button type="button" id ="done4" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-         <fieldset id ="renamePro5" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename5">
-             <button type="button" id ="done5" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-         <fieldset id ="renamePro6" style= " width :300px;float: right;display: none;">
-            <legend>Edit Product</legend>
-            Rename_Product
-             <input type="text" id = "rename6">
-             <button type="button" id ="done6" onclick = "RenameProduct(this.id)">Done</button>
-             
-         </fieldset>
-    </form>
-    <script src="javascript.js"></script>
+        <table cellspacing="0" id="table">
+      
+        <script src="javascript.js"></script>
 </body>
 
 </html>

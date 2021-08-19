@@ -16,39 +16,65 @@
             this.year = year;
 
             this.getDay = function () {
-            return this.day;
-        };
+                return this.day;
+            };
 
-        this.getMonth = function () {
-            return this.month;
-        };
+            this.getMonth = function () {
+                return this.month;
+            };
 
-        this.getYear = function () {
-            return this.year;
-        };
+            this.getYear = function () {
+                return this.year;
+            };
 
-        this.setDay = function (day) {
-            this.day = day;
-        };
+            this.setDay = function (day) {
+                this.day = day;
+            };
 
-        this.setMonth = function (month) {
-            this.month = month;
-        };
+            this.setMonth = function (month) {
+                this.month = month;
+            };
 
-        this.setYear = function (year) {
-            this.year = year;
-        };
-    }
+            this.setYear = function (year) {
+                this.year = year;
+            };
+            this.setDate = function (day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+            this.gettoString = function () {
+                day = this.day;
+                if (day < 10) {
+                    day = "0" + day
+                }
+                month = this.month;
+                if (month < 10) {
+                    month = "0" + month
+                }
+                year = this.year
+                if (year < 10) {
+                    year = "000" + year
+                } else if(year < 100){
+                    year = "00" + year
+                }else if(year<1000){
+                    year = "0" + year
+                }
+                return alert(" "+ day + " / " + month + " / " + year)
+            }
+        }
 
         let date = new MyDate(8, 8, 2021);
+        date.setDate(8, 8, 998)
+        date.gettoString();
 
-        let day = date.getDay();
+        // let day = date.getDay();
 
-        let month = date.getMonth();
+        // let month = date.getMonth();
 
-        let year = date.getYear();
+        // let year = date.getYear();
 
-          alert("Ngày " + day + " tháng " + month + " năm " + year)
+        // alert("Ngày " + day + " tháng " + month + " năm " + year)
         // date.setDay(10);
         // date.setMonth(10);
         // date.setYear(2019);

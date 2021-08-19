@@ -20,12 +20,16 @@
                  return C + 273.15
              }
              this.setC = function(C){
-                return this.C = C
+                 if (C >= - 273){
+                    this.C = C
+                 }else 
+                    alert("Nhập lại độ C")
+               
              }
          }
 
          let temp = new Temperature(25) ;
-         temp.setC(50);
+         temp.setC(-27);
          let C = temp.getC()
          let F = temp.getCtoF();
          let K = temp.getCtoK();
