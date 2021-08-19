@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Temperature(C){
+             this.C = C;
+             this.getC = function(){
+                 return this.C;
+             }
+             this.getCtoF = function (){
+                 return 9 /5 * C +32;
+             }
+             this.getCtoK = function(){
+                 return C + 273.15
+             }
+             this.setC = function(C){
+                return this.C = C
+             }
+         }
+
+         let temp = new Temperature(25) ;
+         temp.setC(50);
+         let C = temp.getC()
+         let F = temp.getCtoF();
+         let K = temp.getCtoK();
+         document.write(C + " độ C = " + F + " độ F , " + C + " độ C = " + K + " độ KeVin")
+    </script>
+   
+</body>
+</html>
