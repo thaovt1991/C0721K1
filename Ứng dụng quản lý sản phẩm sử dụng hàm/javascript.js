@@ -30,7 +30,7 @@ function addProduct() {
     let value = document.getElementById("inputProduct").value;
     if (value != "") {
         if (arrProduct.indexOf(value) == -1) {
-            arrProduct.push(value)
+            arrProduct.unshift(value)
             document.getElementById("inputProduct").focus()
             document.getElementById("inputProduct").value = ""
         } else {
@@ -42,7 +42,7 @@ function addProduct() {
         alert("Sản phẩm không được để trống")
         document.getElementById("inputProduct").focus()
     }
-    displayProduct()
+   displayProduct()
 }
 
 
@@ -52,7 +52,7 @@ function DeleteProduct(clicker_id) {
     if (confirm("Bạn có chắc là mình muốn xóa sản phẩm trên ?")) {
         arrProduct.splice(num, 1)
     }
-    displayProduct()
+   displayProduct()
 }
 
 

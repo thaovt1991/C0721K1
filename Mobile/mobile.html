@@ -1,28 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<div id= "message" style="position: absolute;">
+    <fieldset id="iphone_message" style="width: 300px;height: 500px;display: none;position: absolute;">
+        <legend>Iphone 8 Plus</legend>
+        Creat Message <br>
+        <textarea name="sendIp" id="sendIp" cols="30" rows="10" style="resize:none"></textarea>
+        <button type="button" id="sendMessIp" onclick="sendMessageIp()">send</button><br><br>
+        Inbox Message <br>
+        <textarea name="inboxIp" id="inboxIp" cols="30" rows="10" style="resize:none" disabled></textarea>
+        <button type="button" id="deleteIbIp" onclick="deleteIbIp()">Delete</button><br><br><br>
+        <button type="button" onclick="Return_Main_Ip()">Return Main</button>
+
+    </fieldset>
+
+    <fieldset id="Samsung_message" style="width: 300px;height: 500px;display: none;position: absolute;left: 500px;">
+        <legend>Samsung Galaxy</legend>
+        Creat Message <br>
+        <textarea name="sendSam" id="sendSam" cols="30" rows="10" style="resize:none"></textarea>
+        <button type="button" id="sendMessSam" onclick="sendMessageSam()">send</button><br><br>
+        Inbox Message <br>
+        <textarea name="inboxSam" id="inboxSam" cols="30" rows="10" style="resize:none" disabled></textarea>
+        <button type="button" id="deleteIbSam" onclick="deleteIbSam()">Delete</button><br><br><br>
+        <button type="button" onclick="Return_Main_Sam()">Return Main</button>
+    </fieldset>
+</div>
+<div id = "main" style="position: relative;" >
+    <fieldset id="iphone_main" style="width: 300px;height: 500px;position: absolute;  ;">
+        <legend>Iphone 8 Plus</legend>
+        <button type="button" onclick="displayMessIp()">Message</button>
+        <p id = "notificationIp" style="color: red;"></p>
+    </fieldset>
+
+    <fieldset id="Samsung_main" style="width: 300px;height: 500px;position: absolute; left: 500px;">
+        <legend>Samsung Galaxy</legend>
+        <button type="button" onclick="displayMessSam()">Message</button>
+        <p id = "notificationSam" style="color: red;"></p>
+    </fieldset>
+</div>
+
 <body>
-    <script>
-        class Mobile { 
-            constructor(name, battery,state, ){
-                this.name = name ;
-                this.battery = battery ;
-                this.
-                this.starus = status
-            }
-
-        } 
-          
-
-
-        
-            
-        
+    <script src="./mobile.js">
     </script>
 </body>
+
 </html>

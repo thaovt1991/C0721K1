@@ -6,91 +6,201 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-    <div id="clock" style="color: red; text-align: center;font-size: 30px;"></div>
+    <h1>Product </h1>
+    <div class="col-auto">
+        <label>Add Product</label>
+        <input type="text" size="30" id="inputProduct" placeholder="New product">
+        <button type="button" id="add" class="btn btn-outline-dark">Add</button>
+    </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" colspan="2">Product Name</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="display">
+
+
+        </tbody>
+    </table>
+
     <script>
-        let person = {
-            name: ['Bob', 'Smith'],
-            age: 32,
-            gender: 'male',
-            interests: ['music', 'skiing'],
-            bio: function () {
-                alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
-            },
-            greeting: function () {
-                alert('Hi! I\'m ' + this.name[0] + '.');
-            }
-        };
-
-        let myDataName = 'height';
-        let myDataValue = '1.75m';
-        let t = "yes";
-        let arr = ["siter", "brother", "father", "mother"]
-        person[myDataName] = myDataValue;
-        person["family"] = t;
-        person["number_member"] = arr;
-        person['eyes'] = 'hazel';
-        //  person.farewell = function () { alert("Bye everybody!" + this.name[0] + this.name[1]); }
-        //  console.log(person.bio())
-
-
-        function clock() {
-            //Khởi tạo đối tượng timer sử dụng Date Object
-            var timer = new Date();
-            //Gọi các phương thức của đối tượng timer
-            var hour = timer.getHours();  //Lấy giờ hiện tại (giá trị từ 0 - 23)
-            var minute = timer.getMinutes();  //Lấy phút hiện tại
-            var second = timer.getSeconds();  //Lấy giây  hiện tại
-            //Thêm ký tự 0 đằng trước nếu giờ, phút, giây < 10 với câu lệnh điều khiển if
-            if (hour < 10) {
-                hour = "0" + hour;
-            }
-            if (minute < 10) {
-                minute = "0" + minute;
-            }
-            if (second < 10) {
-                second = "0" + second;
-            }
-            //Hiện thị thời gian lên thẻ div id="clock" với phương thức innerHTML
-            document.getElementById("clock").innerHTML = hour + ":" + minute + ":" + second;
-            
-            if (condition) {
-              
-            }
+        let arrProduct = ["iphone", "nokia"]
+        let str = ""
+        for (i = 0; i < arrProduct.length; i++) {
+            str += `
+             <tr>
+                <th scope="row">${i + 1}</th>
+                <td>${arrProduct[i]}</td>
+                <td><button type="button" class="btn btn-outline-success">Edit</button></td>
+                <td><button type="button" class="btn btn-outline-danger delete">Delete</button></td>
+              </tr> 
+              `;
         }
-        //Thực hiện hàm clock theo chu kỳ 1 giây
-        setInterval("clock()", 1000);
+        document.getElementById("display").innerHTML = str;
+
+
+
+        document.getElementById("add").addEventListener("click", function () {
+            let value = document.getElementById("inputProduct").value;
+            arrProduct.push(value);
+            let count = arrProduct.length ;
+            str += `
+             <tr>
+                <th scope="row">${count }</th>
+                <td>${value}</td>
+                <td><button type="button" class="btn btn-outline-success">Edit</button></td>
+                <td><button type="button" class="btn btn-outline-danger delete">Delete</button></td>
+              </tr> 
+              `;
+        
+        document.getElementById("display").innerHTML = str;
+        document.getElementById("inputProduct").value ="";
+        })
+
+        function Delete(){
+           
+            let deleteBt = document.getElementsByClassName("delete");
+            Array.from(deleteBt).addEventListener
+            ("click", function(){
+                alert("DELETE")
+            })
+        }
+        Delete()
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div id="clock" style="color: red; text-align: center;font-size: 30px;"></div>
+
+   // <script>
+    //     let person = {
+    //         name: ['Bob', 'Smith'],
+    //         age: 32,
+    //         gender: 'male',
+    //         interests: ['music', 'skiing'],
+    //         bio: function () {
+    //             alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+    //         },
+    //         greeting: function () {
+    //             alert('Hi! I\'m ' + this.name[0] + '.');
+    //         }
+    //     };
+
+    //     let myDataName = 'height';
+    //     let myDataValue = '1.75m';
+    //     let t = "yes";
+    //     let arr = ["siter", "brother", "father", "mother"]
+    //     person[myDataName] = myDataValue;
+    //     person["family"] = t;
+    //     person["number_member"] = arr;
+    //     person['eyes'] = 'hazel';
+    //     //  person.farewell = function () { alert("Bye everybody!" + this.name[0] + this.name[1]); }
+    //     //  console.log(person.bio())
+
+
+    //     function clock() {
+    //         //Khởi tạo đối tượng timer sử dụng Date Object
+    //         var timer = new Date();
+    //         //Gọi các phương thức của đối tượng timer
+    //         var hour = timer.getHours();  //Lấy giờ hiện tại (giá trị từ 0 - 23)
+    //         var minute = timer.getMinutes();  //Lấy phút hiện tại
+    //         var second = timer.getSeconds();  //Lấy giây  hiện tại
+    //         //Thêm ký tự 0 đằng trước nếu giờ, phút, giây < 10 với câu lệnh điều khiển if
+    //         if (hour < 10) {
+    //             hour = "0" + hour;
+    //         }
+    //         if (minute < 10) {
+    //             minute = "0" + minute;
+    //         }
+    //         if (second < 10) {
+    //             second = "0" + second;
+    //         }
+    //         //Hiện thị thời gian lên thẻ div id="clock" với phương thức innerHTML
+    //         document.getElementById("clock").innerHTML = hour + ":" + minute + ":" + second;
+            
+    //         if (condition) {
+              
+    //         }
+    //     }
+    //     //Thực hiện hàm clock theo chu kỳ 1 giây
+    //     setInterval("clock()", 1000);
           
 
 
 
-        var title = new String("Em ơi Hà Nội phố");
-        document.write(title)
+    //     var title = new String("Em ơi Hà Nội phố");
+    //     document.write(title)
 
 
-        class meo {
-            constructor(old, gender) {
-                this.old = old;
-                this.gender = gender;
-            }
-            getOld() { return this.old; }
-            getGender() { return this.gender }
-            setOld(old) {return this.old = old}
-            setGender(gender) {return this.gender = gender}
-        } 
-        let Mun = new meo(5,"cai")
-        Mun.setOld(7);
-         Mun.setGender("cai")
-        let old = Mun.getOld()
-        let gender = Mun.getGender()
+    //     class meo {
+    //         constructor(old, gender) {
+    //             this.old = old;
+    //             this.gender = gender;
+    //         }
+    //         getOld() { return this.old; }
+    //         getGender() { return this.gender }
+    //         setOld(old) {return this.old = old}
+    //         setGender(gender) {return this.gender = gender}
+    //     } 
+    //     let Mun = new meo(5,"cai")
+    //     Mun.setOld(7);
+    //      Mun.setGender("cai")
+    //     let old = Mun.getOld()
+    //     let gender = Mun.getGender()
         
         
-         document.write("con meo giosng "+ gender + "da song "  + old  +"nam")
+    //      document.write("con meo giosng "+ gender + "da song "  + old  +"nam")
 
 
-    </script>
+    // </script>-->
 </body>
 
 </html>
