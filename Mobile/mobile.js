@@ -5,6 +5,7 @@ class Mobile {
         this.message = "";
         this.inbox = []
         this.notification = false;
+        this.battery = 100;
     };
 
     getId() { return this.id };
@@ -21,24 +22,61 @@ class Mobile {
         return this.message
     };
 
-    setMessage() {
-        this.message;
+    setMessage(message) {
+        this.message = message;
+        this.energy--
     };
     getInbox() {
+        this.energy--
         return this.inbox
+
     }
     setInbox(message) {
         this.inbox.push(message)
+        this.energy--
     }
 
     sendMessage(message, mobile) {
         mobile.setMessage(message)
         mobile.setNotification(true)
         mobile.setInbox(message)
+        mobile.decreaseEnergy()
     };
-    deleteInbox(){
+    deleteInbox() {
         this.inbox = []
     }
+    turnOn() {
+        this.status = true;
+    };
+
+    turnOff() {
+        this.status = false;
+    }
+
+    getBattery() {
+        if ((this.battery > 0) && (this.battery <= 100)) {
+            return this.battery
+        } else
+            return this.turnOff()
+    };
+
+     setRechargeBattery(){
+         if (this.battery < 100){
+               this.battery ++
+         }
+         
+     };
+     decreaseEnergy() {
+        this.energy--;
+    }
+
+    setBattery() {
+
+    }
+    getBatteryInfo() {
+        return mobile.getBattery()
+    }
+    
 }
 
 
@@ -63,9 +101,9 @@ function sendMessageIp() {
     let arr = androi.getInbox()
     console.log(androi.getInbox())
     console.log(androi.getNotification())
-    let str ="" ;
+    let str = "";
     for (i = 0; i < arr.length; i++) {
-        str += "Message " + (i + 1 )+ " : " + arr[i] + "               "
+        str += "Message " + (i + 1) + " : " + arr[i] + "               "
     }
     document.getElementById("inboxSam").value = str
     document.getElementById("sendIp").value = "";
@@ -80,12 +118,12 @@ function sendMessageSam() {
     let mess = document.getElementById("sendSam").value;
     androi.sendMessage(mess, iphone);
     let arr = iphone.getInbox()
-    let str ="" ;
+    let str = "";
     for (i = 0; i < arr.length; i++) {
-        str += "Message " + (i + 1) + " : " + arr[i] + "               " ;
-    }   
+        str += "Message " + (i + 1) + " : " + arr[i] + "               ";
+    }
     document.getElementById("sendSam").value = "";
-    document.getElementById("inboxIp").value = str ;
+    document.getElementById("inboxIp").value = str;
     document.getElementById("sendSam").focus();
     if (iphone.getNotification()) {
         document.getElementById("notificationIp").innerHTML = "Có tin nhắn !"
