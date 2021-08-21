@@ -41,7 +41,7 @@
 
             rechargeEnery(flashLamp) {
                 if (this.energy <= 100) {
-                    this.energy==99?this.energy++:this.energy +=2;
+                    this.energy++   
                 }
             }
         };
@@ -128,7 +128,7 @@
                 } else
                     clearInterval(this.powerRecover);
 
-            }, 1000)
+            }, 500)
         }
 
         function Off_RechangeEnergy() {
@@ -137,55 +137,6 @@
                 On_Bull()
             }
         }
-
-
-
-
-
-
-
-
-
-        // document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
-        // flashLamp.light();
-
-        // document.write("Turn on<br/>")
-        // flashLamp.turnOn();
-        // flashLamp.light();
-        // document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
-
-        // document.write("Turn off<br/>")
-        // flashLamp.turnOff();
-        // flashLamp.light();
-
-
-        //  let id = '';
-
-            //     id = setInterval('run()', 1000);
-            // }
-            // // function run() {
-            //     let pic;
-            //     battery.decreaseEnergy();
-            //     let t = flashLamp.tgetBatteryInfo();
-            //     if (t > 0) {
-            //         if (t >= 10) {
-            //              document.getElementById("displayTime").innerHTML = t 
-            //             } else { 
-            //                 document.getElementById("displayTime").innerHTML = "0" + t ;
-            //              } 
-            //         pic = "pic_bulbon.gif";
-            //     } else {
-            //         document.getElementById("displayTime").innerHTML = 0;
-            //         pic = "pic_bulboff.gif";
-            //         clearInterval(id);
-            //         alert("Hết pin")
-            //     }
-            //     document.getElementById('myImage').src = pic;
-
-       // }
-
-
-
 
 
     </script>
