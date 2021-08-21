@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="myImage" src="pic_bulboff.gif" width="100" height="180"><br><br>
+    <button type="button" onclick="On_Bull()">Light On</button>
+    <button type="button" onclick="Off_Bull()">Light Off</button>
+    <button type="button" onclick="RechangeEnergy()">Recover Power</button>
+    <button type="button" onclick="Off_RechangeEnergy()">Close Recover Power</button>
+    <p id="displayTime"></p>
+
+
+    <script>
+        class Battery {
+            constructor(energy) {
+                this.energy = energy;
+            }
+            setEnergy(energy) {
+                if (energy > 100) {
+                    alert("Nhập lại pin")
+                } else
+                    this.energy = energy;
+            };
+
+            getEnergy() {
+                return this.energy;
+            };
+
+            decreaseEnergy() {
+                if (this.energy > 0) {
+                    this.energy--;
+                }
+            }
+
+            rechargeEnery(flashLamp) {
+                if (this.energy <= 100) {
+                    this.energy==99?this.energy++:this.energy +=2;
+                }
+            }
+        };
+
+        class FlashLamp {
+            constructor(battery) {
+                this.status = false;
+                this.battery = battery;
+            }
+            setBattery(battery) {
+                this.battery = battery;
+            };
+
+            getBatteryInfo() {
+                return this.battery.getEnergy();
+            };
+
+            light() {
+                if (this.status) {
+                    alert("Lighting");
+                } else {
+                    alert("Not lighting");
+                }
+            };
+
+            turnOn() {
+                this.status = true;
+            };
+
+            turnOff() {
+                this.status = false;
+            }
+
+        }
+
+        let battery = new Battery(20);
+        let flashLamp = new FlashLamp(battery);
+        document.getElementById("displayTime").innerHTML = "Energy : " + flashLamp.getBatteryInfo()
+
+        function On_Bull() {
+            let pic;
+            this.powerDecrease = setInterval(() => {
+                battery.decreaseEnergy();
+                let t = flashLamp.getBatteryInfo();
+                if (t > 0) {
+                    flashLamp.turnOn()
+                    if (t >= 10) {
+                        document.getElementById("displayTime").innerHTML = "Energy : " + t
+                    } else {
+                        document.getElementById("displayTime").innerHTML = "Energy : " + "0" + t;
+                    }
+                    pic = "pic_bulbon.gif";
+                } else {
+                    document.getElementById("displayTime").innerHTML = "Energy : " + 0;
+                    pic = "pic_bulboff.gif";
+                    clearInterval(this.powerDecrease);
+                    flashLamp.turnOff();
+                    flashLamp.light();
+                    alert("Lose Power")
+                }
+                document.getElementById('myImage').src = pic;
+            }, 1000)
+        }
+
+        function Off_Bull() {
+            flashLamp.turnOff();
+            flashLamp.light();
+            let pic = "pic_bulboff.gif";
+            document.getElementById("displayTime").innerHTML = "Energy : " + flashLamp.getBatteryInfo()
+            document.getElementById('myImage').src = pic;
+            clearInterval(this.powerDecrease);
+        }
+
+        function RechangeEnergy() {
+            this.powerRecover = setInterval(() => {
+                battery.rechargeEnery();
+                let t = flashLamp.getBatteryInfo();
+                if (t <= 100) {
+                    if (t >= 10) {
+                        document.getElementById("displayTime").innerHTML = "Energy : " + t
+                    } else {
+                        document.getElementById("displayTime").innerHTML = "Energy : " + "0" + t;
+                    }
+                } else
+                    clearInterval(this.powerRecover);
+
+            }, 1000)
+        }
+
+        function Off_RechangeEnergy() {
+            clearInterval(this.powerRecover);
+            if (flashLamp.turnOn()) {
+                On_Bull()
+            }
+        }
+
+
+
+
+
+
+
+
+
+        // document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+        // flashLamp.light();
+
+        // document.write("Turn on<br/>")
+        // flashLamp.turnOn();
+        // flashLamp.light();
+        // document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+
+        // document.write("Turn off<br/>")
+        // flashLamp.turnOff();
+        // flashLamp.light();
+
+
+        //  let id = '';
+
+            //     id = setInterval('run()', 1000);
+            // }
+            // // function run() {
+            //     let pic;
+            //     battery.decreaseEnergy();
+            //     let t = flashLamp.tgetBatteryInfo();
+            //     if (t > 0) {
+            //         if (t >= 10) {
+            //              document.getElementById("displayTime").innerHTML = t 
+            //             } else { 
+            //                 document.getElementById("displayTime").innerHTML = "0" + t ;
+            //              } 
+            //         pic = "pic_bulbon.gif";
+            //     } else {
+            //         document.getElementById("displayTime").innerHTML = 0;
+            //         pic = "pic_bulboff.gif";
+            //         clearInterval(id);
+            //         alert("Hết pin")
+            //     }
+            //     document.getElementById('myImage').src = pic;
+
+       // }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

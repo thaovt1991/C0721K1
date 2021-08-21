@@ -41,6 +41,7 @@ class Mobile {
         mobile.setNotification(true)
         mobile.setInbox(message)
         mobile.decreaseEnergy()
+        this.energy --
     };
     deleteInbox() {
         this.inbox = []
@@ -70,8 +71,8 @@ class Mobile {
         this.energy--;
     }
 
-    setBattery() {
-
+    setBattery(battery) {
+        this.battery = battery
     }
     getBatteryInfo() {
         return mobile.getBattery()
