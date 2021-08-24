@@ -1,11 +1,11 @@
 class Mobile {
-    constructor(id, name) {
+    constructor(id, name, energy) {
         this.id = id;
         this.name = name;
         this.message = "";
         this.inbox = []
         this.notification = false;
-        this.energy = 100;
+        this.energy = energy;
     };
 
     getId() { return this.id };
@@ -17,7 +17,6 @@ class Mobile {
     }
     setNotification(notification) {
         this.notification = notification;
-        this.energy--;
     }
     getMessage() {
         return this.message;
@@ -26,7 +25,6 @@ class Mobile {
 
     setMessage(message) {
         this.message = message;
-        this.energy--;
     };
     getInbox() {
         return this.inbox
@@ -34,7 +32,7 @@ class Mobile {
     }
     setInbox(message) {
         this.inbox.push(message)
-        this.energy--;
+
     }
 
     sendMessage(message, mobile) {
@@ -42,7 +40,7 @@ class Mobile {
         mobile.setNotification(true)
         mobile.setInbox(message)
         mobile.decreaseEnergy()
-        this.energy--;
+
     };
     deleteInbox() {
         this.inbox = []
@@ -56,16 +54,16 @@ class Mobile {
     }
 
     getEnergy() {
-        if ((this.energy > 0) && (this.energy <= 100)) {
-            return this.energy
-        } else
-            return this.turnOff()
+        return this.energy
+    };
+    setEnergy(energy) {
+         this.energy = energy
     };
 
     setRechargeEnergy() {
         if (this.energy < 100) {
             this.energy++
-        }
+        } else this.energy = 100;
 
     };
     decreaseEnergy() {
@@ -75,8 +73,8 @@ class Mobile {
 }
 
 
-let iphone = new Mobile(1, "Iphone");
-let androi = new Mobile(2, "Samsung");
+let iphone = new Mobile(1, "Iphone", 20);
+let androi = new Mobile(2, "Samsung", 20);
 
 
 
@@ -170,30 +168,103 @@ setInterval('clock()', 1000)
 window.addEventListener('onload', clock)
 
 
-// function powerIp() {
-//     let value = document.getElementById("powerIp").checked
-//     console.log(value);
-//     if (value) {
-//         document.getElementById('btmessIp').disabled = false;
-
-//     } else {
-//         document.getElementById('btmessIp').disabled = true;    
-//     }
-// }
+function powerIp() {
+    let value = document.getElementById("powerIp").checked
+    if (value) {
+        document.getElementById('btmessIp').disabled = false;
+    } else {
+        document.getElementById('btmessIp').disabled = true;
+    }
+}
+document.getElementById("enegyIp_main").innerHTML = iphone.getEnergy() + "%";
 function changePowerIp() {
-    this.changePower = setInterval(() => {
-        let value = document.getElementById("changePowerIp").checked;
-        if (value) {
+
+    let value = document.getElementById("changePowIp").checked;
+    if (value) {
+        this.changePower = setInterval(() => {
             iphone.setRechargeEnergy();
             let t = iphone.getEnergy();
-            if (t<100){
-                document.getElementById("enegyIp").innerHTML = iphone.getEnergy(); 
-            }else{
-                clearInterval(this.changePower)
-            }
-        }else{
-            clearInterval(this.changePower)
-        }
-    }, 1000)
+            if (t > 0) {
+                if (t < 100) {
+                    document.getElementById("enegyIp_main").innerHTML = t + "%";
+                    document.getElementById("enegyIp_mess").innerHTML = t + "%";
+                } else {
+                    document.getElementById("enegyIp_main").innerHTML = "100%"
+                    document.getElementById("enegyIp_mess").innerHTML = "100%"
+                    iphone.setEnergy(100)
+                    clearInterval(this.changePower)
+                }
+            } 
+        }, 1000)
+    } else clearInterval(this.changePower)
 }
+
+function onMobileIp() {
+    this.decrease = setInterval(() => {
+        iphone.decreaseEnergy();
+        let t = iphone.getEnergy();
+        if (t > 0) {
+            document.getElementById("enegyIp_main").innerHTML = t + "%";
+            document.getElementById("enegyIp_mess").innerHTML = t + "%";
+        } else {
+            document.getElementById("enegyIp_main").innerHTML = "0%"
+            document.getElementById("enegyIp_mess").innerHTML = "0%"
+            clearInterval(this.decrease);
+           
+        }
+
+    }, 2000);
+}
+window.addEventListener('onload',onMobileIp())
+
+
+function powerSam() {
+    let value = document.getElementById("powerIp").checked
+    if (value) {
+        document.getElementById('btmessSam').disabled = false;
+    } else {
+        document.getElementById('btmessSam').disabled = true;
+    }
+}
+document.getElementById("enegySam_main").innerHTML = androi.getEnergy() + "%";
+
+function changePowerSam() {
+
+    let value = document.getElementById("changePowSam").checked;
+    if (value) {
+        this.changePower = setInterval(() => {
+            androi.setRechargeEnergy();
+            let t = androi.getEnergy();
+            if (t > 0) {
+                if (t < 100) {
+                    document.getElementById("enegySam_main").innerHTML = t + "%";
+                    document.getElementById("enegySam_mess").innerHTML = t + "%";
+                } else {
+                    document.getElementById("enegySam_main").innerHTML = "100%"
+                    document.getElementById("enegySam_mess").innerHTML = "100%"
+                    iphone.setEnergy(100)
+                    clearInterval(this.changePower)
+                }
+            } 
+        }, 1000)
+    } else clearInterval(this.changePower)
+}
+
+function onMobileSam() {
+    this.decrease = setInterval(() => {
+        androi.decreaseEnergy();
+        let t = androi.getEnergy();
+        if (t > 0) {
+            document.getElementById("enegySam_main").innerHTML = t + "%";
+            document.getElementById("enegySam_mess").innerHTML = t + "%";
+        } else {
+            document.getElementById("enegySam_main").innerHTML = "0%"
+            document.getElementById("enegySam_mess").innerHTML = "0%"
+            clearInterval(this.decrease);
+           
+        }
+
+    }, 2000);
+}
+window.addEventListener('onload',onMobileSam())
 
