@@ -9,12 +9,24 @@
 </head>
 
 <body>
-    <canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="myCanvas" width="1300" height="600" style="border:1px solid #d3d3d3;"></canvas>
     <script>
         function Circle(x, y, radius) {
             this.x = x;
             this.y = y;
             this.radius = radius;
+            this.getX = function () {
+                return this.x
+            }
+            this.setX = function (x) {
+                this.x = x;
+            }
+            this.getY = function () {
+                return this.y
+            }
+            this.setY = function (y) {
+                this.y = y;
+            }
         }
 
         function getRandomHex() {
@@ -27,25 +39,43 @@
             var blue = getRandomHex();
             return "rgb(" + red + "," + blue + "," + green + ")";
         }
-
-        function createCircle() {
-            var ctx = document.getElementById("myCanvas").getContext("2d");
-            var radius = Math.floor(Math.random() * 80);
+        let widthCanvas = document.getElementById("myCanvas").width;
+        let heightCanvas = document.getElementById("myCanvas").height;
+        var radius = 80
+        var x = 100;
+        var y = 100;
+        while (y < heightCanvas - 80) {
+            x = x + 160;
+            y = y + 160;
             var color = getRandomColor();
-            var radius = Math.floor(Math.random()* 80)
-            var x = Math.random()*window.innerWidth ;
-            var y = Math.random()*window.innerHeight ;
             var circle = new Circle(x, y, radius);
-            ctx.beginPath();
-            ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
-            ctx.fillStyle = color;
-            ctx.fill();
+            function createCircle() {
+                var ctx = document.getElementById("myCanvas").getContext("2d");
+                ctx.beginPath();
+                ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+            }
+            createCircle()
         }
-
-        createCircle();
+        
         setInterval("createCircle()", 500)
+        //     while (x < widthCanvas -80) {
+        //         x = x+ 160 ;
+        //         y = y - 160;
+        //         var circle = new Circle(x, y, radius);
+        //     ctx.beginPath();
+        //     ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        //     ctx.fillStyle = color;
+        //     ctx.fill();
+        //     }
+
+
+        // }
+
+        // createCircle()
+        // setInterval("runRightCircle()", 500)
     </script>
 </body>
 
 </html>
-setInterval ("createCircle()", 1000)

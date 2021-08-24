@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+
+<body onload=displayProduct()>
+    <fieldset id= "addProduct" style="width: 600px;background-color:skyblue;">
+        <legend style="color:red;">
+            <h1>Add New Product</h1>
+        </legend>
+        <input type="text" id="inputProduct" size="30" placeholder="New Product">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="brand" id="brand">
+                <option value="Nokia">Nokia</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Sony">Samsung</option>
+                <option value="Asus">Asus</option>
+            </optgroup>
+        </select>
+        <button type="button" onclick="addProduct();">Add</button>
+    </fieldset>
+    <fieldset id="displayProduct" style="width: 1300px; float: left">
+        <legend>
+            <h2>All Product</h2>
+        </legend>
+        <table cellspacing="0" id="table">
+
+            <script src="javascript.js"></script>
+</body>
+
+</html>

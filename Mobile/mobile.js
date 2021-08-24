@@ -5,7 +5,7 @@ class Mobile {
         this.message = "";
         this.inbox = []
         this.notification = false;
-        this.battery = 100;
+        this.energy = 100;
     };
 
     getId() { return this.id };
@@ -17,23 +17,24 @@ class Mobile {
     }
     setNotification(notification) {
         this.notification = notification;
+        this.energy--;
     }
     getMessage() {
-        return this.message
+        return this.message;
+
     };
 
     setMessage(message) {
         this.message = message;
-        this.energy--
+        this.energy--;
     };
     getInbox() {
-        this.energy--
         return this.inbox
 
     }
     setInbox(message) {
         this.inbox.push(message)
-        this.energy--
+        this.energy--;
     }
 
     sendMessage(message, mobile) {
@@ -41,7 +42,7 @@ class Mobile {
         mobile.setNotification(true)
         mobile.setInbox(message)
         mobile.decreaseEnergy()
-        this.energy --
+        this.energy--;
     };
     deleteInbox() {
         this.inbox = []
@@ -54,30 +55,23 @@ class Mobile {
         this.status = false;
     }
 
-    getBattery() {
-        if ((this.battery > 0) && (this.battery <= 100)) {
-            return this.battery
+    getEnergy() {
+        if ((this.energy > 0) && (this.energy <= 100)) {
+            return this.energy
         } else
             return this.turnOff()
     };
 
-     setRechargeBattery(){
-         if (this.battery < 100){
-               this.battery ++
-         }
-         
-     };
-     decreaseEnergy() {
+    setRechargeEnergy() {
+        if (this.energy < 100) {
+            this.energy++
+        }
+
+    };
+    decreaseEnergy() {
         this.energy--;
     }
 
-    setBattery(battery) {
-        this.battery = battery
-    }
-    getBatteryInfo() {
-        return mobile.getBattery()
-    }
-    
 }
 
 
@@ -100,8 +94,6 @@ function sendMessageIp() {
     let mess = document.getElementById("sendIp").value;
     iphone.sendMessage(mess, androi);
     let arr = androi.getInbox()
-    console.log(androi.getInbox())
-    console.log(androi.getNotification())
     let str = "";
     for (i = 0; i < arr.length; i++) {
         str += "Message " + (i + 1) + " : " + arr[i] + "               "
@@ -154,5 +146,54 @@ function Return_Main_Sam() {
     document.getElementById("Samsung_message").style.display = "none";
     document.getElementById("Samsung_main").style.display = "block";
     document.getElementById("notificationSam").innerHTML = ""
+}
+
+function clock() {
+    let time = new Date();
+    let hour = time.getHours();
+    let minute = time.getMinutes();
+    let second = time.getSeconds();
+    if (hour < 10) {
+        hour = "0" + hour;
+    }
+    if (minute < 10) {
+        minute = "0" + minute;
+    }
+    if (second < 10) {
+        second = "0" + second;
+    }
+    document.getElementById("clockIp").innerHTML = hour + ":" + minute + ":" + second;
+    document.getElementById("clockSam").innerHTML = hour + ":" + minute + ":" + second;
+
+}
+setInterval('clock()', 1000)
+window.addEventListener('onload', clock)
+
+
+// function powerIp() {
+//     let value = document.getElementById("powerIp").checked
+//     console.log(value);
+//     if (value) {
+//         document.getElementById('btmessIp').disabled = false;
+
+//     } else {
+//         document.getElementById('btmessIp').disabled = true;    
+//     }
+// }
+function changePowerIp() {
+    this.changePower = setInterval(() => {
+        let value = document.getElementById("changePowerIp").checked;
+        if (value) {
+            iphone.setRechargeEnergy();
+            let t = iphone.getEnergy();
+            if (t<100){
+                document.getElementById("enegyIp").innerHTML = iphone.getEnergy(); 
+            }else{
+                clearInterval(this.changePower)
+            }
+        }else{
+            clearInterval(this.changePower)
+        }
+    }, 1000)
 }
 
