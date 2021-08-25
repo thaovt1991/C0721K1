@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-<script>
-let arr =[1,2,3,5,-6,-7,0]
-function plusMinus(arr) {
- let arrNew = new Array();
-  let a = 0 ;
-  let b= 0;
-  let c = 0;
-  for (let i = 0; i < arr.length ; i++ ){
-      if (arr[i] < 0){
-          a++
-      }else if (arr[i] > 0) {
-          b++
-      }else {c++}  
-  }
-  arrNew[0] = a /arr.length;
-  arrNew[1] = b /arr.length;
-  arrNew[2] = c /arr.length;
-  
-  
-return arrNew
+    <script>
+        let arr = [1, 2, 3, 5];
+        function miniMaxSum(arr) {
+            let arrnew = new Array();
+            let summin = 0;
+            let summax = 0;
+            let sum = 0;
+            for (let i = 0; i < arr.length - 1; i++) {
+                summin += arr[i];
+                summax += arr[i];
+            }
+            for (let i = 0; i < arr.length; i++) {
+                let sum = 0;
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j] != arr[i]) {
+                        sum += arr[j]
+                    }
+                }
+                if (sum > summax) { summax = sum };
+                if (sum < summin) { summin = sum };
+            }
+            arrnew.push(summin);
+            arrnew.push(summax);
+            return arrnew;
+        }
+        console.log(miniMaxSum(arr))
 
-}
-console.log (plusMinus(arr))
 
 
+
+
+        // function staircase(n) {
+        //     let str = "";
+
+        //     for (let i = 1; i <= n; i++) {
+        //         for (let j = n - i; j >= 1; j--) {
+        //             str += "&nbsp;&nbsp;";
+        //         }
+        //         for (let l = 1; l <= i; l++) {
+        //             str += "#";
+        //         }
+        //         str += "<br>";
+        //     }
+        //     return document.write(str);
+
+        // }
+
+        // staircase(6);
 
 
 //   msg = 'codegym';
@@ -66,6 +91,7 @@ console.log (plusMinus(arr))
 // let t =greaterY(arr,Y)
 // console.log(t)
 
-</script>
+    </script>
 </body>
+
 </html>

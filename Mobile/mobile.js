@@ -218,6 +218,7 @@ function onMobileIp() {
 window.addEventListener('onload',onMobileIp())
 
 
+
 function powerSam() {
     let value = document.getElementById("powerIp").checked
     if (value) {

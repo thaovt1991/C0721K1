@@ -1,6 +1,3 @@
-/**
- * Created by nhatnk on 4/26/17.
- */
 
 function Hero(image, top, left, size, speed) {
   this.image = image;
@@ -12,21 +9,8 @@ function Hero(image, top, left, size, speed) {
   this.getSpeed = function () {
     return this.speed;
   }
-  this.right = function () {
-    if (window.innerWidth - this.size < this.left) {
-      return this.right = this.left
-    } else
-      return this.right = window.innerWidth - this.left - this.size
-  }
-  this.bottom = function () {
-    if (window.innerHeight - this.size < this.top) {
-      return this.bottom = this.top
-    } else
-      return this.right = window.innerHeight - this.top - this.size
-  }
-
   this.setSpeed = function (speed) {
-    return this.speed = speed;
+      this.speed = speed;
   }
 
   this.getHeroElement = function () {

@@ -3,7 +3,7 @@ class Apple {
         this.weightAp = 10;
     }
     getWeightApple() {
-        return this.weightAp 
+        return this.weightAp
     };
 
     setWeightApple(weightAp) {
@@ -11,8 +11,8 @@ class Apple {
     };
 
     decreaseWeightApple() {
-        if (this.weight > 0) {
-            this.weight--
+        if (this.weightAp > 0) {
+            this.weightAp--
         }
     };
 }
@@ -21,48 +21,50 @@ class Human {
         this.name = name;
         this.gerden = gerden;
         this.weight = weight;
-        this.said = [] ;
-        this.listen = []; 
-     
+        this.said = [];
+        this.listen = [];
+
     }
     getName() {
         return this.name;
     };
 
     getGerden() {
-         return this.gerden
+        return this.gerden
     };
 
     getWeight() {
         return this.weight
     };
-     
-    changerWeight(apple){
-        apple.decreaseWeight();
+
+    eatApple(apple) {
+        apple.decreaseWeightApple();
         this.weight++
     };
 
-    getSaid(){
-        return this.said ;
+    getSaid() {
+        return this.said;
     };
 
-    getListen(){
-        return this.listen  
+    getListen() {
+        return this.listen
     };
 
-    setListen(listen){
-         this.listen = listen   
+    setListen(listen) {
+        this.listen = listen
     };
 
 
-    setSaid(said,human) {
-           human.setListen(said);
+    setSaid(said, human) {
+        human.setListen(said);
     };
 
 }
-let apple = new Apple();
-let Adam = new Human("Adam", "Male" , 50);
-let Eva = new Human("Eva","Female", 45) ;
+let appleAdam = new Apple();
+let appleEva = new Apple();
+
+let Adam = new Human("Adam", "Male", 50);
+let Eva = new Human("Eva", "Female", 45);
 
 
 
@@ -77,27 +79,66 @@ document.getElementById("weightEv").innerHTML = Eva.getWeight();
 
 
 
-function saidAd(){
-    let said = document.getElementById("saidAd").value ;
-    let str = "Adam said :" + said ;
-    Adam.setSaid (str,Eva);
-    document.getElementById("listenEv").value =  Eva.getListen();
-    document.getElementById("saidAd").value = "" ;
+function saidAd() {
+    let said = document.getElementById("saidAd").value;
+    let str = "Adam said :" + said;
+    Adam.setSaid(str, Eva);
+    document.getElementById("listenEv").value = Eva.getListen();
+    document.getElementById("saidAd").value = "";
 }
-function saidEv(){
-    let said = document.getElementById("saidEv").value ;
-    let str = "Eva said : " + said ;
-    Eva.setSaid (str,Adam);
-    document.getElementById("listenAd").value =  Adam.getListen();
+function saidEv() {
+    let said = document.getElementById("saidEv").value;
+    let str = "Eva said : " + said;
+    Eva.setSaid(str, Adam);
+    document.getElementById("listenAd").value = Adam.getListen();
     document.getElementById("saidEv").value = "";
 }
 function Event_Enter_saidAd(evt) {
-    if (evt.keyCode == 13){
+    if (evt.keyCode == 13) {
         saidAd();
     }
-} 
+}
 function Event_Enter_saidEv(evt) {
-    if (evt.keyCode == 13){
+    if (evt.keyCode == 13) {
         saidEv();
     }
+}
+
+
+document.getElementById("numApAdam").innerHTML= appleAdam.getWeightApple();
+function eatAppleAdam() {
+    let weightAp = appleAdam.getWeightApple();
+    document.getElementById("numApAdam").innerHTML = weightAp ;
+    let width = document.getElementById("img_adam").width;
+    let top =parseInt (document.getElementById("adamImg").style.marginTop);
+    if (weightAp > 0) {
+        Adam.eatApple(appleAdam);
+        document.getElementById("weightAd").innerHTML = Adam.getWeight();
+        document.getElementById("img_adam").width = width + 8;
+        document.getElementById("adamImg").style.marginTop = (top -17) + "px";
+
+    } else {
+        alert("Đã ăn hết táo !");
+        document.getElementById("apple_adam").style.display = "none";
+    }
+
+}
+
+document.getElementById("numApEva").innerHTML= appleEva.getWeightApple();
+function eatAppleEva() {
+    let weightAp = appleEva.getWeightApple();
+    document.getElementById("numApEva").innerHTML = weightAp ;
+    let width = document.getElementById("img_eva").width;
+    let top =parseInt (document.getElementById("evaImg").style.marginTop);
+    if (weightAp > 0) {
+        Eva.eatApple(appleEva);
+        document.getElementById("weightEv").innerHTML = Eva.getWeight();
+        document.getElementById("img_eva").width = width + 6;
+        document.getElementById("evaImg").style.marginTop = (top - 17) + "px";
+
+    } else {
+        alert("Đã ăn hết táo !");
+        document.getElementById("apple_eva").style.display = "none";
+    }
+
 }

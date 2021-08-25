@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Adam _Eva</title>
+    <link rel="stylesheet" href="./adam_eva.css" type = "text/css">
 </head>
 <body >
-    <div id = "Adam" style="float: left;width: 300;">
-         <fieldset style="width: 300px;">
+    <div id = "Adam" style="float: left;width: 350px;">
+         <fieldset style="width: 280px;">
              <legend>Adam</legend>
              Name : <span id = "nameAd"></span> <br><br>  
              Gerden : <span id = "gerdenAd"></span> <br><br>  
@@ -16,9 +17,18 @@
              Said : <br> <input type="text" name="saidAd" id="saidAd"  size="30" onkeydown="Event_Enter_saidAd(event)"> <br> <br>
              Listen : <br> <textarea id = "listenAd"  cols="30" rows="10" style="resize: none;" disabled></textarea>
          </fieldset>
+
     </div>
-    <div id = "Eva" style="float:  right;width: 300;">
-        <fieldset style="width: 300;">
+    <div id="adamImg"  style="float: left; margin-top: 280px;">
+        <img  id ="img_adam" src="./image/adam.png" alt="adam" width="120" >
+    </div>
+    <div id ="appAdam" style=" position:absolute;left : 500px">
+        <button id = "apple_adam" onclick="eatAppleAdam()" ><span id ="numApAdam" style="color: darkorange;font-size: 30px;"></span></button>
+    </div>
+
+
+    <div id = "Eva" style="float:  right;width: 350px;">
+        <fieldset style="width: 300px;">
             <legend>Eva</legend>
             Name : <span id = "nameEv"></span> <br><br>  
             Gerden : <span id = "gerdenEv"></span> <br><br>  
@@ -26,7 +36,15 @@
             Said : <br> <input type="text" name="saidEv" id="saidEv" size="30" onkeydown="Event_Enter_saidEv(event)" > <br><br> 
             Listen : <br> <textarea id = "listenEv"  cols="30" rows="10" style="resize: none;"disabled></textarea>
         </fieldset>
+       
+    </div>
+    <div  id="evaImg" style="float: right;margin-top: 300px;">
+        <img id ="img_eva" src="./image/eva.png" alt="eva" width="89">
+    </div>
+    <div id ="appEva" style=" position:absolute;left : 700px">
+        <button id = "apple_eva" onclick="eatAppleEva()" ><span id ="numApEva" style="color: darkorange;font-size: 30px;"></span></button>
     </div>
     <script src ="adam_eva.js"></script>
+
 </body>
 </html>
