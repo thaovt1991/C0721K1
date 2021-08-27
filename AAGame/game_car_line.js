@@ -1,10 +1,16 @@
 class Line {
     constructor(left, top, width, height) {
-        this.width = width;
-        this.height = height;
         this.left = left;
         this.top = top;
+        this.width = width;
+        this.height = height;
 
+    };
+    setLine(l, t, w, h) {
+        this.left = l;
+        this.top = t;
+        this.width = w;
+        this.height = h;
     };
 
     getWidth() {
@@ -63,6 +69,7 @@ let line4 = new Line(150, -350, 10, 50);
 let line5 = new Line(150, -450, 10, 50);
 let line6 = new Line(150, -550, 10, 50);
 let line7 = new Line(150, -650, 10, 50);
+let endGame = false;
 
 function runLine(line) {
     if (line.top > 600) {
@@ -72,15 +79,23 @@ function runLine(line) {
     line.runLineDown()
     line.clearLine();
     line.createLine();
+
 }
 document.getElementById("enegy").innerHTML = oto.getEnery();
+
 
 function btstartGame() {
     if (oto.getEnery() < 0) {
         if (confirm("Bạn muốn chơi lại !")) {
-            location.reload();
+            restartGame();
+            displayCharts();
+            endGame = false;
         } else dislayGameOver();
-    } else { startGame() }
+    } else {
+        startGame();
+        runScore();
+        endGame = false;
+    }
 };
 
 function startGame() {
@@ -95,32 +110,103 @@ function startGame() {
     }, 10);
     this.car = setInterval('runAfterForTimes()', 1000);
     this.enegyCar = setInterval(() => {
-        let t = oto.getEnery()
-        if (t >= 0) {
-            oto.reduceEnegy();
-            if (t > 10) {
+        let t = oto.getEnery();
+        oto.reduceEnegy();
+        if (t > 0) {
+            if (t >= 10) {
                 document.getElementById("enegy").innerHTML = t;
             } else {
                 document.getElementById("enegy").innerHTML = "0" + t
             };
         } else {
-            endGame();
+            document.getElementById("enegy").innerHTML = "00"
+            pauseGame();
             dislayGameOver();
+            stopScore();
+            endGame = true;
         }
 
     }, 1000);
     document.getElementById('btstart').disabled = true;
     document.getElementById('btpause').disabled = false;
+    document.getElementById("btrestart").disabled = true;
     window.addEventListener('keydown', Event_Press);
 }
 
-function endGame() {
+function pauseGame() {
     clearInterval(this.starline);
     clearInterval(this.car);
     clearInterval(this.enegyCar)
     document.getElementById('btstart').disabled = false;
     document.getElementById('btpause').disabled = true;
+    document.getElementById("btrestart").disabled = false;
+    window.removeEventListener('keydown', Event_Press);
+    clearInterval(this.scoreGame);
+
 }
+function restartGame() {
+    oto.clearCar(oto.left, oto.top, oto.width, oto.height);
+    oto.setCar(120, 500, 100, 100);
+    oto.createCar(120, 500, 100, 100)
+    oto.setEnery(50);
+    document.getElementById("enegy").innerHTML = oto.getEnery();
+    score.setPoint(0);
+    document.getElementById("score").innerHTML = score.getPoint();
+    let can1 = document.getElementById("gameCar");
+    let ctx1 = can1.getContext("2d");
+    ctx1.clearRect(0, 0, 310, 600);
+    line1.setLine(150, -50, 10, 50);
+    line2.setLine(150, -150, 10, 50);
+    line3.setLine(150, -250, 10, 50);
+    line4.setLine(150, -350, 10, 50);
+    line5.setLine(150, -450, 10, 50);
+    line6.setLine(150, -550, 10, 50);
+    line7.setLine(150, -650, 10, 50);
+    document.getElementById("gameOver").style.display = "none";
+    document.getElementById("btrestart").disabled = true;
+}
+
+function btrestartGame() {
+    if (confirm("Are you sure Restart Game !")) {
+        if (endGame) {
+            restartGame();
+        } else {
+            score.setArrPoint(score.getPoint());
+            displayCharts();
+            restartGame();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
