@@ -27,10 +27,12 @@ function Cell(x, y) {
             case VALUE_X:
                 cellDiv.innerHTML = "X";
                 cellDiv.style.color = "red" ;
+                cellDiv.style.fontSize = "30px" ;
                 break;
             case VALUE_O:
                 cellDiv.innerHTML = "O";
                 cellDiv.style.color="blue" ;
+                cellDiv.style.fontSize = "30px" ;
                 break;
             default:
                 cellDiv.innerHTML = "";

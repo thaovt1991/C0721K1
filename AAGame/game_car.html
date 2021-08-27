@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./game_car.css" type="text/css">
+</head>
+
+<body>
+    <table  id = "game" >
+        <tr>
+            <td>
+                <canvas id="gameCar" width = "310px" height="600px"></canvas>
+                <canvas id="gameCar2" width = "310px" height="600px"></canvas> 
+                <canvas id="gameOver" width = "310px" height="600px" style="display: none;"></canvas>   
+            </td>
+        </tr>
+    </table>
+    <fieldset >
+        <legend style="color: darkorange;">Car Racing</legend>
+        <button type="button" id ="btstart" onclick="btstartGame()">Start Game</button>
+        <button type="button" id ="btpause" onclick="endGame()" disabled>Pause Game</button><br><br>
+        Score : <span id ="score"></span> <br><br>
+        Enegy : <span id = "enegy"></span>
+        
+
+    </fieldset>  
+    
+        <script src="./game_car_car.js"></script>
+    <script src="./game_car_line.js"></script>
+
+
+    
+</body>
+
+</html>

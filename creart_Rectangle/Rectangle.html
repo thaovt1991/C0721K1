@@ -14,31 +14,36 @@
         function Rectangle(width, height) {
             this.width = width;
             this.height = height;
-            this.getArea = function () {
-                return width * height
-            }
-            this.getPrimeter = function () {
-                return 2 * (width + height)
-            }
+            
+
             this.getWidth = function () {
                 return this.width;
-            }
+            };
+
             this.getHeight = function () {
                 return this.height;
-            }
-            this.setWidth(width) = function () {
-                return this.width = width;
-            }
-            this.setHeight(height) = function () {
-                return this.height = height;
-            }
+            };
+
+            this.setWidth = function (width) {
+                 this.width = width;
+            };
+            this.setHeight = function (height) {
+                this.height = height;
+            };
+            this.getArea = function () {
+                return this.width * this.height;
+            };
+
+            this.getPrimeter = function () {
+                return 2 * (this.width + this.height);
+            };
             this.getCreartRec = function () {
                 let ctx = document.getElementById("myCanvas").getContext("2d");
                 let rgb = "rgb(" + Math.floor(Math.random() * 255) + ","+ Math.floor(Math.random() * 255) +","+Math.floor(Math.random() * 255) +")"
                 ctx.fillStyle = rgb;
-              //  let x = Math.floor(Math.random() * window.innerWidth);
-             //   let y = Math.floor(Math.random() * window.innerHeight)
-                ctx.fillRect(10, 20, width, height);
+            //    let x = Math.floor(Math.random() * window.innerWidth);
+            //    let y = Math.floor(Math.random() * window.innerHeight)
+                ctx.fillRect(10, 20, this.width, this.height);
             }
         }
         let x = Math.floor(Math.random() * 1000- 100);
@@ -49,12 +54,6 @@
         let c = rec.getPrimeter();
         rec.getCreartRec();
         alert("Hình chữ nhật có diện tích là " + s + " và chu vi là " + c)
-
-
-
-
-
     </script>
 </body>
-
 </html>
