@@ -57,9 +57,10 @@ class Car {
         if (this.top > 0) {
             this.top -= 4;
         } else { this.top }
-        this.clearCar(0, 0, 310, 600)
+        // this.clearCar(0, 0, 310, 600)
+        this.clearCar(this.left, this.top + 4, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
-        // this.clearCar(this.left , this.top + 4, this.width, this.height)
+      
     }
 
 
@@ -68,26 +69,27 @@ class Car {
         if (this.left > 0) {
             this.left -= 5;
         } else { this.left }
-        this.clearCar(0, 0, 310, 600)
+        //  this.clearCar(0, 0, 310, 600)
+        this.clearCar(this.left + 5, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
-        //  this.clearCar(this.left + 5, this.top, this.width, this.height)
+      
     };
 
     runRight() {
         if (this.left < 310 - this.width) {
             this.left += 5;
         } else { this.left }
-        this.clearCar(0, 0, 310, 600)
+        //   this.clearCar(0, 0, 310, 600)
+        this.clearCar(this.left - 5, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
-        // this.clearCar(this.left - 5, this.top, this.width, this.height)
     };
 
     runDown() {
         if (this.top < 600 - this.height) {
             this.top += 5;
         } else { this.top }
-        this.clearCar(0, 0, 310, 600)
-        // this.clearCar(this.left, this.top - 5, this.width, this.height)
+        //  this.clearCar(0, 0, 310, 600)
+        this.clearCar(this.left, this.top - 5, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
 
     };
@@ -96,29 +98,29 @@ class Car {
         if (this.top > 0) {
             this.top -= 5;
         } else { this.top }
-        this.clearCar(0, 0, 310, 600)
-        //  this.clearCar(this.left, this.top + 5, this.width, this.height)
+         this.clearCar(0, 0, 310, 600)
+       // this.clearCar(this.left, this.top + 5, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
 
     };
     runLeftUp() {
-        this.clearCar(0, 0, 310, 600);
         switch (true) {
             case this.left > 0 && this.top > 0:
                 this.left -= 5;
                 this.top -= 5;
+                this.clearCar(this.left + 5, this.top + 5, this.width, this.height);
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left + 5, this.top + 5, this.width, this.height);
                 break;
             case this.left == 0 && this.top > 0:
                 this.top -= 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //   this.clearCar(this.left, this.top + 5, this.width, this.height);
+                this.clearCar(this.left, this.top + 5, this.width, this.height);
                 break;
             case this.left > 0 && this.top == 0:
                 this.left -= 5;
+                this.clearCar(this.left + 5, this.top, this.width, this.height);
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left + 5, this.top, this.width, this.height);
+                
                 break;
             case this.left == 0 && this.top == 0:
                 this.createCar(this.left, this.top, this.width, this.height);
@@ -127,23 +129,22 @@ class Car {
     };
 
     runLeftDown() {
-        this.clearCar(0, 0, 310, 600)
         switch (true) {
             case this.left > 0 && this.top < 600 - this.height:
                 this.left -= 5;
                 this.top += 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                // this.clearCar(this.left + 5, this.top - 5, this.width, this.height);
+                this.clearCar(this.left + 5, this.top - 5, this.width, this.height);
                 break;
             case this.left == 0 && this.top < 600 - this.height:
                 this.top += 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                // this.clearCar(this.left, this.top - 5, this.width, this.height);
+                this.clearCar(this.left, this.top - 5, this.width, this.height);
                 break;
             case this.left > 0 && this.top == 600 - this.height:
                 this.left -= 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //   this.clearCar(this.left + 5, this.top, this.width, this.height);
+                this.clearCar(this.left + 5, this.top, this.width, this.height);
                 break;
             case this.left == 0 && this.top == 600 - this.height:
                 this.createCar(this.left, this.top, this.width, this.height);
@@ -152,23 +153,22 @@ class Car {
     };
 
     runRightUp() {
-        this.clearCar(0, 0, 310, 600)
         switch (true) {
             case this.left < 310 - this.width && this.top > 0:
                 this.left += 5;
                 this.top -= 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left - 5, this.top + 5, this.width, this.height);
+                this.clearCar(this.left - 5, this.top + 5, this.width, this.height);
                 break;
             case this.left == 310 - this.width && this.top > 0:
                 this.top -= 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left, this.top + 5, this.width, this.height);
+                this.clearCar(this.left, this.top + 5, this.width, this.height);
                 break;
             case this.left < 310 - this.width && this.top == 0:
                 this.left += 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left - 5, this.top, this.width, this.height);
+                this.clearCar(this.left - 5, this.top, this.width, this.height);
                 break;
             case this.left == 310 - this.width && this.top == 0:
                 this.createCar(this.left, this.top, this.width, this.height);
@@ -176,23 +176,22 @@ class Car {
         }
     };
     runRightDown() {
-        this.clearCar(0, 0, 310, 600)
         switch (true) {
             case this.left < 310 - this.width && this.top < 600 - this.height:
                 this.left += 5;
                 this.top += 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                // this.clearCar(this.left - 5, this.top - 5, this.width, this.height);
+                this.clearCar(this.left - 5, this.top - 5, this.width, this.height);
                 break;
             case this.left == 310 - this.width && this.top < 600 - this.height:
                 this.top += 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left, this.top - 5, this.width, this.height);
+                this.clearCar(this.left, this.top - 5, this.width, this.height);
                 break;
             case this.left < 310 - this.width && this.top == 600 - this.height:
                 this.left += 5;
                 this.createCar(this.left, this.top, this.width, this.height);
-                //  this.clearCar(this.left - 5, this.top, this.width, this.height);
+                this.clearCar(this.left - 5, this.top, this.width, this.height);
                 break;
             case this.left == 310 - this.width && this.top == 600 - this.height:
                 this.createCar(this.left, this.top, this.width, this.height);
@@ -200,20 +199,8 @@ class Car {
         }
     }
 
-
-    // createCar() {
-    //     let canvas = document.getElementById("gameCar");
-    //     let ctx = canvas.getContext("2d");
-    //     var image = new Image();
-    //     image.src = "oto.png";
-    //     image.onload = function () {
-    //         ctx.drawImage(image, this.left, this.top, this.width, this.left);
-    //     }
-    // };
-
-
     createCar(l, t, w, h) {
-        let canvas = document.getElementById("gameCar2");
+        let canvas = document.getElementById("gameCar");
         let ctx = canvas.getContext("2d");
         var image = new Image();
         image.src = "./image/oto.png";
@@ -223,15 +210,16 @@ class Car {
     }
 
     clearCar(l, t, w, h) {
-        let canvas = document.getElementById("gameCar2");
+        let canvas = document.getElementById("gameCar");
         let ctx = canvas.getContext("2d");
         ctx.clearRect(l, t, w, h)
     }
 
 
 }
-let oto = new Car(120, 500, 100, 100);
-// oto.createCar();
+
+
+let oto = new Car(120, 500, 80, 100);
 oto.createCar(oto.getLeft(), oto.getTop(), oto.getWidth(), oto.getHeight());
 
 function Event_Press(evt) {
@@ -269,6 +257,8 @@ function runAfterForTimes() {
     oto.autoRun()
 };
 
+
+
 function dislayGameOver() {
     let canvas3 = document.getElementById("gameOver");
     let over = canvas3.getContext("2d");
@@ -278,7 +268,7 @@ function dislayGameOver() {
         over.drawImage(imgOver, 20, 250, 270, 100)
     }
     document.getElementById("gameOver").style.display = "block";
-    document.getElementById("gameOver").style.zIndex = "3";
+    document.getElementById("gameOver").style.zIndex = "10";
     document.getElementById("gameOver").style.position = "absolute";
 };
 

@@ -49,13 +49,13 @@ class Line {
     };
 
     createLine() {
-        let canvas = document.getElementById("gameCar");
+        let canvas = document.getElementById("gameLine");
         let ctx = canvas.getContext("2d");
         ctx.fillStyle = "#F8F8FF";
         ctx.fillRect(this.left, this.top, this.width, this.height);
     }
     clearLine() {
-        let canvas = document.getElementById("gameCar");
+        let canvas = document.getElementById("gameLine");
         let ctx = canvas.getContext("2d");
         ctx.clearRect(this.left, this.top - 1, this.width, this.height)
     }
@@ -107,6 +107,10 @@ function startGame() {
         runLine(line5)
         runLine(line6)
         runLine(line7)
+        runItem(power);
+        eventEatItem()
+        power.clearItem(0,0,310,600)
+    
     }, 10);
     this.car = setInterval('runAfterForTimes()', 1000);
     this.enegyCar = setInterval(() => {
@@ -125,6 +129,8 @@ function startGame() {
             stopScore();
             endGame = true;
         }
+        console.log(oto.top)
+        console.log(power.top)
 
     }, 1000);
     document.getElementById('btstart').disabled = true;
@@ -152,9 +158,9 @@ function restartGame() {
     document.getElementById("enegy").innerHTML = oto.getEnery();
     score.setPoint(0);
     document.getElementById("score").innerHTML = score.getPoint();
-    let can1 = document.getElementById("gameCar");
-    let ctx1 = can1.getContext("2d");
-    ctx1.clearRect(0, 0, 310, 600);
+    let canLine = document.getElementById("gameLine");
+    let ctxLine = canLine.getContext("2d");
+    ctxLine.clearRect(0, 0, 310, 600);
     line1.setLine(150, -50, 10, 50);
     line2.setLine(150, -150, 10, 50);
     line3.setLine(150, -250, 10, 50);
@@ -162,6 +168,10 @@ function restartGame() {
     line5.setLine(150, -450, 10, 50);
     line6.setLine(150, -550, 10, 50);
     line7.setLine(150, -650, 10, 50);
+    let canItem = document.getElementById("gameItem");
+    let ctxItem = canItem.getContext("2d");
+    ctxItem.clearRect(0, 0, 310, 600);
+    power.setItem();
     document.getElementById("gameOver").style.display = "none";
     document.getElementById("btrestart").disabled = true;
 }
@@ -180,43 +190,15 @@ function btrestartGame() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function setZIdex(line){
-//     if(oto.top == (line.height + line.top )&& line.left >= oto.left &&  line.left <= (oto.left + oto.width)){
-
-//     }
-// }
+function eventEatItem() {
+    if ((power.top <= (oto.height + oto.top)) 
+    && (power.top + power.height>= oto.top) 
+    && (power.left +power.width >= oto.left) 
+    && (power.left <= oto.left + oto.width)) {
+        power.setItem();
+        oto.setEnery(oto.enegy + 6);
+    }
+}
 
 
 

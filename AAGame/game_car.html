@@ -10,32 +10,34 @@
 </head>
 
 <body>
-    <table  id = "game" >
+    <table id="game">
         <tr>
             <td>
-                <canvas id="gameCar" width = "310px" height="600px"></canvas>
-                <canvas id="gameCar2" width = "310px" height="600px"></canvas> 
-                <canvas id="gameOver" width = "310px" height="600px" style="display: none;"></canvas>   
+                <canvas id="gameLine" width="310px" height="600px"></canvas>
+                <canvas id="gameCar" width="310px" height="600px"></canvas>
+                <canvas id="gameItem" width="310px" height="600px"></canvas>
+                <canvas id="gameOver" width="310px" height="600px" style="display: none;"></canvas>
             </td>
         </tr>
     </table>
-    <fieldset >
+    <fieldset>
         <legend style="color: darkorange;">Car Racing</legend>
-        <button type="button" id ="btstart" onclick="btstartGame()">Start Game</button>
-        <button type="button" id ="btpause" onclick="pauseGame()" disabled>Pause Game</button>
-        <button type="button" id ="btrestart" onclick="btrestartGame()" disabled>Restart Game</button><br><br>
-        Enegy : <span id = "enegy"></span><br><br>
-        Score : <span id ="score"></span> <br><br>
+        <button type="button" id="btstart" onclick="btstartGame()">Start Game</button>
+        <button type="button" id="btpause" onclick="pauseGame()" disabled>Pause Game</button>
+        <button type="button" id="btrestart" onclick="btrestartGame()" disabled>Restart Game</button><br><br>
+        Enegy : <span id="enegy"></span><br><br>
+        Score : <span id="score"></span> <br><br>
         Score Charts <br><br>
-        <textarea  id="displayArrPoint" cols="40" rows="10" disabled></textarea>
-    </fieldset>  
+        <textarea id="displayArrPoint" cols="40" rows="10" disabled></textarea>
+    </fieldset>
     
+    <script src="./game_car_item.js"></script>
     <script src="./game_car_car.js"></script>
     <script src="./game_car_point.js"></script>
     <script src="./game_car_line.js"></script>
 
 
-    
+
 </body>
 
 </html>
