@@ -57,8 +57,8 @@ class Car {
         if (this.top > 0) {
             this.top -= 4;
         } else { this.top }
-        // this.clearCar(0, 0, 310, 600)
-        this.clearCar(this.left, this.top + 4, this.width, this.height)
+        this.clearCar(0, 0, 310, 600)
+        // this.clearCar(this.left, this.top + 4, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
       
     }
@@ -69,7 +69,6 @@ class Car {
         if (this.left > 0) {
             this.left -= 5;
         } else { this.left }
-        //  this.clearCar(0, 0, 310, 600)
         this.clearCar(this.left + 5, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
       
@@ -98,8 +97,7 @@ class Car {
         if (this.top > 0) {
             this.top -= 5;
         } else { this.top }
-         this.clearCar(0, 0, 310, 600)
-       // this.clearCar(this.left, this.top + 5, this.width, this.height)
+        this.clearCar(this.left, this.top + 5, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
 
     };
@@ -203,7 +201,7 @@ class Car {
         let canvas = document.getElementById("gameCar");
         let ctx = canvas.getContext("2d");
         var image = new Image();
-        image.src = "./image/oto.png";
+        image.src = "./image/car_green.png";
         image.onload = function () {
             ctx.drawImage(image, l, t, w, h);
         };

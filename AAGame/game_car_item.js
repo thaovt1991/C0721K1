@@ -10,8 +10,8 @@ class Item {
      setItem(){
         this.top = -(Math.floor(Math.random() * 1000 )- this.height);
         this.left = Math.floor(Math.random()* (310 - this.width));
-        this.width = 50;
-        this.height = 50;
+        this.width = 30;
+        this.height = 30;
      }
 
     getLeft() {
@@ -72,10 +72,10 @@ class Item {
 
 }
 
-let t = -(Math.floor(Math.random() * 1000 )- this.height);
-let l = Math.floor(Math.random()* (310 - this.width));
-let power = new Item(l, t, 50, 50);
-power.createItem(l, t, 50, 50)
+let topItem = -(Math.floor(Math.random() * 1000 )- this.height);
+let leftItem = Math.floor(Math.random()* (310 - this.width));
+let power = new Item(leftItem, topItem, 30, 30);
+power.createItem(leftItem, topItem, 30, 30)
 function runItem(item) {
     item.autoRun()
 }

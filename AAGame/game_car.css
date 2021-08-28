@@ -23,6 +23,10 @@ td{
     position: absolute;
     z-index: 1 !important;
 }
+#gameBarrier{
+    position: absolute;
+    z-index: 2 !important;
+}
 #gameOver{
     position: absolute;
     z-index: 10 !important;

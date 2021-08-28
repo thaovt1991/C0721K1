@@ -62,6 +62,8 @@ class Line {
 
 }
 
+
+
 let line1 = new Line(150, -50, 10, 50);
 let line2 = new Line(150, -150, 10, 50);
 let line3 = new Line(150, -250, 10, 50);
@@ -85,7 +87,7 @@ document.getElementById("enegy").innerHTML = oto.getEnery();
 
 
 function btstartGame() {
-    if (oto.getEnery() < 0) {
+    if (endGame) {
         if (confirm("Bạn muốn chơi lại !")) {
             restartGame();
             displayCharts();
@@ -109,8 +111,10 @@ function startGame() {
         runLine(line7)
         runItem(power);
         eventEatItem()
-        power.clearItem(0,0,310,600)
-    
+        power.clearItem(0, 0, 310, 600)
+        runBarrier();
+        eventEatBarrier()
+
     }, 10);
     this.car = setInterval('runAfterForTimes()', 1000);
     this.enegyCar = setInterval(() => {
@@ -129,9 +133,6 @@ function startGame() {
             stopScore();
             endGame = true;
         }
-        console.log(oto.top)
-        console.log(power.top)
-
     }, 1000);
     document.getElementById('btstart').disabled = true;
     document.getElementById('btpause').disabled = false;
@@ -152,8 +153,8 @@ function pauseGame() {
 }
 function restartGame() {
     oto.clearCar(oto.left, oto.top, oto.width, oto.height);
-    oto.setCar(120, 500, 100, 100);
-    oto.createCar(120, 500, 100, 100)
+    oto.setCar(120, 500, 80, 100);
+    oto.createCar(120, 500, 80, 100)
     oto.setEnery(50);
     document.getElementById("enegy").innerHTML = oto.getEnery();
     score.setPoint(0);
@@ -172,6 +173,10 @@ function restartGame() {
     let ctxItem = canItem.getContext("2d");
     ctxItem.clearRect(0, 0, 310, 600);
     power.setItem();
+    let canBar = document.getElementById("gameBarrier");
+    let ctxBar = canBar.getContext("2d");
+    ctxBar.clearRect(0, 0, 310, 600);
+    bar.setBarrier();
     document.getElementById("gameOver").style.display = "none";
     document.getElementById("btrestart").disabled = true;
 }
@@ -191,12 +196,23 @@ function btrestartGame() {
 
 
 function eventEatItem() {
-    if ((power.top <= (oto.height + oto.top)) 
-    && (power.top + power.height>= oto.top) 
-    && (power.left +power.width >= oto.left) 
-    && (power.left <= oto.left + oto.width)) {
+    if ((power.top <= (oto.height + oto.top))
+        && (power.top + power.height >= oto.top)
+        && (power.left + power.width >= oto.left)
+        && (power.left <= oto.left + oto.width)) {
         power.setItem();
         oto.setEnery(oto.enegy + 6);
+    }
+}
+function eventEatBarrier() {
+    if ((bar.top <= (oto.height + oto.top))
+        && (bar.top + bar.height >= oto.top)
+        && (bar.left + bar.width >= oto.left)
+        && (bar.left <= oto.left + oto.width)) {
+            pauseGame();
+            dislayGameOver();
+            stopScore();
+            endGame = true;
     }
 }
 
