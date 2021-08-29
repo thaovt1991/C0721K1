@@ -5,7 +5,11 @@ class Car {
         this.height = height;
         this.width = width;
         this.enegy = 50;
-    };
+        //     this.imageCar = image;
+        // };
+        // setimageCar(image) {
+        //     this.imageCar = image;
+    }
     setCar(l, t, w, h) {
         this.left = l;
         this.top = t;
@@ -58,12 +62,9 @@ class Car {
             this.top -= 4;
         } else { this.top }
         this.clearCar(0, 0, 310, 600)
-        // this.clearCar(this.left, this.top + 4, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
-      
+
     }
-
-
 
     runLeft() {
         if (this.left > 0) {
@@ -71,14 +72,13 @@ class Car {
         } else { this.left }
         this.clearCar(this.left + 5, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
-      
+
     };
 
     runRight() {
         if (this.left < 310 - this.width) {
             this.left += 5;
         } else { this.left }
-        //   this.clearCar(0, 0, 310, 600)
         this.clearCar(this.left - 5, this.top, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
     };
@@ -87,7 +87,6 @@ class Car {
         if (this.top < 600 - this.height) {
             this.top += 5;
         } else { this.top }
-        //  this.clearCar(0, 0, 310, 600)
         this.clearCar(this.left, this.top - 5, this.width, this.height)
         this.createCar(this.left, this.top, this.width, this.height);
 
@@ -118,7 +117,7 @@ class Car {
                 this.left -= 5;
                 this.clearCar(this.left + 5, this.top, this.width, this.height);
                 this.createCar(this.left, this.top, this.width, this.height);
-                
+
                 break;
             case this.left == 0 && this.top == 0:
                 this.createCar(this.left, this.top, this.width, this.height);
@@ -201,7 +200,16 @@ class Car {
         let canvas = document.getElementById("gameCar");
         let ctx = canvas.getContext("2d");
         var image = new Image();
-        image.src = "./image/car_green.png";
+        this.imageCar = "./image/car_green.png";
+        switch (true) {
+            case arrBeforOp[3]:
+                this.imageCar = "./image/car_red.png"
+                break;
+            case arrBeforOp[4]:
+                this.imageCar = "./image/car_yellow.png"
+                break;
+        }
+        image.src = this.imageCar    //"./image/car_green.png";
         image.onload = function () {
             ctx.drawImage(image, l, t, w, h);
         };
@@ -212,24 +220,31 @@ class Car {
         let ctx = canvas.getContext("2d");
         ctx.clearRect(l, t, w, h)
     }
-
-
 }
 
 
-let oto = new Car(120, 500, 80, 100);
-oto.createCar(oto.getLeft(), oto.getTop(), oto.getWidth(), oto.getHeight());
+
+
+let arrImageCar = [
+    ["./image/car_green.png", 60, 80, 2]
+    ["./image/car_red.png", 60, 80, 2]
+    ["./image/car_yellow.png", 60, 80, 2]
+]
+let oto = new Car(120, 500, 60, 80);
+
+
+oto.createCar(oto.left, oto.top, oto.width, oto.height);
 
 function Event_Press(evt) {
 
     switch (evt.keyCode) {
-        case 100: //|| 37  :
+        case 100://|| 37  :
             oto.runLeft()
             break;
-        case 102://|| 39 :
+        case 102: //|| 39 :
             oto.runRight();
             break;
-        case 104://|| 38:
+        case 104: //|| 38:
             oto.runUp()
             break;
         case 98://|| 40 :
@@ -248,14 +263,11 @@ function Event_Press(evt) {
             oto.runRightDown()
             break;
     }
-
 };
 
 function runAfterForTimes() {
     oto.autoRun()
 };
-
-
 
 function dislayGameOver() {
     let canvas3 = document.getElementById("gameOver");

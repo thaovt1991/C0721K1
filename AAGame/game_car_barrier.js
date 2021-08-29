@@ -1,30 +1,34 @@
+arrBarrier = [
+    ["./image/barrie.png", 50, 30, 1],
+    ["./image/barrie2.png", 40, 50, 1],
+    ["./image/car1.png", 60, 80, 2],
+    ["./image/car2.png", 60, 80, 2],
+    ["./image/car3.png", 60, 80, 2],
+    ["./image/car4.png", 60, 100, 1],
+    ["./image/car5.png", 60, 100, 1],
+    ["./image/car6.png", 60, 120, 1],
+    ["./image/car7.png", 60, 120, 1],
+]
+
+
+
 class Barrier {
-    constructor(left, top, width, height) {
+    constructor(image, left, top, width, height, speed) {
         this.left = left;
         this.top = top;
         this.width = width;
         this.height = height;
-        this.imageBarrier = "./image/barrie.png"
-        this.arrBarrier = [
-            "./image/barrie.png",
-            "./image/barrie.png",
-            "./image/barrie.png",
-            "./image/car1.png",
-            "./image/car2.png",
-            "./image/car3.png",
-            "./image/car4.png",
-            "./image/car5.png",
-            "./image/car6.png",
-            "./image/car7.png",
-        ]
+        this.imageBarrier = image;
+        this.speed = speed;
     };
     setBarrier() {
-        let random = Math.floor(Math.random() *(this.arrBarrier.length -1));
-        this.imageBarrier = this.arrBarrier[random];
-        this.top = -(Math.floor(Math.random() * 500) - this.height);
+        let random = Math.floor(Math.random() * (arrBarrier.length - 1));
+        this.imageBarrier = arrBarrier[random][0]
+        this.speed = arrBarrier[random][3]
+        this.top = -(Math.floor(Math.random() * (500 - this.height))+this.height);
         this.left = Math.floor(Math.random() * (310 - this.width));
-        this.width = 80;
-        this.height = 80;
+        this.width = arrBarrier[random][1]
+        this.height = arrBarrier[random][2]
     }
 
     getLeft() {
@@ -59,11 +63,12 @@ class Barrier {
 
     autoRun() {
         if (this.top < 600) {
-            this.top++;
+            this.top += this.speed;
         } else {
             this.setBarrier();
         }
-        this.clearBarrier(this.left, this.top - 1, this.width, this.height)
+        this.clearBarrier(0,0,310,600)
+        //this.clearBarrier(this.left, this.top - this.speed, this.width, this.height)
         this.createBarrier(this.left, this.top, this.width, this.height);
     }
 
@@ -86,8 +91,18 @@ class Barrier {
 
 let topBar = -(Math.floor(Math.random() * 1000) - this.height);
 let leftBar = Math.floor(Math.random() * (310 - this.width));
-let bar = new Barrier(leftBar, topBar, 80, 80);
-bar.createBarrier(leftBar, topBar, 80, 80)
+let random = Math.floor(Math.random() * (arrBarrier.length - 1))
+let imageBar = arrBarrier[random][0];
+let widthBar = arrBarrier[random][1]
+let heightBar = arrBarrier[random][2]
+
+let bar = new Barrier(imageBar, leftBar, topBar, widthBar, heightBar);
+bar.createBarrier(leftBar, topBar, widthBar, heightBar)
 function runBarrier() {
     bar.autoRun()
 }
+
+
+// function creartBarrierAfter(){}
+
+

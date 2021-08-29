@@ -48,8 +48,8 @@ class Item {
         if (this.top < 600) {
             this.top++;
         } else {
-            this.top = -(Math.floor(Math.random() * 100 )- this.height);
-             this.left = Math.floor(Math.random()* (310 - this.width)) ;
+            this.top = -(Math.floor(Math.random() * 100 - this.height ) + this.height);
+             this.left = Math.floor(Math.random()* (310 - this.width));
         }
         this.clearItem(this.left, this.top - 1, this.width, this.height)
         this.createItem(this.left, this.top, this.width, this.height);

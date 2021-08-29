@@ -83,9 +83,12 @@ function runLine(line) {
     line.createLine();
 
 }
+
+
+//Create GAME
+
+
 document.getElementById("enegy").innerHTML = oto.getEnery();
-
-
 function btstartGame() {
     if (endGame) {
         if (confirm("Bạn muốn chơi lại !")) {
@@ -98,7 +101,8 @@ function btstartGame() {
         runScore();
         endGame = false;
     }
-};
+}
+
 
 function startGame() {
     this.starline = setInterval(function () {
@@ -137,6 +141,8 @@ function startGame() {
     document.getElementById('btstart').disabled = true;
     document.getElementById('btpause').disabled = false;
     document.getElementById("btrestart").disabled = true;
+    document.getElementById("btoption").disabled = true;
+    checkedMute()
     window.addEventListener('keydown', Event_Press);
 }
 
@@ -147,14 +153,16 @@ function pauseGame() {
     document.getElementById('btstart').disabled = false;
     document.getElementById('btpause').disabled = true;
     document.getElementById("btrestart").disabled = false;
+    document.getElementById("btoption").disabled = false;
     window.removeEventListener('keydown', Event_Press);
     clearInterval(this.scoreGame);
+    document.querySelector("audio").pause();
 
 }
 function restartGame() {
     oto.clearCar(oto.left, oto.top, oto.width, oto.height);
-    oto.setCar(120, 500, 80, 100);
-    oto.createCar(120, 500, 80, 100)
+    oto.setCar(120, 500, 60, 80);
+    oto.createCar(120, 500, 60, 80)
     oto.setEnery(50);
     document.getElementById("enegy").innerHTML = oto.getEnery();
     score.setPoint(0);
@@ -195,6 +203,8 @@ function btrestartGame() {
 
 
 
+
+
 function eventEatItem() {
     if ((power.top <= (oto.height + oto.top))
         && (power.top + power.height >= oto.top)
@@ -209,10 +219,10 @@ function eventEatBarrier() {
         && (bar.top + bar.height >= oto.top)
         && (bar.left + bar.width >= oto.left)
         && (bar.left <= oto.left + oto.width)) {
-            pauseGame();
-            dislayGameOver();
-            stopScore();
-            endGame = true;
+        pauseGame();
+        dislayGameOver();
+        stopScore();
+        endGame = true;
     }
 }
 
