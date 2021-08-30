@@ -283,5 +283,18 @@ function dislayGameOver() {
 };
 
 
+    let canvas5 = document.getElementById("gameStart");
+    let start = canvas5.getContext("2d");
+    var imgFlag = new Image();
+    imgFlag.src = "./image/flag.png"
+    imgFlag.onload = function () {
+        start.drawImage(imgFlag, 100, 150, 100, 100)
+    }
+     var imgText = new Image ();
+     imgText.src = "./image/startgame.png" ;
+     imgText.onload =function(){
+         start.drawImage(imgText,20,260,250,150)
+     }
+   
 
 

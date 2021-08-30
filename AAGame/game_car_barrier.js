@@ -98,11 +98,7 @@ let heightBar = arrBarrier[random][2]
 
 let bar = new Barrier(imageBar, leftBar, topBar, widthBar, heightBar);
 bar.createBarrier(leftBar, topBar, widthBar, heightBar)
-function runBarrier() {
-    bar.autoRun()
-}
 
 
-// function creartBarrierAfter(){}
 
 

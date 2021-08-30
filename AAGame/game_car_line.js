@@ -105,6 +105,7 @@ function btstartGame() {
 
 
 function startGame() {
+    document.getElementById("gameStart").style.display = "none";
     this.starline = setInterval(function () {
         runLine(line1)
         runLine(line2)
@@ -116,7 +117,7 @@ function startGame() {
         runItem(power);
         eventEatItem()
         power.clearItem(0, 0, 310, 600)
-        runBarrier();
+        bar.autoRun();
         eventEatBarrier()
 
     }, 10);
@@ -160,6 +161,7 @@ function pauseGame() {
 
 }
 function restartGame() {
+    document.getElementById("gameStart").style.display = "block";
     oto.clearCar(oto.left, oto.top, oto.width, oto.height);
     oto.setCar(120, 500, 60, 80);
     oto.createCar(120, 500, 60, 80)
@@ -201,8 +203,17 @@ function btrestartGame() {
     }
 }
 
+function displayInstruction(){
+    document.getElementById("instruction").style.display ="block";
+    document.getElementById("instruction").width ="350";
+    document.getElementById("controlGame").style.display = "none";
 
-
+}
+function closeInstruction(){
+    document.getElementById("instruction").style.display ="none";
+    document.getElementById("controlGame").style.display = "block";
+    
+}
 
 
 function eventEatItem() {
