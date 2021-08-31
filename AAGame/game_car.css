@@ -8,14 +8,16 @@ body{
 div{ 
     margin-left:  400px;   
     position:absolute;
-    width: 310px;
-    height: 600px;
+    width: 320px;
+    height: 590px;
     border: 10px double red;
     background-color: darkslategrey  ; 
     border-image-source:url(./image/border.png);
     border-image-slice:0 20 0 20;
     border-image-repeat:round; 
+    border-image-outset:0px;
 }
+
 
 #gameCar{
     position: absolute;
@@ -29,6 +31,10 @@ div{
     position: absolute;
     z-index: 2 !important;
 }
+#gameBarrier2{
+    position: absolute;
+    z-index: 3 !important;
+}
 #gameOver{
     position: absolute;
     z-index: 10 !important;
@@ -41,7 +47,7 @@ div{
         z-index: 9 !important;
 }
 td{
-    width: 200px;
+    width: 100px;
     text-align: center;
 }
 #tableIntruction  td:nth-child(1){
@@ -88,7 +94,6 @@ button:disabled{
 #optionGame{
    font-size: 20px;
    color:red;
-   width: 310px;
-   height: 550px;
-
+   /* width: 310px; */
+   height: 590px;
 }
