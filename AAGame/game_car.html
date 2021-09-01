@@ -25,7 +25,7 @@
     <fieldset id="controlGame">
         <legend style="color: darkorange;">Car Racing</legend>
         <button type="button" id="btstart" onclick="btstartGame()">Start Game</button>
-        <button type="button" id="btpause" onclick="pauseGame()" disabled>Pause Game</button>
+        <button type="button" id="btpause" onclick="btpauseGame()" disabled>Pause Game</button>
         <button type="button" id="btrestart" onclick="btrestartGame()" disabled>Restart Game</button><br><br>
         <div style="background-color: black;padding: 10px;border-radius: 10px;">
             Enegy : <span id="enegy"></span><br>
@@ -131,6 +131,13 @@
     <audio id="music_endgame">
         <source src="./audio/end_game.mp3" type="audio/mpeg">
     </audio>
+    <audio id="music_open">
+        <source src="./audio/open.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music_close">
+        <source src="./audio/close.mp3" type="audio/mpeg">
+    </audio>
+
 
     <script src="./game_car_option.js"></script>
     <script src="./game_car_barrier.js"></script>
