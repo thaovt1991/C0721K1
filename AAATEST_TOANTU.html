@@ -11,6 +11,40 @@
 </head>
 
 <body>
+ <canvas id ="canvas" width="500" height="500"></canvas>
+ <script>
+     let cavan = document.getElementById("canvas")
+     let ctx = cavan.getContext("2d");
+     ctx.fillStyle ="black";
+     ctx.fillRect(0,0,500,500);
+
+    function circle(l,t){
+        ctx.beginPath()
+        ctx.fillStyle = "yellow" ;
+        ctx.arc(100,100,50,0,2*Math.PI);
+        ctx.fill();
+       
+    }
+    setInterval(()=>{
+        let left = 10 ;
+        let top = 10 ;
+        if (left< 500){
+            if(top<500){
+                left++;
+                top++;
+                circle(left,top);
+                ctx.clearRect(left- 50,top-50,100,100)
+            }
+        }
+    },100)
+    
+
+    
+ </script>
+
+
+
+
     <!-- <h1>Product </h1>
     <div class="col-auto">
         <label>Add Product</label>
@@ -79,7 +113,7 @@
 
 
 
-   var x = 1;
+   <!-- var x = 1;
 
 for (var i=0; i<3; i=i+2)
 {
@@ -87,7 +121,7 @@ for (var i=0; i<3; i=i+2)
 }
 
 console.log(x);
-console.log(i);
+console.log(i); -->
 
 
 
