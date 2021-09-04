@@ -10,21 +10,21 @@
 
 <body>
     <script>
-        let userName = prompt("Who's there?", '');      
-        if (userName == 'Admin') {
-            let pass =prompt("Input password",'');
-            if (pass == 'TheMaster') {
-                alert('Welcome!');
-            } else if (pass == null) {
-                alert('Canceled.');
-            } else {
-                alert('Wrong password');
-            }
-        } else if (userName == null) {
-            alert('Canceled');
-        } else {
-            alert("I don't know you");
+        function callByValue(let *varOne,let  *varTwo) {
+            console.log("Inside Call by Value Method");
+            *varOne = 100;
+            *varTwo = 200;
+            console.log("varOne =" + varOne + "varTwo =" + varTwo);
+       
         }
+        let varOne = 10;
+        let varTwo = 20;
+        console.log("Before Call by Value Method");
+        console.log("varOne =" + varOne + "varTwo =" + varTwo);
+        callByValue(&varOne, &varTwo)
+        console.log("After Call by Value Method");
+        console.log("varOne =" + varOne + "varTwo =" + varTwo);
+
     </script>
 </body>
 
