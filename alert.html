@@ -1,31 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luyện tập với cấu trúc if...else...if</title>
+    <title>Alert</title>
 </head>
-
 <body>
+    <button type="button" onclick="showMessager()">Click me!</button>
     <script>
-        function callByValue(let *varOne,let  *varTwo) {
-            console.log("Inside Call by Value Method");
-            *varOne = 100;
-            *varTwo = 200;
-            console.log("varOne =" + varOne + "varTwo =" + varTwo);
-       
+        function showMessager(){
+            alert("Xin chào") ;
         }
-        let varOne = 10;
-        let varTwo = 20;
-        console.log("Before Call by Value Method");
-        console.log("varOne =" + varOne + "varTwo =" + varTwo);
-        callByValue(&varOne, &varTwo)
-        console.log("After Call by Value Method");
-        console.log("varOne =" + varOne + "varTwo =" + varTwo);
-
+        
     </script>
 </body>
-
 </html>

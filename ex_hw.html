@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="/action_page.php" autocomplete="on">
+        Tên:<input type="text" name="ten"><br>
+        Họ: <input type="text" name="ho"><br>
+        E-mail: <input type="email" name="email" autocomplete="off"><br>
+        <input type="submit">
+       </form> -->
+    <canvas id="canvas" width="400" height="580"></canvas>
+    <script>
+        // let arr = [
+        //     [1, 2, 3],
+        //     [1, 5, 6],
+        //     [5, 9, 7]
+        // ]
+        // let str ="" ;
+        // for (i = 0; i < arr.length ; i++){
+        //     let sum = 0 ;
+        //     for (j =0 ; j < arr[i].length; j++){
+        //         sum += arr[i][j]
+        //     }
+        //     str += sum + "<br>"
+        // }
+        // arr.reverse()
+        // document.write(str)
+        // document.write(arr)
+        // let canvas = document.getElementById("canvas")
+        // let ctx = canvas.getContext("2d")
+        // ctx.fillStyle = "black";
+        // ctx.fillRect(0, 0, 500, 500)
+
+        class Circle {
+            constructor(left, top, radius) {
+                this.left = left;
+                this.top = top;
+                this.radius = radius;
+            }
+            runLeft() {
+                this.left--
+            }
+            runRight() {
+                this.left++
+            }
+            runUp() {
+                this.top--
+            }
+            runDown() {
+                this.top++
+            }
+            createCircle() {
+                let canvas = document.getElementById("canvas")
+                let ctx = canvas.getContext("2d")
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, 400, 580)
+                ctx.beginPath();
+                ctx.fillStyle = "yellow";
+                ctx.arc(circle.left, circle.top, circle.radius, 0, 2 * Math.PI)
+                ctx.fill();
+                ctx.fillStyle = "red";
+                ctx.font = "50px Arial"
+                ctx.fillText("Canvan",200,100)
+            }
+            clearCircle() {
+                let canvas = document.getElementById("canvas")
+                let ctx = canvas.getContext("2d")
+                ctx.clearRect(0, 0, 400, 580)
+            }
+        }
+
+        let circle = new Circle(20, 40, 20);
+        let demleft = 0;
+        let demtop = 0;
+        function runCircle() {
+            if (circle.left + 20 == 400) {
+                    demleft = 1
+                }
+                if (circle.top + 20 == 580) {
+                    demtop = 1
+                }
+                if (circle.left - 20 == 0) {
+                    demleft = 0
+                }
+                if (circle.top - 20 == 0) {
+                    demtop = 0
+                }
+            
+
+            if ((circle.left + 20 < 400) && (circle.top + 20 < 580) && demleft == 0 && demtop == 0) {
+                circle.clearCircle()
+                circle.runRight()
+                circle.runDown()
+                circle.createCircle()
+            }
+            if ((circle.left - 20 > 0) && (circle.top + 20 < 580) && demleft == 1 && demtop == 0) {
+                circle.clearCircle()
+                circle.runLeft()
+                circle.runDown()
+                circle.createCircle()
+            }
+            if ((circle.left - 20 > 0) && (circle.top - 20 > 0) && demleft == 1 && demtop == 1) {
+                circle.clearCircle()
+                circle.runLeft()
+                circle.runUp()
+                circle.createCircle()
+            }
+            if ((circle.left + 20 < 400) && (circle.top - 20 > 0) && demleft == 0 && demtop == 1) {
+                circle.clearCircle()
+                circle.runRight();
+                circle.runUp()
+                circle.createCircle()    
+            }
+            
+
+        }
+
+
+        setInterval(runCircle, 10)
+
+
+        //Ve text
+         
+           // clearInterval(setInterval(runCircle, 50))
+
+
+    </script>
+</body>
+
+</html>
